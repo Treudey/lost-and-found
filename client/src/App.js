@@ -10,20 +10,22 @@ import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 
 function App() {
-  return (<Router>
-    <div>
-      <Nav />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/signup" component={SignUp} />
-        <Route exact path="/searchitem" component={Lost} />
-        <Route exact path="/postitem" component={Found} />
-        <Route exact path="/profile/:id" component={Profile} />
-        <Route component={NoMatch} />
-      </Switch>
-    </div>
-  </Router>);
+  return (
+    <Router>
+      <div>
+        <Nav />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/searchitem" component={Lost} />
+          <Route exact path="/postitem" component={Found} />
+          <Route exact path="/profile/:id" component={Profile} />
+          <Route component={NoMatch} />
+        </Switch>
+      </div>
+    </Router>
+  );
 }
 
 export default App;
