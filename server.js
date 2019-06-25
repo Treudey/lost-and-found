@@ -12,6 +12,9 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+//Connect to mongoose
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/lostandfound", {useNewUrlParser: true});
+
 // Add routes here
 app.use(routes);
 
