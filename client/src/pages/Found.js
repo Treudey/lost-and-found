@@ -44,11 +44,11 @@ function Found() {
                                     <input class="form-control" id="country" type="text"/>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="frequency-time">Please tell us color of the item you found</label>
-                                    <input class="form-control" id="frequency-time" type="text"/>
+                                    <label for="item-color">Please tell us color of the item you found</label>
+                                    <input class="form-control" id="item-color" type="text"/>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="frequency-time">Please give us little discription about the item you found</label>
+                                    <label for="item-description">Please give us little discription about the item you found</label>
                                     <input class="form-control" id="item-description" type="text"/>
                                 </div>
                                 <button class="btn btn-primary" id="submit-info" type="submit">Submit</button>
