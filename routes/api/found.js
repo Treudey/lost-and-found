@@ -1,10 +1,10 @@
 const router = require("express").Router()
-const foundController = require("../../controller/foundController")
+const foundController = require("../../controllers/foundController")
 
 //api/found
-  router.route("/")
-    .get(foundController.findAll)  
-    .post(foundController.create)
+router.route("/")
+  .get(foundController.findAll)  
+  .post(foundController.create)
 
 //api/found/:id
 router.route("/:id")

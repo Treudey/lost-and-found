@@ -1,6 +1,6 @@
 const router = require("express").Router()
 const foundRoutes = require("./found")
-const foundRoutes = require("./user")
+const userRoutes = require("./user")
 
 // Book routes
 router.use("/found", foundRoutes)
