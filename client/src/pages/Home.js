@@ -1,4 +1,5 @@
 import React from "react";
+import MainButton from "../components/MainButton";
 import "./Home.css";
 
 function Home() {
@@ -14,4 +15,8 @@ function Home() {
   );
 }
 
+<<<<<<< Updated upstream
 export default Home;
+=======
+export default Home;
+>>>>>>> Stashed changes
