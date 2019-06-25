@@ -1,0 +1,47 @@
+#topNavbar {
+    height: 200px;
+    text-align: center;
+    margin-left:100px;
+    margin-right:100px;
+    background-color: rgb(160, 115, 73);   
+}
+
+#navText {
+    color: #fff;
+    font-family: Verdana, 'Geneva', Tahoma, sans-serif;
+    font-size: 6vw;
+    text-align: center;
+}
+
+.table {
+    border: 2px solid rgb(58, 112, 228);
+}
+
+.headBorder {
+    background-color: rgb(58, 112, 228);
+    color: #fff;
+    border: 2px solid rgb(58, 112, 228);
+    font-weight: bold;
+   
+}
+
+.tableHeading{
+    width:857px auto;
+}
+
+.tableDescription{
+    font-weight: bold;
+}
+
+.tableDiv {
+    margin-top: -20px;
+}
+
+.form-group {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+th{
+    text-align: center;
+}
