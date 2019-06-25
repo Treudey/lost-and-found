@@ -15,7 +15,7 @@ function MainButton(props) {
 		icon = 'fas fa-arrow-circle-up';
 	}
   return (
-    <a className="button" style={`background: ${color}`} href={address}>
+    <a className="button" style={{background: color}} href={address}>
         <i className={icon}></i> {text}
     </a>
   );
