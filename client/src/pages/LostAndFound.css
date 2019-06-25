@@ -17,6 +17,11 @@
     border: 2px solid rgb(58, 112, 228);
 }
 
+.lost-container, .found-container {
+    margin-left:100px;
+    margin-right:100px;
+}
+
 .headBorder {
     background-color: rgb(58, 112, 228);
     color: #fff;
