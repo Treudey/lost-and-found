@@ -8,6 +8,7 @@ import Lost from "./pages/Lost";
 import Found from "./pages/Found";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route exact path="/profile/:id" component={Profile} />
           <Route component={NoMatch} />
         </Switch>
+        <Footer/>
       </div>
     </Router>
   );
