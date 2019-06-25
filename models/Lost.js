@@ -39,6 +39,6 @@ const lostSchema = new Schema({
 
 lostSchema.set("timestamps", true)
 
-const Lost = mongoose.model("Found", foundSchema)
+const Lost = mongoose.model("Lost", lostSchema)
 
 module.exports = Lost

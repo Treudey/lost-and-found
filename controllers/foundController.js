@@ -9,10 +9,12 @@ module.exports = {
       .then(dbFound => res.json(dbFound))
       .catch(err => res.status(422).json(err));
   },
-  //Find by keyword - not sure what the field name is. Must be verified.
+  //Find by keyword search- not sure what the field name is. Must be verified.
+  //Implement text search and index material that is posted in db for searching purposes?
   findByKeyword: function (req, res) {
     db.Found
-      .find(req.body.keyword)
+    //No clue if this will work
+      .find({"search": {$regex: req.query.search, $option: "i"}})
       .sort("-date")
       .then(dbFound => res.json(dbFound))
       .catch(err => res.status(422).json(err));

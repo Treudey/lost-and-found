@@ -3,6 +3,7 @@ import "./LostAndFound.css";
 
 function Lost() {
     return (
+        //This should probably be a jumbotron as we already have a navbar on each page
       <div id="lost">
         <nav class="row navbar navbar-dark" id="topNavbar">
                 <div class="col-md-2"></div>
@@ -14,7 +15,7 @@ function Lost() {
             <table class="table table-hover">
                  <thead class="headBorder">
                      <tr class="col-md-12 tableHeading">
-                          <th scope="row">Please tell us some specificts about your lost item</th>
+                          <th scope="row">Please tell us some specifics about your lost item</th>
                     </tr>
                 </thead>
             </table>
@@ -48,7 +49,7 @@ function Lost() {
                                     <input class="form-control" id="item-color" type="text"/>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="item-description">Please give us little discription about your item</label>
+                                    <label for="item-description">Please give us little description about your item</label>
                                     <input class="form-control" id="item-description" type="text"/>
                                 </div>
                                 <button class="btn btn-primary" id="submit-info" type="submit">Submit</button>
