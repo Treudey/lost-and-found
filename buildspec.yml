@@ -1,0 +1,31 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      # - echo Installing Mocha...
+      # - npm install -g mocha
+  pre_build:
+    commands:
+      # - echo Installing source NPM dependencies...
+      # - npm install unit.js
+      - npm install
+
+  build:
+    commands:
+      # - echo Build started on `date`
+      # - echo Compiling the Node.js code
+      # - mocha HelloWorld.js
+  post_build:
+    commands:
+      # - echo Build completed on `date`
+      - echo Build completed
+artifacts:
+  files:
+    - client/*
+    - controllers/*
+    - models/*
+    - node_modules/*
+    - routes/*
+    - package.json
+    - server.js
