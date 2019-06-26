@@ -12,6 +12,8 @@ phases:
       # - echo Installing source NPM dependencies...
       # - npm install unit.js
       - npm install
+      - cd client && npm install
+
 
   build:
     commands:
