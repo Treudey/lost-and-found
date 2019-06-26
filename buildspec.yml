@@ -29,5 +29,6 @@ artifacts:
     - models/*
     - node_modules/*
     - routes/*
+    - routes/api/*
     - package.json
     - server.js
