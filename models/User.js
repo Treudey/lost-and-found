@@ -1,17 +1,19 @@
 //Require Node Modules
 const validator = require("validator")
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema
+const mongoose = require("mongoose"),
+passportLocalMongoose = require('passport-local-mongoose'),
+findOrCreate = require('mongoose-findorcreate'),
+Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  name: {
-    type: String,
-    required: true,
-    trim: true,
-  },
+  // name: {
+  //   type: String,
+  //   required: true,
+  //   trim: true,
+  // },
   username: {
     type: String,
-    required: true,
+    // required: true,
     index: {unique: true},
     trim: true,
     minlength: 6,
@@ -19,7 +21,7 @@ const userSchema = new Schema({
   },
   email: {
     type: String,
-    required: true,
+    // required: true,
     unique: true,
     lowercase: true,
     trim: true,
@@ -31,14 +33,21 @@ const userSchema = new Schema({
   },
   password: {
     type: String,
-    required: true,
+    // required: true,
     minlength: 6,
     validate(value) {
       if(value.toLowerCase().includes("password") || value.includes("123456"))
         throw new Error("Password is invalid.")
     }
-  }
-})
+  },
+  googleId:String,
+  claimedItem:String
+});
+
+userSchema.plugin(passportLocalMongoose);
+userSchema.plugin(findOrCreate);
+
+
 const User = mongoose.model("User", userSchema)
 
 module.exports = User
