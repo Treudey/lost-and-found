@@ -14,7 +14,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //Connect to mongoose
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/lostandfound", {useNewUrlParser: true});
+mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://alex:67ECNUeIAsc30u04@cluster0-ofcaa.mongodb.net/lost_and_found?retryWrites=true&w=majority", {useNewUrlParser: true});
 
 // Add routes here
 app.use(routes);
