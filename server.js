@@ -10,6 +10,8 @@ GoogleStrategy = require('passport-google-oauth20').Strategy,
 // findOrCreate = require('mongoose-findorcreate'),
 PORT = process.env.PORT || 3001;
 
+const User = require('./models/User');
+
 const app = express();
 
 /*********Define middleware here**********/
@@ -49,6 +51,7 @@ passport.serializeUser(function(user, done) {
     });
   });
 
+  /*
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
@@ -60,7 +63,7 @@ passport.use(new GoogleStrategy({
       return cb(err, user);
     });
   }
-));
+));*/
 
 /***********Add routes here********/
 app.use(routes);
