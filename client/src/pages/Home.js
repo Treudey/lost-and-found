@@ -1,8 +1,11 @@
-import React from "react";
-import MainButton from "../components/MainButton"
+import React,{Component} from "react";
+import MainButton from "../components/MainButton";
+import {Route,Link} from "react-router-dom"
 import "./Home.css";
 
-function Home() {
+
+class Home extends Component {
+  render(){
   return (
     <div>
       <h1>Finders Keepers</h1>
@@ -10,9 +13,11 @@ function Home() {
       <div className="button-container">
         <MainButton type="lost" />
         <MainButton type="found" />
+        <Link to="login">Login</Link>
       </div>
     </div>
   );
+}
 }
 
 export default Home;
