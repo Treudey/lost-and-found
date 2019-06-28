@@ -6,11 +6,9 @@ bodyParser = require("body-parser"),
 session = require('express-session'),
 passport = require('passport'),
 GoogleStrategy = require('passport-google-oauth20').Strategy,
-passportLocalMongoose = require('passport-local-mongoose'),
-findOrCreate = require('mongoose-findorcreate'),
+// passportLocalMongoose = require('passport-local-mongoose'),
+// findOrCreate = require('mongoose-findorcreate'),
 PORT = process.env.PORT || 3001;
-
-const User = require('./models/User');
 
 const app = express();
 
@@ -42,14 +40,27 @@ mongoose.set('useCreateIndex', true);
 passport.use(User.createStrategy());
  
 passport.serializeUser(function(user, done) {
-  done(null, user.id);
-});
-
-passport.deserializeUser(function(id, done) {
-  User.findById(id, function(err, user) {
-    done(err, user);
+    done(null, user.id);
   });
-});
+  
+  passport.deserializeUser(function(id, done) {
+    User.findById(id, function(err, user) {
+      done(err, user);
+    });
+  });
+
+passport.use(new GoogleStrategy({
+    clientID: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+    callbackURL: "http://localhost:3001/auth/google/claim",
+    userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
+  },
+  function(accessToken, refreshToken, profile, cb) {
+    User.findOrCreate({ googleId: profile.id }, function (err, user) {
+      return cb(err, user);
+    });
+  }
+));
 
 /***********Add routes here********/
 app.use(routes);
