@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Loginform.css"
 
-class signup extends Component{
+class loginform extends Component{
   constructor(props) {
     super(props);
     this.state = {
@@ -24,7 +24,7 @@ class signup extends Component{
     return(
     <div className="wrapper">
       <div className="form-wrapper">
-        <h1>Sign Up</h1>
+        <h1>Login</h1>
         <form onSubmit={this.handleSubmit} noValidate>
           <div className="email">
             <label htmlFor="email">Email</label>
@@ -50,7 +50,7 @@ class signup extends Component{
             />
           </div>
           <div className="register">
-            <button type="submit">Sign up</button>
+            <button type="submit">Login</button>
           </div>
         </form>
       </div>
@@ -59,6 +59,5 @@ class signup extends Component{
 }
 }
 
-export default signup
-
+export default loginform
 
