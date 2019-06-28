@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import {Route,Link,Redirect} from "react-router-dom"
 import GoogleLogin from 'react-google-login';
 import "./Login.css"
@@ -73,4 +73,4 @@ class login extends Component{
 }
 }
 
-export default login
+export default login;
