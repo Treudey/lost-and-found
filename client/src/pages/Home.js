@@ -13,7 +13,6 @@ class Home extends Component {
       <div className="button-container">
         <MainButton type="lost" />
         <MainButton type="found" />
-        <Link to="login">Login</Link>
       </div>
     </div>
   );

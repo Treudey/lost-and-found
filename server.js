@@ -6,8 +6,6 @@ bodyParser = require("body-parser"),
 session = require('express-session'),
 passport = require('passport'),
 GoogleStrategy = require('passport-google-oauth20').Strategy,
-// passportLocalMongoose = require('passport-local-mongoose'),
-// findOrCreate = require('mongoose-findorcreate'),
 PORT = process.env.PORT || 3001;
 
 const User = require('./models/User');
@@ -35,7 +33,7 @@ app.use(passport.session());
 
 
 /*********Connect to mongoose**********/
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/lostandfound", {useNewUrlParser: true});
+mongoose.connect(process.env.MONGODB_URI || process.env.MONGODB_LINK, {useNewUrlParser: true});
 mongoose.set('useCreateIndex', true);
 
 /*********Passport.js**********/
@@ -51,7 +49,7 @@ passport.serializeUser(function(user, done) {
     });
   });
 
-  /*
+
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
@@ -63,7 +61,7 @@ passport.use(new GoogleStrategy({
       return cb(err, user);
     });
   }
-));*/
+));
 
 /***********Add routes here********/
 app.use(routes);

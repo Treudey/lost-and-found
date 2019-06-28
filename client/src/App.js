@@ -8,20 +8,19 @@ import Profile from "./pages/Profile";
 import Lost from "./pages/Lost";
 import Found from "./pages/Found";
 import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav";
+import Navbar from "./components/Nav";
 import Footer from "./components/Footer";
 
 function App() {
   return (
     <Router>
       <div>
-        <Nav />
+        <Navbar isLoggedIn={false}/>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/loginform" component={Loginform} />
-
           <Route exact path="/searchitem" component={Lost} />
           <Route exact path="/postitem" component={Found} />
           <Route exact path="/profile/:id" component={Profile} />
