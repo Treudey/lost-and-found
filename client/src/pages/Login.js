@@ -58,7 +58,7 @@ class login extends Component{
             <Link to="/signup">Sign Up</Link>
             <Link to="/loginform">Login</Link>
             <GoogleLogin
-                clientId="972112242986-chls7kd871dadf311gfa8539moa9ggv1.apps.googleusercontent.com"
+                clientId="INPUT_CLIENTID_HERE"
                 buttonText="Login"
                 onSuccess={responseGoogle}
                 onFailure={responseGoogle}
