@@ -33,7 +33,7 @@ app.use(passport.session());
 
 
 /*********Connect to mongoose**********/
-mongoose.connect(process.env.MONGODB_URI || process.env.MONGODB_LINK, {useNewUrlParser: true});
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/lostandfound", {useNewUrlParser: true});
 mongoose.set('useCreateIndex', true);
 
 /*********Passport.js**********/
