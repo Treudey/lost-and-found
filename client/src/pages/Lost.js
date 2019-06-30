@@ -83,20 +83,20 @@ export function Lost() {
 
             <form className={classes.container} noValidate autoComplete="off">
             <FormControl id="locationItemField" className={classes.textfield} variant="filled">
-            <InputLabel className={classes.inputlabel} htmlFor="locationItem">1. Write the location of the item lost in here</InputLabel>
-            <Input className={classes.inputValue} id="locationItem" aria-describedby="location-helper-text" />
+            <InputLabel required="true" className={classes.inputlabel} htmlFor="locationItem">1. Write the location of the item lost in here</InputLabel>
+            <Input required="true" className={classes.inputValue} id="locationItem" aria-describedby="location-helper-text" />
             <FormHelperText className={classes.inputInfo}  id="location-helper-text">Please share the rough location or main intersection where you lost the item</FormHelperText>
             </FormControl>
             
             <FormControl id="colorItemField" className={classes.textfield} variant="filled">
-            <InputLabel className={classes.inputlabel} htmlFor="colorItem">2. Write the color of the item lost in here</InputLabel>
-            <Input className={classes.inputValue} id="colorItem" aria-describedby="color-helper-text" />
+            <InputLabel required="true" className={classes.inputlabel} htmlFor="colorItem">2. Write the color of the item lost in here</InputLabel>
+            <Input required="true" className={classes.inputValue} id="colorItem" aria-describedby="color-helper-text" />
             <FormHelperText className={classes.inputInfo} id="color-helper-text">Please share the color of the item you lost</FormHelperText>
             </FormControl>
 
             <FormControl id="descriptionItemField" className={classes.textfield} variant="filled">
-            <InputLabel className={classes.inputlabel} htmlFor="descriptionItem">3. Write the discription of the item lost in here</InputLabel>
-            <Input multiline rows="4" className={classes.inputValue} id="descriptionItem" aria-describedby="description-helper-text" />
+            <InputLabel required="true" className={classes.inputlabel} htmlFor="descriptionItem">3. Write the discription of the item lost in here</InputLabel>
+            <Input required="true" multiline rows="4" className={classes.inputValue} id="descriptionItem" aria-describedby="description-helper-text" />
             <FormHelperText className={classes.inputInfo} id="description-helper-text">Please give us little discription about the item you lost</FormHelperText>
             </FormControl>
 
