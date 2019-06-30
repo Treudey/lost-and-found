@@ -30,12 +30,16 @@ app.use(bodyParser.urlencoded({extended:true}));
 // app.use(passport.session());
 
 /*********Connect to mongoose**********/
-const mongoURI = 'mongodb://localhost:27017/lostandfound'
+/*const mongoURI = 'mongodb://localhost:27017/lostandfound'
 
 mongoose
 .connect(mongoURI,{useNewUrlParser:true})
 .then(()=>console.log("Mongo connected"))
-.catch(err => console.log(err))
+.catch(err => console.log(err))*/
+
+
+/*********Connect to mongoose**********/
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/lostandfound", {useNewUrlParser: true});
 
 mongoose.set('useCreateIndex', true);
 
