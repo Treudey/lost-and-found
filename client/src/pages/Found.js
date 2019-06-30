@@ -1,68 +1,133 @@
 import React from "react";
 import "./LostAndFound.css";
+import Container from '@material-ui/core/Container';
+import FormControl from '@material-ui/core/FormControl';
+import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import Button from '@material-ui/core/Button';
+import Icon from '@material-ui/core/Icon'; 
 
-function Found() {
+
+const useStyles = makeStyles(theme => ({
+    root: {
+        flexGrow: 1,
+    },
+    container: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        marginLeft:'10px',
+        
+    },
+    paper: {
+        padding: theme.spacing(2),
+        textAlign: 'left',
+        color: '#fff',
+        backgroundColor: '#e7cabc',
+        textShadow:'0 0 5px rgb(104, 100, 100)'
+    },
+    textfield: {
+        width:'80vw',   
+        borderRadius:'5px', 
+        marginBottom:'10px',
+        padding:theme.spacing(1),
+        backgroundColor: '#a1b4d5',
+        textShadow:'0 0 5px rgb(104, 100, 100)'
+        
+    },
+    inputInfo:{
+        color:'#fff',
+        
+    },
+    inputValue:{
+        color:'#0b2f55',
+        fontWeight:'bold'
+
+    },
+    rightIcon: {
+        marginLeft: theme.spacing(1),
+    },
+    button: {
+       // marginLeft: theme.spacing(1),
+        marginTop: theme.spacing(1),
+    },
+    inputlabel:{
+        color:'rgb(7, 31, 138)',
+        marginRight:'10px',
+        textShadow:'0 0 0px'
+
+    },
+  }));
+
+export function Found() {
+    const classes = useStyles();
     return (
-      <div id="found">
-        <nav class="row navbar navbar-dark" id="topNavbar">
-                <div class="col-md-2"></div>
-                <div class="col-md-8" id="navText">Found</div>
-                <div class="col-md-2"></div>
-        </nav>
+        <Container class="containerTop" spacing={10}>
+            <div class="row" id="topNavbar">
+               {/* <div class="col-md-1"></div> */}
+               <div id="navText">Found</div>
+               {/* <div class="col-md-1"></div> */}
+             </div>
+             <Grid id="infoGrid" container spacing={0}>
+             {/* <Grid item xs></Grid> */}
+            <Grid item xs={12} className={classes.grid}>
+            <Paper id="infoTitle" className={classes.paper}>Please tell us some features about the item you found</Paper>
+            </Grid>
+            {/* <Grid item xs></Grid> */}
+            </Grid>
+           
 
-        <div class="found-container">
-            <table class="table table-hover">
-                 <thead class="headBorder">
-                     <tr class="col-md-12 tableHeading">
-                          <th scope="row">Please tell us some specificts about the item you found</th>
-                    </tr>
-                </thead>
-            </table>
-            <table class="table table-hover tableDiv">
-                <tbody>
-                    <tr class="table-info tableDescription">
-                        <th scope="row">
-                            <form>
-                                <div class="form-group row">
-                                    <label for="person-name">Your Full Name</label>
-                                    <input class="form-control" id="person-name" type="text"/>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="location">Give us the rough location or main intersection where you found the item</label>
-                                    <input class="form-control" id="location" type="text"/>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="city">City</label>
-                                    <input class="form-control" id="city" type="text"/>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="state">State</label>
-                                    <input class="form-control" id="state" type="text"/>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="country">Country</label>
-                                    <input class="form-control" id="country" type="text"/>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="item-color">Please tell us color of the item you found</label>
-                                    <input class="form-control" id="item-color" type="text"/>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="item-description">Please give us little discription about the item you found</label>
-                                    <input class="form-control" id="item-description" type="text"/>
-                                </div>
-                                <button class="btn btn-primary" id="submit-info" type="submit">Submit</button>
-                            </form>
+            <form className={classes.container} noValidate autoComplete="off">
+            <FormControl id="locationItemField" className={classes.textfield} variant="filled">
+            <InputLabel className={classes.inputlabel} htmlFor="locationItem">1. Write the location of the item found in here</InputLabel>
+            <Input className={classes.inputValue} id="locationItem" aria-describedby="location-helper-text" />
+            <FormHelperText className={classes.inputInfo}  id="location-helper-text">Please share the rough location or main intersection where you found the item</FormHelperText>
+            </FormControl>
+            
+            <FormControl id="colorItemField" className={classes.textfield} variant="filled">
+            <InputLabel className={classes.inputlabel} htmlFor="colorItem">2. Write the color of the item found in here</InputLabel>
+            <Input className={classes.inputValue} id="colorItem" aria-describedby="color-helper-text" />
+            <FormHelperText className={classes.inputInfo} id="color-helper-text">Please share the color of the item you found</FormHelperText>
+            </FormControl>
 
-                         </th>
-                                                    
-                    </tr>
-                                                
-                </tbody>
-                                        
-            </table>
-        </div>
-      </div>
+            <FormControl id="descriptionItemField" className={classes.textfield} variant="filled">
+            <InputLabel className={classes.inputlabel} htmlFor="descriptionItem">3. Write the discription of the item found in here</InputLabel>
+            <Input multiline rows="4" className={classes.inputValue} id="descriptionItem" aria-describedby="description-helper-text" />
+            <FormHelperText className={classes.inputInfo} id="description-helper-text">Please give us little discription about the item you found</FormHelperText>
+            </FormControl>
+
+            <Input disableUnderline="true" disabled="true"/>
+
+            <FormControl id="descriptionItemField" className={classes.textfield} variant="filled">
+            <InputLabel className={classes.inputlabel} htmlFor="descriptionItem">4. Please upload the image of the item you found in here (optional)</InputLabel>
+            <Input disableUnderline="true" disabled="true"/>
+            <input
+                accept="image/*"
+                className={classes.input}
+                id="image-file"
+                multiple
+                type="file"
+            />
+            <label htmlFor="image-file">
+                <Button variant="outlined" component="span" className={classes.button}>
+                Upload
+                </Button>
+            </label>
+            </FormControl>
+
+            <Input disableUnderline="true" disabled="true"/>
+            
+            <Button variant="contained" color="primary" className={classes.button}>
+                Send
+                {/* This Button uses a Font Icon, see the installation instructions in the docs. */}
+                <Icon className={classes.rightIcon}>send</Icon>
+            </Button>
+            </form>
+
+        </Container>
     );
   }
   
