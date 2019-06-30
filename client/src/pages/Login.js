@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import {Route,Link,Redirect} from "react-router-dom"
-import GoogleLogin from 'react-google-login';
 import "./Login.css"
-import Loginform from "./Loginform";
-import Signup from './SignUp';
-import {PostData} from "./PostData"
+import Loginform from "../components/Loginform";
+import Signup from '../components/SignUp';
+import {PostData} from "./PostData";
+
 
 class login extends Component{
 
@@ -13,8 +13,8 @@ class login extends Component{
            this.state = {
            loginError: false,
            redirect: false
-    };
-    this.signup = this.signup.bind(this);
+        };
+        this.signup = this.signup.bind(this);
     }
 
     signup(res, type) {
@@ -41,33 +41,23 @@ class login extends Component{
     }
 
     render(){   
-        
+
         if (this.state.redirect || sessionStorage.getItem('userData')) {
             return (<Redirect to={'/searchitem'}/>)
         }
-
         const responseGoogle = (response) => {
             console.log(response);
             this.signup(response, 'google')
             }
 
     return(
-        <div className="login">
-        <h1>Finder's Locker</h1>
-            <p>Welcome to finder's locker</p>
-            <Link to="/signup">Sign Up</Link>
-            <Link to="/loginform">Login</Link>
-            <GoogleLogin
-                clientId="INPUT_CLIENTID_HERE"
-                buttonText="Login"
-                onSuccess={responseGoogle}
-                onFailure={responseGoogle}
-                cookiePolicy={'single_host_origin'}
-            />
-            <Loginform/>
 
-            {/* <Route path="/loginform" component={Loginform} />
-            <Route path="/signup" component={Signup} /> */}
+        <div className="login">
+            {/* <Link to="/signup">Sign Up</Link>
+            <Link to="/loginform">Login</Link> */}
+            <Loginform/>
+            <Route path="/loginform" component={Loginform} />
+            <Route path="/signup" component={Signup} />
         </div>
     )
 }
