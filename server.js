@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 app.use(cors())
 app.use(bodyParser.urlencoded({extended:true}));
 
-/*Passport.js**///
+/*Passport.js**/
 // app.use(session({
 //   secret:"The secret.",
 //   resave:false,

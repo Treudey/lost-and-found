@@ -37,6 +37,8 @@ class Signup extends Component{
     }
 
     register(user).then(res=>{
+      this.setState({redirect: true});
+
         this.props.history.push(`/login`)
       
     })
@@ -82,7 +84,7 @@ PostData('signup', postData).then((result) => {
       <div className="form-wrapper">
         <h1>Sign Up</h1>
         <form onSubmit={this.onSubmit} noValidate>
-        <div className="email">
+          <div className="email">
             <label htmlFor="username">Username</label>
             <input 
             type="text" 

@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch,Link } from "react-router-dom";
+import React, {Component} from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SignUp from "./components/SignUp";
@@ -11,7 +11,8 @@ import NoMatch from "./pages/NoMatch";
 import Navbar from "./components/Nav";
 import Footer from "./components/Footer";
 
-function App() {
+class App extends Component {
+  render(){
   return (
     <Router>
       <div>
@@ -24,12 +25,14 @@ function App() {
           <Route exact path="/searchitem" component={Lost} />
           <Route exact path="/postitem" component={Found} />
           <Route exact path="/profile" component={Profile} />
+          <Profile history= {this.props.history}/>
           <Route component={NoMatch} />
         </Switch>
         <Footer/>
       </div>
     </Router>
   );
+}
 }
 
 export default App;

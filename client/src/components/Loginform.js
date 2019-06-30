@@ -1,22 +1,23 @@
 import React, { Component } from "react";
-import {Route,Link,Redirect} from "react-router-dom"
+import {Route,Link,Redirect,withRouter} from "react-router-dom"
 import GoogleLogin from 'react-google-login';
 import {PostData} from "../pages/PostData";
-import { login } from './UserFunctions'
+import { login } from './UserFunctions';
+import Profile from './Profile'
 import "./Loginform.css"
 
 
 class Loginform extends Component{
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       email: '',
       password: '',
       loginError: false,
-      redirect: false
+      redirect: false,
+      render:false
     };
 
-    this.signup = this.signup.bind(this);
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
   
@@ -30,13 +31,18 @@ class Loginform extends Component{
     e.preventDefault()
 
     const user = {
+      username:this.state.username,
       email:this.state.email,
       password:this.state.password
     }
 
+
+
     login(user).then(res=>{
       if(res){
-        this.props.history.push(`/profile`)
+        this.setState({render:true})
+      }else{
+        this.setState({redirect:false})
       }
     })
   }
@@ -67,7 +73,7 @@ PostData('signup', postData).then((result) => {
 
   render() {
 
-    if (this.state.redirect || sessionStorage.getItem('userData')) {
+    if (this.state.redirect || sessionStorage.getItem('userData')||this.state.render) {
       return (<Redirect to={'/searchitem'}/>)
   }
   const responseGoogle = (response) => {
@@ -76,10 +82,23 @@ PostData('signup', postData).then((result) => {
       }
 
     return(
+      
     <div className="wrapper">
       <div className="form-wrapper">
         <h1>Login</h1>
         <form onSubmit={this.onSubmit} noValidate>
+          <div className="email">
+            <label htmlFor="username">Username</label>
+            <input 
+            type="text" 
+            className="" 
+            placeholder="username" 
+            name="username"
+            value={this.state.username}
+            onChange={this.onChange}/>
+          </div>
+
+
           <div className="email">
             <label htmlFor="email">Email</label>
             <input 

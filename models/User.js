@@ -16,11 +16,11 @@ const UserSchema = new Schema({
     type: String,
     unique: true,
     lowercase: true,
-    trim: true,
+    trim: true
   },
   password: {
     type: String,
-    minlength: 6,
+    minlength: 6
   },
   googleId:String,
   claimedItem:String
