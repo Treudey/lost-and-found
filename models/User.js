@@ -1,19 +1,12 @@
-//Require Node Modules
-const validator = require("validator")
-const mongoose = require("mongoose"),
-passportLocalMongoose = require('passport-local-mongoose'),
-findOrCreate = require('mongoose-findorcreate'),
-Schema = mongoose.Schema;
+const mongoose = require("mongoose")
+const bcrypt = require('bcrypt')
+// const passportLocalMongoose = require('passport-local-mongoose')
+// const findOrCreate = require('mongoose-findorcreate')
+const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
-  // name: {
-  //   type: String,
-  //   required: true,
-  //   trim: true,
-  // },
+const UserSchema = new Schema({
   username: {
     type: String,
-    // required: true,
     index: {unique: true},
     trim: true,
     minlength: 6,
@@ -21,33 +14,41 @@ const userSchema = new Schema({
   },
   email: {
     type: String,
-    // required: true,
     unique: true,
     lowercase: true,
-    trim: true,
-    validate(value) {
-      if (!validator.isEmail(value)) {
-        throw new Error("Email is invalid")
-      }
-    }
+    trim: true
   },
   password: {
     type: String,
-    // required: true,
-    minlength: 6,
-    validate(value) {
-      if(value.toLowerCase().includes("password") || value.includes("123456"))
-        throw new Error("Password is invalid.")
-    }
+    minlength: 6
   },
   googleId:String,
   claimedItem:String
 });
 
-userSchema.plugin(passportLocalMongoose);
-userSchema.plugin(findOrCreate);
+// userSchema.methods.generateHash = function(password){
+//   return bcrypt.hashSync(password,bcrypt.genSaltSync(8),null);
+// }
 
+// userSchema.methods.validPassword = function(password){
+//   return bcrypt.compareSync(password,this.password)
+// }
 
-const User = mongoose.model("User", userSchema)
+// UserSchema.plugin(passportLocalMongoose);
+// UserSchema.plugin(findOrCreate);
 
-module.exports = User
+// userSchema.pre('save', function (next) {
+// 	if (!this.password) {
+// 		console.log('models/user.js =======NO PASSWORD PROVIDED=======')
+// 		next()
+// 	} else {
+// 		console.log('models/user.js hashPassword in pre save');
+		
+// 		this.password = this.hashPassword(this.password)
+// 		next()
+// 	}
+// })
+
+const User = mongoose.model('users', UserSchema)
+
+module.exports = User 
