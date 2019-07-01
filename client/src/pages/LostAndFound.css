@@ -1,52 +1,36 @@
 #topNavbar {
-    height: 200px;
+    /* padding-top:6vw; */
+    height: 300px;
     text-align: center;
-    margin-left:100px;
-    margin-right:100px;
-    background-color: rgb(160, 115, 73);   
+    /* font-size: 6vw; */
+    margin-left:0px;
+    margin-right:0px;
+    background: url("https://i.ytimg.com/vi/Tm1P3-SuS_o/maxresdefault.jpg")
+    repeat center center;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;  
+  background-size: contain;
+  
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #c08f47, 0 0 30px #c08f47,
+    0 0 40px #c08f47, 0 0 55px #c08f47, 0 0 75px #c08f47;
+  
 }
 
 #navText {
-    color: #fff;
+    color: rgb(151, 67, 19);
     font-family: Verdana, 'Geneva', Tahoma, sans-serif;
-    font-size: 6vw;
+    font-size: 60px;
     text-align: center;
-}
-
-.table {
-    border: 2px solid rgb(58, 112, 228);
-}
-
-.lost-container, .found-container {
-    margin-left:100px;
-    margin-right:100px;
-}
-
-.headBorder {
-    background-color: rgb(58, 112, 228);
-    color: #fff;
-    border: 2px solid rgb(58, 112, 228);
     font-weight: bold;
-   
+    padding-top:120px;
 }
 
-.tableHeading{
-    width:857px auto;
+.containerTop {
+    padding-bottom:50px;
+    box-shadow: 0 0 5px rgb(100, 101, 104);
 }
 
-.tableDescription{
-    font-weight: bold;
-}
-
-.tableDiv {
-    margin-top: -20px;
-}
-
-.form-group {
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-th{
-    text-align: center;
+#infoGrid {
+    padding-bottom:30px;
 }
