@@ -5,8 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-color: #258ea6; */
-  }
+ } 
   
   .form-wrapper {
     width: 400px;
@@ -14,33 +13,34 @@
     flex-direction: column;
     padding: 20px 40px;
     border-radius: 10px;
-    box-shadow: 0px 10px 50px #555;
+    box-shadow: 5px 5px 5px #555;
     background-color: #ffffff;
+    margin-top: 1.5rem!important;
   }
-  
-  form {
+
+  /* form {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-  }
+  } */
   
-  h1 {
+  /* h1 {
     text-align: center;
     width: 100%;
     color: #111;
     font-weight: lighter;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
       Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  }
+  } */
   
-  label {
+  /* label {
     font-size: 0.8em;
     margin-bottom: 0.25em;
     color: #222;
     font-weight: lighter;
-  }
+  } */
   
-  input {
+  /* input {
     padding: 10px 10px;
     border-radius: 5px;
     outline: none;
@@ -51,7 +51,9 @@
     font-size: 1.2em;
     font-weight: lighter;
     color: #999;
-  }
+  } */
+
+  /*NOT SURE WHERE ERROR MESSAGE IS?
   
   input.error {
     border: 1px solid red;
@@ -67,7 +69,7 @@
     margin-right: 1%;
   }
   
-  .lastName {
+  /* .lastName {
     margin-left: 1%;
   }
   
@@ -88,16 +90,20 @@
   .email,
   .password {
     width: 100%;
-  }
+  } */
   
   .register {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #0D2C54!important;
+    color: #ffffff!important;
+    margin-bottom: 1.5rem!important;
+    margin-top: 1.5rem!important;
   }
   
-  .register button {
+  /* .button {
     background-color: #226597;
     color: #fff;
     border: 2px solid #fff;
@@ -108,13 +114,13 @@
     font-weight: lighter;
     letter-spacing: 1px;
     margin-bottom: 0.25em;
-  }
+  } */
   
-  .register button:hover {
+  /* .register :hover {
     color: #519e8a;
     background-color: #fff;
     border: 2px solid #519e8a;
-  }
+  } */
   
   .createAccount small {
     color: #999;
