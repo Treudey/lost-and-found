@@ -10,14 +10,13 @@ const useStyles = makeStyles(theme => ({
     top: 'auto',
 		bottom: 0,
 		background: "#00A6ED",
-		align: "center"
+		align: "center",
+		paddingTop: "1rem",
+		paddingBottom: "1rem"
   },
   root: {
 		flexGrow: 1,
 	},
-	typography: {
-		align: "center"
-	}
 }));
 
 export default function Footer() {
@@ -25,13 +24,9 @@ export default function Footer() {
 	return (
 		<div className="root">
 			<AppBar id="footer" position="fixed" className={classes.appBar}>
-				<Toolbar>
-					<div className={classes.typography}>
-					<Typography variant="h5" align="center" id="text">
+					<Typography variant="h5" className="align">
 						Copyright 2019
-              </Typography>
-							</div>
-				</Toolbar>
+          </Typography>
 			</AppBar>
 		</div>
 	);
