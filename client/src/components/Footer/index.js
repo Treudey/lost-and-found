@@ -1,9 +1,11 @@
 import React from "react";
 import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+// import "./style.css";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
 	appBar: {
     top: 'auto',
 		bottom: 0,
@@ -15,7 +17,7 @@ const useStyles = makeStyles({
   root: {
 		flexGrow: 1,
 	},
-});
+}));
 
 export default function Footer() {
 	const classes = useStyles();

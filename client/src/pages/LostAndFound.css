@@ -3,14 +3,12 @@
     height: 300px;
     text-align: center;
     /* font-size: 6vw; */
-    margin-left:0px;
-    margin-right:0px;
-    background: url("https://i.ytimg.com/vi/Tm1P3-SuS_o/maxresdefault.jpg")
-    repeat center center;
+    background: url("https://i.ytimg.com/vi/Tm1P3-SuS_o/maxresdefault.jpg") center center;
+
   -webkit-background-size: contain;
   -moz-background-size: contain;
   -o-background-size: contain;  
-  background-size: contain;
+  background-size: cover;
   
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #c08f47, 0 0 30px #c08f47,
     0 0 40px #c08f47, 0 0 55px #c08f47, 0 0 75px #c08f47;
@@ -19,7 +17,7 @@
 
 #navText {
     color: rgb(151, 67, 19);
-    font-family: Verdana, 'Geneva', Tahoma, sans-serif;
+    /* font-family: Verdana, 'Geneva', Tahoma, sans-serif; */
     font-size: 60px;
     text-align: center;
     font-weight: bold;

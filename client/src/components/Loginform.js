@@ -1,143 +1,183 @@
 import React, { Component } from "react";
-import {Route,Link,Redirect,withRouter} from "react-router-dom"
+import { Route, Link, Redirect, withRouter } from "react-router-dom"
 import GoogleLogin from 'react-google-login';
-import {PostData} from "../pages/PostData";
+import { PostData } from "../pages/PostData";
 import { login } from './UserFunctions';
 import Profile from './Profile'
 import "./Loginform.css"
 
+// Material UI Imports
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+// import Link from '@material-ui/core/Link';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
 
-class Loginform extends Component{
+//Material UI styling - Need function component to use hook but not sure how to change the component without screwing up functionality
+const useStyles = makeStyles(theme => ({
+  '@global': {
+    body: {
+      backgroundColor: theme.palette.common.white,
+    },
+  },
+  paper: {
+    marginTop: theme.spacing(8),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  form: {
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing(1),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
+}));
+
+class Loginform extends Component {
   constructor() {
+
     super();
     this.state = {
       email: '',
       password: '',
       loginError: false,
       redirect: false,
-      render:false
+      render: false
     };
 
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
-  
+
   }
 
-  onChange(e){
-    this.setState({[e.target.name]:e.target.value})
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value })
   }
 
-  onSubmit(e){
+  onSubmit(e) {
     e.preventDefault()
 
     const user = {
-      username:this.state.username,
-      email:this.state.email,
-      password:this.state.password
+      username: this.state.username,
+      email: this.state.email,
+      password: this.state.password
     }
 
-
-
-    login(user).then(res=>{
-      if(res){
-        this.setState({render:true})
-      }else{
-        this.setState({redirect:false})
+    login(user).then(res => {
+      if (res) {
+        this.setState({ render: true })
+      } else {
+        this.setState({ redirect: false })
       }
     })
   }
 
-  
   signup(res, type) {
     let postData;
 
-   if (type === 'google' && res.w3.U3) {
-   postData = {
-     name: res.w3.ig,
-     provider: type,
-     email: res.w3.U3,
-     provider_id: res.El,
-     token: res.Zi.access_token,
-     provider_pic: res.w3.Paa
-   };
-}
+    if (type === 'google' && res.w3.U3) {
+      postData = {
+        name: res.w3.ig,
+        provider: type,
+        email: res.w3.U3,
+        provider_id: res.El,
+        token: res.Zi.access_token,
+        provider_pic: res.w3.Paa
+      };
+    }
 
-if (postData) {
-PostData('signup', postData).then((result) => {
-   let responseJson = result;
-   sessionStorage.setItem("userData", JSON.stringify(responseJson));
-   this.setState({redirect: true});
-});
-} else {}
-}
+    if (postData) {
+      PostData('signup', postData).then((result) => {
+        let responseJson = result;
+        sessionStorage.setItem("userData", JSON.stringify(responseJson));
+        this.setState({ redirect: true });
+      });
+    } else { }
+  }
 
   render() {
 
-    if (this.state.redirect || sessionStorage.getItem('userData')||this.state.render) {
-      return (<Redirect to={'/searchitem'}/>)
-  }
-  const responseGoogle = (response) => {
+    if (this.state.redirect || sessionStorage.getItem('userData') || this.state.render) {
+      return (<Redirect to={'/searchitem'} />)
+    }
+    const responseGoogle = (response) => {
       console.log(response);
       this.signup(response, 'google')
-      }
-
-    return(
-      
-    <div className="wrapper">
-      <div className="form-wrapper">
-        <h1>Login</h1>
-        <form onSubmit={this.onSubmit} noValidate>
-          <div className="email">
-            <label htmlFor="username">Username</label>
-            <input 
-            type="text" 
-            className="" 
-            placeholder="username" 
-            name="username"
-            value={this.state.username}
-            onChange={this.onChange}/>
-          </div>
-
-
-          <div className="email">
-            <label htmlFor="email">Email</label>
-            <input 
-            type="email" 
-            className="" 
-            placeholder="email" 
-            name="email"
-            value={this.state.email}
-            onChange={this.onChange}
+    }
+    return (
+      <Container component="main" maxWidth="xs" className="wrapper">
+        <CssBaseline />
+        <div>
+          <Typography component="h1" variant="h4">
+            Login
+        </Typography>
+          <form onSubmit={this.onSubmit} className="form-wrapper" noValidate>
+            <TextField
+              onChange={this.onChange}
+              value={this.state.username}
+              label="username"
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="username"
+              name="username"
+              autoFocus
             />
-          </div>
-
-          <div className="password">
-            <label htmlFor="password">Password</label>
-            <input 
-            type="password" 
-            className="" 
-            placeholder="password" 
-            name="password"
-            value={this.state.password}
-            onChange={this.onChange}
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              autoFocus
+              value={this.state.email}
+              onChange={this.onChange}
             />
-          </div>
-          <div className="register">
-            <button type="submit">Login</button>
-          </div>
-          <GoogleLogin
-                clientId="972112242986-chls7kd871dadf311gfa8539moa9ggv1.apps.googleusercontent.com"
-                buttonText="Login"
-                onSuccess={responseGoogle}
-                onFailure={responseGoogle}
-                cookiePolicy={'single_host_origin'}
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+              value={this.state.password}
+              onChange={this.onChange}
             />
-        </form>
-      </div>
-    </div>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              className="register"
+            >
+              Login
+          </Button>
+            <GoogleLogin
+              clientId="972112242986-chls7kd871dadf311gfa8539moa9ggv1.apps.googleusercontent.com"
+              buttonText="Login"
+              onSuccess={responseGoogle}
+              onFailure={responseGoogle}
+              cookiePolicy={'single_host_origin'}
+            />
+          </form>
+        </div>
+      </Container>
     )
-}
+  }
 }
 
 export default Loginform
-

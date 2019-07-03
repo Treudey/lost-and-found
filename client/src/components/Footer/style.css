@@ -1,0 +1,19 @@
+.root {
+  flex-grow: 1;
+}
+
+#footer {
+  background-color: #00A6ED;
+  top: "auto";
+  /* bottom: 0; */
+}
+
+#text {
+  text-align: center!important;
+}
+
+.home-link {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+}
