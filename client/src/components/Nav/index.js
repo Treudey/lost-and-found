@@ -64,7 +64,7 @@ class Navbar extends Component{
         </Linkm>
         <Linkm 
         component={Link}
-        to="" onClick={this.logOut.bind(this)} size="large" color="inherit">Logout</Linkm>
+        path="/" onClick={this.logOut.bind(this)} size="large" color="inherit">Logout</Linkm>
       </div>
     )
 
@@ -90,21 +90,7 @@ class Navbar extends Component{
             <div>
               {localStorage.usertoken ? userLink:loginRegLink}
             </div>
-
-            {/* <div>
-            <Linkm
-            component={Link}
-            to="/signup" size="large" color="inherit">Sign Up</Linkm>
-            <Linkm 
-            component={Link}
-            to="/login" size="large" color="inherit">Login</Linkm>
-            <Linkm 
-            component={Link}
-            to="/profile" size="large" color="inherit">Profile</Linkm>
-            </div> */}
-
             
-
           </Toolbar>
         </AppBar>
       </div>
