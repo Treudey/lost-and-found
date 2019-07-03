@@ -10,7 +10,6 @@ import Found from "./pages/Found";
 import NoMatch from "./pages/NoMatch";
 import Navbar from "./components/Nav";
 import Footer from "./components/Footer";
-import Header from "./components/Header";
 
 class App extends Component {
   render(){
