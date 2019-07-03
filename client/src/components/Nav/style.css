@@ -1,17 +1,17 @@
 .title, .root {
-    flex-grow: 1;
+
+  flex-grow: 1;
 }
 
 #nav {
-    background-color: #00A6ED;
+  background-color: #00A6ED;
 }
 
 .title {
-    text-align: left;
+  text-align: left;
 }
 
 .home-link {
-    text-decoration: none;
-    color: inherit;
-    font-weight: bold;
-}
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
