@@ -4,6 +4,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema
 
 const lostSchema = new Schema({
+  location:{
+    type:String,
+    required:1
+  },
   lostCity: {
     type: String,
     required: true,

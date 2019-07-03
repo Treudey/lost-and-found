@@ -7,6 +7,9 @@ cors = require('cors'),
 // passport = require('passport'),
 PORT = process.env.PORT || 3001;
 
+const Users = require('./routes/Users')
+const losts = require('./routes/api/Lost')
+
 const app = express();
 
 // Serve up static assets (usually on heroku)
@@ -30,22 +33,21 @@ app.use(bodyParser.urlencoded({extended:true}));
 // app.use(passport.session());
 
 /*********Connect to mongoose**********/
-/*const mongoURI = 'mongodb://localhost:27017/lostandfound'
+const mongoURI = 'mongodb://localhost:27017/lostandfound'
 
 mongoose
 .connect(mongoURI,{useNewUrlParser:true})
 .then(()=>console.log("Mongo connected"))
-.catch(err => console.log(err))*/
-
+.catch(err => console.log(err))
 
 /*********Connect to mongoose**********/
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/lostandfound", {useNewUrlParser: true});
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/lostandfound", {useNewUrlParser: true});
 
 mongoose.set('useCreateIndex', true);
 
-const Users = require('./routes/Users')
 
 app.use('/users',Users)
+app.use('/api/losts',losts)
 
 /*********Passport.js*
 passport.use(User.createStrategy());
