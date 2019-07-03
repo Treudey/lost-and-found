@@ -10,7 +10,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon'; 
-import Typography from '@material-ui/core/Typography';
+
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -19,16 +19,16 @@ const useStyles = makeStyles(theme => ({
     container: {
         display: 'flex',
         flexWrap: 'wrap',
-        // marginLeft:'10px',
+        marginLeft:'10px',
         
     },
-    // paper: {
-    //     padding: theme.spacing(2),
-    //     textAlign: 'left',
-    //     color: '#fff',
-    //     backgroundColor: '#e7cabc',
-    //     textShadow:'0 0 5px rgb(104, 100, 100)'
-    // },
+    paper: {
+        padding: theme.spacing(2),
+        textAlign: 'left',
+        color: '#fff',
+        backgroundColor: '#e7cabc',
+        textShadow:'0 0 5px rgb(104, 100, 100)'
+    },
     textfield: {
         width:'80vw',   
         borderRadius:'5px', 
@@ -66,10 +66,12 @@ export function Lost() {
     const classes = useStyles();
     return (
             
-        <Container className="containerTop" id="topNavbar" spacing={10}>
+        <Container className="containerTop" spacing={10}>
+               <div class="row" id="topNavbar">
                {/* <div class="col-md-1"></div> */}
                <div id="navText">Lost</div>
                {/* <div class="col-md-1"></div> */}
+               </div>
 
              <Grid id="infoGrid" container spacing={0}>
              {/* <Grid item xs></Grid> */}
@@ -79,7 +81,7 @@ export function Lost() {
             {/* <Grid item xs></Grid> */}
             </Grid>
            
-            <Typography>
+          
             <form className={classes.container} noValidate autoComplete="off">
             <FormControl id="locationItemField" className={classes.textfield} variant="filled">
             <InputLabel required="true" className={classes.inputlabel} htmlFor="locationItem">1. Write the location of the item lost in here</InputLabel>
@@ -126,7 +128,7 @@ export function Lost() {
                 <Icon className={classes.rightIcon}>send</Icon>
             </Button>
             </form>
-            </Typography>
+        
         </Container>
     );
   }
