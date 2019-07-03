@@ -93,18 +93,6 @@ class Loginform extends Component {
         </Typography>
           <form onSubmit={this.onSubmit} className="form-wrapper" noValidate>
             <TextField
-              onChange={this.onChange}
-              value={this.state.username}
-              label="username"
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="username"
-              name="username"
-              autoFocus
-            />
-            <TextField
               variant="outlined"
               margin="normal"
               required
