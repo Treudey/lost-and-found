@@ -1,30 +1,115 @@
-import React from "react"
-// import "./Navbar.css";
+import React,{Component} from "react";
+import {Route,Link,Redirect,withRouter} from "react-router-dom"
 
-function Navbar() {
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Linkm from '@material-ui/core/Link';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import Icon from '@material-ui/core/Icon';
+import "./style.css";
+
+class Navbar extends Component{
+
+  logOut(e){
+    e.preventDefault()
+    localStorage.removeItem('usertoken')
+    this.props.history.push(`/`)
+  }
+
+  // function LoginAndSignup() {
+  //   return (
+  //     <div>
+  //       <Linkm
+  //       component={Link}
+  //       to="/signup" size="large" color="inherit">Sign Up</Linkm>
+  //       <Linkm 
+  //       component={Link}
+  //       to="/login" size="large" color="inherit">Login</Linkm>
+  //     </div>
+  //   );
+  // }
+
+  // function ProfileButton() {
+  //   return ( <IconButton href="/profile/:id" size="large" color="inherit"><Icon>account_circle</Icon></IconButton> );
+  // }
+
+  // function RenderedUserButtons() {
+  //   if (props.isLoggedIn) {
+  //     return <ProfileButton />;
+  //   } else {
+  //     return <LoginAndSignup />;
+  //   }
+  // }
+
+  render(){
+    const loginRegLink = (
+      <div>
+        <Linkm
+          component={Link}
+          to="/register" size="large" color="inherit">Sign Up
+        </Linkm>
+        <Linkm 
+        component={Link}
+        to="/login" size="large" color="inherit">Login</Linkm>
+      </div>
+    )
+
+    const userLink = (
+      <div>
+        <Linkm
+          component={Link}
+          to="/profile" size="large" color="inherit">User
+        </Linkm>
+        <Linkm 
+        component={Link}
+        to="" onClick={this.logOut.bind(this)} size="large" color="inherit">Logout</Linkm>
+      </div>
+    )
+
     return (
-        <nav className="navbar navbar-expand-lg">
-            <a className="navbar-brand" href="/">
-                <h2 className="text-white">Finders Keepers</h2>
-            </a>
-            <div id="navbarNav">
-                <ul className="navbar-nav">
-                    <li className="nav-item" id="home">
-                        <a className="nav-link" href="/">Home</a>
-                    </li>
-                    <li className="nav-item" id="report">
-                        <a className="nav-link" href="/postitem">Lost Items</a>
-                    </li>
-                    <li className="nav-item" id="report">
-                        <a className="nav-link" href="/searchitems">Found Items</a>
-                    </li>
-                    <li className="nav-item" id="report">
-                        <a className="nav-link" href="/login">Login</a>
-                    </li>
-                </ul>
+      <div className="root">
+        <AppBar id="nav" position="static">
+          <Toolbar>
+            <div className="title">
+              <a href="/" className="home-link">
+                <Typography variant="h5" >
+                  Finders Keepers
+                </Typography>
+              </a>
             </div>
-        </nav>
-    );
+            <Linkm
+              component={Link}
+              to="/searchitem" size="large" color="inherit">Search</Linkm>
+            <Button
+              component={Link}
+              to="/postitem" size="large" color="inherit">Post Item</Button>
+            {/* <RenderedUserButtons /> */}
+
+            <div>
+              {localStorage.usertoken ? userLink:loginRegLink}
+            </div>
+
+            {/* <div>
+            <Linkm
+            component={Link}
+            to="/signup" size="large" color="inherit">Sign Up</Linkm>
+            <Linkm 
+            component={Link}
+            to="/login" size="large" color="inherit">Login</Linkm>
+            <Linkm 
+            component={Link}
+            to="/profile" size="large" color="inherit">Profile</Linkm>
+            </div> */}
+
+            
+
+          </Toolbar>
+        </AppBar>
+      </div>
+    )
+  };
 }
 
-export default Navbar
+export default withRouter(Navbar)
