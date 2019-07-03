@@ -1,10 +1,7 @@
-
 import React,{Component} from "react";
-import {Route,Link} from "react-router-dom"
+import {Route,Link,Redirect} from "react-router-dom";
 import GoogleLogin from 'react-google-login';
-import React, { Component } from "react";
-import {Route,Link,Redirect} from "react-router-dom"
-import "./Login.css"
+import "./Login.css";
 import Loginform from "../components/Loginform";
 import Signup from '../components/SignUp';
 import {PostData} from "./PostData";
