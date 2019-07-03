@@ -70,7 +70,7 @@ class Navbar extends Component{
 
     return (
       <div className="root">
-        <AppBar id="nav" position="static">
+        <AppBar id="nav" position="fixed">
           <Toolbar>
             <div className="title">
               <a href="/" className="home-link">

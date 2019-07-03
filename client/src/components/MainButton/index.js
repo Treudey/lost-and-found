@@ -11,7 +11,7 @@ function MainButton(props) {
 	} else {
 		address = '/postitem';
 		text = 'Found Something? Post It!';
-		color = '#00A6ED';
+		color = '#0D2C54';
 		icon = 'fas fa-arrow-circle-up';
 	}
   return (

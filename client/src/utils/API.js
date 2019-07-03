@@ -35,11 +35,11 @@ export default {
 
   // Deletes user from database
   deleteUser: function (id) {
-    return axios.delete("/api/found/" + id);
+    return axios.delete("/api/user/" + id);
   },
 
   // Updates user info
   updateUser: function (id) {
-    return axios.put("/api/found/" + id);
+    return axios.put("/api/user/" + id);
   },
 }

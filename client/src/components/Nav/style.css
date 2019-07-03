@@ -1,4 +1,5 @@
 .title, .root {
+
   flex-grow: 1;
 }
 
@@ -14,4 +15,3 @@
   text-decoration: none;
   color: inherit;
   font-weight: bold;
-}

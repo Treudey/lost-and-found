@@ -1,54 +1,55 @@
 require('dotenv').config();
 const express = require("express");
 const mongoose = require ("mongoose");
-const routes = require("./routes"),
 bodyParser = require("body-parser"),
-session = require('express-session'),
-passport = require('passport'),
-GoogleStrategy = require('passport-google-oauth20').Strategy,
-// passportLocalMongoose = require('passport-local-mongoose'),
-// findOrCreate = require('mongoose-findorcreate'),
+cors = require('cors'),
+// session = require('express-session'),
+// passport = require('passport'),
 PORT = process.env.PORT || 3001;
 
 const app = express();
 
-/*********Define middleware here**********/
-app.use(express.urlencoded({ extended: true }));
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(express.json());
-
 // Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static("client/build"));
+// }
 
-app.use(session({
-  secret:"The secret.",
-  resave:false,
-  saveUninitialized: false,
-}))
+/*********Define middleware here**********/
+app.use(bodyParser.json());
+app.use(cors())
+app.use(bodyParser.urlencoded({extended:true}));
 
-app.use(passport.initialize());
-app.use(passport.session());
+/*Passport.js**/
+// app.use(session({
+//   secret:"The secret.",
+//   resave:false,
+//   saveUninitialized: false,
+// }))
+
+// app.use(passport.initialize());
+// app.use(passport.session());
+
+/*********Connect to mongoose**********/
+/*const mongoURI = 'mongodb://localhost:27017/lostandfound'
+
+mongoose
+.connect(mongoURI,{useNewUrlParser:true})
+.then(()=>console.log("Mongo connected"))
+.catch(err => console.log(err))*/
 
 
 /*********Connect to mongoose**********/
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/lostandfound", {useNewUrlParser: true});
+
 mongoose.set('useCreateIndex', true);
 
-/*********Passport.js**********/
+const Users = require('./routes/Users')
+
+app.use('/users',Users)
+
+/*********Passport.js*
 passport.use(User.createStrategy());
  
-passport.serializeUser(function(user, done) {
-    done(null, user.id);
-  });
-  
-  passport.deserializeUser(function(id, done) {
-    User.findById(id, function(err, user) {
-      done(err, user);
-    });
-  });
-
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
@@ -61,9 +62,7 @@ passport.use(new GoogleStrategy({
     });
   }
 ));
-
-/***********Add routes here********/
-app.use(routes);
+*/
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
