@@ -1,4 +1,4 @@
-import React from "react";
+import React,{Component} from "react";
 import {Route,Link} from "react-router-dom"
 import GoogleLogin from 'react-google-login';
 import "./Login.css"
