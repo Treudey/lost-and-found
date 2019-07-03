@@ -71,6 +71,7 @@ export function Found() {
                <div id="navText">Found</div>
                {/* <div class="col-md-1"></div> */}
              </div>
+             
              <Grid id="infoGrid" container spacing={0}>
              {/* <Grid item xs></Grid> */}
             <Grid item xs={12} className={classes.grid}>
