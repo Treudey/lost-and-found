@@ -82,28 +82,33 @@ export function Found() {
            
 
             <form className={classes.container} noValidate autoComplete="off">
-            <FormControl id="locationItemField" className={classes.textfield} variant="filled">
-            <InputLabel required="true" className={classes.inputlabel} htmlFor="locationItem">1. Write the location of the item found in here</InputLabel>
-            <Input required="true" className={classes.inputValue} id="locationItem" aria-describedby="location-helper-text" />
-            <FormHelperText className={classes.inputInfo}  id="location-helper-text">Please share the rough location or main intersection where you found the item</FormHelperText>
+
+            <FormControl id="titleItemFoundField" className={classes.textfield} variant="filled">
+            <InputLabel required="true" className={classes.inputlabel} htmlFor="titleFoundItem">1. Write the title of the item found in here</InputLabel>
+            <Input required="true" className={classes.inputValue} id="titleFoundItem" aria-describedby="color-found-helper-text" />
+            <FormHelperText className={classes.inputInfo} id="title-found-helper-text">Please share the title of the item you found</FormHelperText>
+            </FormControl>
+
+            <FormControl id="colorItemFoundField" className={classes.textfield} variant="filled">
+            <InputLabel required="true" className={classes.inputlabel} htmlFor="colorFoundItem">2. Write the color of the item found in here</InputLabel>
+            <Input required="true" className={classes.inputValue} id="colorFoundItem" aria-describedby="color-found-helper-text" />
+            <FormHelperText className={classes.inputInfo} id="color-found-helper-text">Please share the color of the item you found</FormHelperText>
+            </FormControl>
+
+            <FormControl id="locationItemFoundField" className={classes.textfield} variant="filled">
+            <InputLabel required="true" className={classes.inputlabel} htmlFor="locationFoundItem">3. Write the location of the item found in here</InputLabel>
+            <Input required="true" className={classes.inputValue} id="locationFoundItem" aria-describedby="location-found-helper-text" />
+            <FormHelperText className={classes.inputInfo}  id="location-found-helper-text">Please share the rough location or main intersection where you found the item</FormHelperText>
+            </FormControl>
+
+            <FormControl id="descriptionItemFoundField" className={classes.textfield} variant="filled">
+            <InputLabel className={classes.inputlabel} required="true" htmlFor="descriptionFoundItem">4. Write the discription of the item found in here</InputLabel>
+            <Input required="true" multiline rows="4" className={classes.inputValue} id="descriptionFoundItem" aria-describedby="description-found-helper-text" />
+            <FormHelperText className={classes.inputInfo} id="description-found-helper-text">Please give us little discription about the item you found</FormHelperText>
             </FormControl>
             
-            <FormControl id="colorItemField" className={classes.textfield} variant="filled">
-            <InputLabel required="true" className={classes.inputlabel} htmlFor="colorItem">2. Write the color of the item found in here</InputLabel>
-            <Input required="true" className={classes.inputValue} id="colorItem" aria-describedby="color-helper-text" />
-            <FormHelperText className={classes.inputInfo} id="color-helper-text">Please share the color of the item you found</FormHelperText>
-            </FormControl>
-
-            <FormControl id="descriptionItemField" className={classes.textfield} variant="filled">
-            <InputLabel className={classes.inputlabel} required="true" htmlFor="descriptionItem">3. Write the discription of the item found in here</InputLabel>
-            <Input required="true" multiline rows="4" className={classes.inputValue} id="descriptionItem" aria-describedby="description-helper-text" />
-            <FormHelperText className={classes.inputInfo} id="description-helper-text">Please give us little discription about the item you found</FormHelperText>
-            </FormControl>
-
-            <Input disableUnderline="true" disabled="true"/>
-
-            <FormControl id="descriptionItemField" className={classes.textfield} variant="filled">
-            <InputLabel className={classes.inputlabel} htmlFor="descriptionItem">4. Please upload the image of the item you found in here (optional)</InputLabel>
+            <FormControl id="descriptionFoundItemField" className={classes.textfield} variant="filled">
+            <InputLabel className={classes.inputlabel} htmlFor="descriptionFoundItem">5. Please upload the image of the item you found in here (optional)</InputLabel>
             <Input disableUnderline="true" disabled="true"/>
             <input
                 accept="image/*"
