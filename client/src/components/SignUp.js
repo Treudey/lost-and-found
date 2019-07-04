@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Route,Link,Redirect} from "react-router-dom"
+import {Redirect} from "react-router-dom"
 import GoogleLogin from 'react-google-login';
 import {PostData} from "../pages/PostData";
 import { register } from './UserFunctions'
@@ -12,7 +12,6 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-
 
 class Signup extends Component{
   constructor(props) {
@@ -48,11 +47,9 @@ class Signup extends Component{
       this.setState({redirect: true});
 
         this.props.history.push(`/login`)
-      
     })
   }
 
-  
   signup(res, type) {
     let postData;
 
@@ -76,7 +73,6 @@ PostData('signup', postData).then((result) => {
 } else {}
 }
 
-
   render() {
 
     if (this.state.redirect || sessionStorage.getItem('userData')) {
@@ -88,13 +84,13 @@ PostData('signup', postData).then((result) => {
       }
 
     return(
-      <Container component="main" maxWidth="xs" className="wrapper">
+      <Container component="main" maxWidth="xs" className="form-wrapper">
       <CssBaseline />
       <div>
         <Typography component="h1" variant="h4">
           Sign Up
       </Typography>
-        <form onSubmit={this.onSubmit} className="form-wrapper" noValidate>
+        <form onSubmit={this.onSubmit} noValidate>
           <TextField
             onChange={this.onChange}
             value={this.state.username}
