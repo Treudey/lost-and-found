@@ -6,6 +6,14 @@ import { register } from './UserFunctions'
 import "./Loginform.css"
 
 
+// Material UI Imports
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+
+
 class Signup extends Component{
   constructor(props) {
     super(props);
@@ -80,55 +88,69 @@ PostData('signup', postData).then((result) => {
       }
 
     return(
-    <div className="wrapper">
-      <div className="form-wrapper">
-        <h1>Sign Up</h1>
-        <form onSubmit={this.onSubmit} noValidate>
-          <div className="email">
-            <label htmlFor="username">Username</label>
-            <input 
-            type="text" 
-            className="" 
-            placeholder="username" 
-            name="username"
+      <Container component="main" maxWidth="xs" className="wrapper">
+      <CssBaseline />
+      <div>
+        <Typography component="h1" variant="h4">
+          Sign Up
+      </Typography>
+        <form onSubmit={this.onSubmit} className="form-wrapper" noValidate>
+          <TextField
+            onChange={this.onChange}
             value={this.state.username}
-            onChange={this.onChange}/>
-          </div>
-
-          <div className="email">
-            <label htmlFor="email">Email</label>
-            <input 
-            type="email" 
-            className="" 
-            placeholder="email" 
+            label="username"
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="username"
+            name="username"
+            autoFocus
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email Address"
             name="email"
+            autoComplete="email"
+            autoFocus
             value={this.state.email}
-            onChange={this.onChange}/>
-          </div>
-
-          <div className="password">
-            <label htmlFor="password">Password</label>
-            <input 
-            type="password" 
-            className="" 
-            placeholder="password" 
+            onChange={this.onChange}
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
             name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
             value={this.state.password}
-            onChange={this.onChange}/>
-          </div>
-          <div className="register">
-            <button type="submit">Sign Up</button>
-          </div>
+            onChange={this.onChange}
+          />
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            className="register"
+          >
+            Sign Up
+        </Button>
           <GoogleLogin
-                clientId="972112242986-chls7kd871dadf311gfa8539moa9ggv1.apps.googleusercontent.com"
-                buttonText="Login"
-                onSuccess={responseGoogle}
-                onFailure={responseGoogle}
-                cookiePolicy={'single_host_origin'}
-            />
+            clientId="972112242986-chls7kd871dadf311gfa8539moa9ggv1.apps.googleusercontent.com"
+            buttonText="Login"
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle}
+            cookiePolicy={'single_host_origin'}
+          />
         </form>
       </div>
-    </div>
+    </Container>
     )
 }
 }

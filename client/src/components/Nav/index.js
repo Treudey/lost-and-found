@@ -1,5 +1,5 @@
-import React,{Component} from "react";
-import {Route,Link,Redirect,withRouter} from "react-router-dom"
+import React, { Component } from "react";
+import { Route, Link, Redirect, withRouter } from "react-router-dom"
 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -10,9 +10,9 @@ import IconButton from '@material-ui/core/IconButton';
 import Icon from '@material-ui/core/Icon';
 import "./style.css";
 
-class Navbar extends Component{
+class Navbar extends Component {
 
-  logOut(e){
+  logOut(e) {
     e.preventDefault()
     localStorage.removeItem('usertoken')
     this.props.history.push(`/`)
@@ -43,28 +43,37 @@ class Navbar extends Component{
   //   }
   // }
 
-  render(){
+  render() {
     const loginRegLink = (
       <div>
-        <Linkm
-          component={Link}
-          to="/register" size="large" color="inherit">Sign Up
+        <Button>
+          <Linkm
+            component={Link}
+            to="/register" size="large" color="white">Sign Up
         </Linkm>
-        <Linkm 
-        component={Link}
-        to="/login" size="large" color="inherit">Login</Linkm>
+        </Button>
+        <Button>
+          <Linkm
+            component={Link}
+            to="/login" size="large" color="white">Login</Linkm>
+        </Button>
       </div>
     )
 
     const userLink = (
       <div>
-        <Linkm
-          component={Link}
-          to="/profile" size="large" color="inherit">User
+        <Button>
+          <Linkm
+            component={Link}
+            to="/profile" size="large" color="white">User
         </Linkm>
-        <Linkm 
-        component={Link}
-        path="/" onClick={this.logOut.bind(this)} size="large" color="inherit">Logout</Linkm>
+        </Button>
+        <Button>
+          <Linkm
+            component={Link}
+            path="/" onClick={this.logOut.bind(this)} size="large" color="white">Logout
+        </Linkm>
+        </Button>
       </div>
     )
 
@@ -79,18 +88,20 @@ class Navbar extends Component{
                 </Typography>
               </a>
             </div>
-            <Linkm
-              component={Link}
-              to="/searchitem" size="large" color="inherit">Search</Linkm>
+            <Button>
+              <Linkm
+                component={Link}
+                to="/searchitem" size="large" color="white">Search</Linkm>
+            </Button>
             <Button
               component={Link}
               to="/postitem" size="large" color="inherit">Post Item</Button>
             {/* <RenderedUserButtons /> */}
 
             <div>
-              {localStorage.usertoken ? userLink:loginRegLink}
+              {localStorage.usertoken ? userLink : loginRegLink}
             </div>
-            
+
           </Toolbar>
         </AppBar>
       </div>
