@@ -4,38 +4,44 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema
 
 const lostSchema = new Schema({
-  location:{
+  lostLocation:{
     type:String,
-    required:1
+    required: true,
+    trim: true
   },
-  lostCity: {
+  lostColor:{
+    type:String,
+    required: true,
+    trim: true
+  },
+  // lostCity: {
+  //   type: String,
+  //   required: true,
+  //   trim: true
+  // },
+  // lostPostal: {
+  //   type: String,
+  //   validate(value) {
+  //     if(!validator.isPostalCode(value, "CA")) {
+  //       throw new Error("Postal code is invalid")
+  //     }
+  //   }
+  // },
+  // lostPhysicalLocation: {
+  //   type: String,
+  //   required: true,
+  //   trim: true,
+  // },
+  lostTitle: {
     type: String,
     required: true,
     trim: true
   },
-  lostPostal: {
-    type: String,
-    validate(value) {
-      if(!validator.isPostalCode(value, "CA")) {
-        throw new Error("Postal code is invalid")
-      }
-    }
-  },
-  lostPhysicalLocation: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  title: {
-    type: String,
-    required: true,
-    trim: true
-  },
-  description: {
+  lostDescription: {
     type: String,
     required: true
   },
-  date: {
+  lostDate: {
     type: Date,
     default: Date.now
   }
