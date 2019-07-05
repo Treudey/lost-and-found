@@ -1,140 +1,186 @@
 import React from "react";
-import "./LostAndFound.css";
+// import "./LostAndFound.css";
+
+//Material UI Imports
 import Container from '@material-ui/core/Container';
-import FormControl from '@material-ui/core/FormControl';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon'; 
+import Icon from '@material-ui/core/Icon';
+import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
 
 
+const backgroundImageLost = 'https://cdn.pixabay.com/photo/2017/09/13/22/25/lost-2747289_1280.png';
+
+//Styles
 const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
     },
-    container: {
+
+    heroContent: {
+        marginTop: theme.spacing(4),
+        backgroundImage: `url(${backgroundImageLost})`,
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "contain",
+        height: '30vh',
         display: 'flex',
-        flexWrap: 'wrap',
-        marginLeft:'10px',
-        
+        flexDirection: 'column',
+        borderBottomColor: "#F6511D",
+        borderBottomStyle: "solid"
     },
-    paper: {
-        padding: theme.spacing(2),
-        textAlign: 'left',
-        color: '#fff',
-        backgroundColor: '#e7cabc',
-        textShadow:'0 0 5px rgb(104, 100, 100)'
+    h4: {
+        color: "#FF9F1C",
+        paddingBottom: theme.spacing(3)
+    },
+    grid: {
+        marginBottom: "3rem"
+    },
+    container: {
+        // display: 'flex',
+        // flexWrap: 'wrap',
+        marginTop: '5%'
+
     },
     textfield: {
-        width:'80vw',   
-        borderRadius:'5px', 
-        marginBottom:'10px',
-        padding:theme.spacing(1),
-        backgroundColor: '#a1b4d5',
-        textShadow:'0 0 5px rgb(104, 100, 100)'
-        
-    },
-    inputInfo:{
-        color:'#fff',
-        
-    },
-    inputValue:{
-        color:'#0b2f55',
-        fontWeight:'bold'
-
+        marginBottom: '10px',
+        padding: theme.spacing(4),
     },
     rightIcon: {
         marginLeft: theme.spacing(1),
     },
     button: {
-       // marginLeft: theme.spacing(1),
         marginTop: theme.spacing(1),
     },
-    inputlabel:{
-        color:'rgb(7, 31, 138)',
-        marginRight:'10px',
-        textShadow:'0 0 0px'
-
+    sendButton: {
+        backgroundColor: "#F6511D",
+        marginLeft: theme.spacing(2),
+        marginBottom: theme.spacing(2),
     },
-  }));
+    cardContent: {
+        marginLeft: theme.spacing(8),
+        marginTop: theme.spacing(2),
+    },
+}));
 
-export function Lost() {
+export default function Found() {
     const classes = useStyles();
     return (
-            
-        <Container className="containerTop" spacing={10}>
-               <div class="row" id="topNavbar">
-               {/* <div class="col-md-1"></div> */}
-               <div id="navText">Lost</div>
-               {/* <div class="col-md-1"></div> */}
-               </div>
-
-             <Grid id="infoGrid" container spacing={0}>
-             {/* <Grid item xs></Grid> */}
-            <Grid item xs={12} className={classes.grid}>
-            <Paper id="infoTitle" className={classes.paper}>Please tell us some features about the item you lost</Paper>
-            </Grid>
-            {/* <Grid item xs></Grid> */}
-            </Grid>
-           
-          
-            <form className={classes.container} noValidate autoComplete="off">
-            <FormControl id="titleItemLostField" className={classes.textfield} variant="filled">
-            <InputLabel required="true" className={classes.inputlabel} htmlFor="titleItemLost">1. Write the title of the item lost in here</InputLabel>
-            <Input required="true" className={classes.inputValue} id="titleItemLost" aria-describedby="color-helper-text" />
-            <FormHelperText className={classes.inputInfo} id="title-lost-helper-text">Please share the title of the item you lost</FormHelperText>
-            </FormControl>
-
-            <FormControl id="colorItemLostField" className={classes.textfield} variant="filled">
-            <InputLabel required="true" className={classes.inputlabel} htmlFor="colorLostItem">2. Write the color of the item lost in here</InputLabel>
-            <Input required="true" className={classes.inputValue} id="colorLostItem" aria-describedby="color-lost-helper-text" />
-            <FormHelperText className={classes.inputInfo} id="color-lost-helper-text">Please share the color of the item you lost</FormHelperText>
-            </FormControl>
-
-            <FormControl id="locationItemLostField" className={classes.textfield} variant="filled">
-            <InputLabel required="true" className={classes.inputlabel} htmlFor="locationLostItem">3. Write the location of the item lost in here</InputLabel>
-            <Input required="true" className={classes.inputValue} id="locationLostItem" aria-describedby="location-lost-helper-text" />
-            <FormHelperText className={classes.inputInfo}  id="location-lost-helper-text">Please share the rough location or main intersection where you lost the item</FormHelperText>
-            </FormControl>
-
-            <FormControl id="descriptionItemLostField" className={classes.textfield} variant="filled">
-            <InputLabel required="true" className={classes.inputlabel} htmlFor="descriptionLostItem">4. Write the discription of the item lost in here</InputLabel>
-            <Input required="true" multiline rows="4" className={classes.inputValue} id="descriptionLostItem" aria-describedby="description-lost-helper-text" />
-            <FormHelperText className={classes.inputInfo} id="description-lost-helper-text">Please give us little discription about the item you lost</FormHelperText>
-            </FormControl>
-
-            <FormControl id="descriptionItemLostField" className={classes.textfield} variant="filled">
-            <InputLabel className={classes.inputlabel} htmlFor="descriptionItemLost">5. Please upload the image of the item you lost in here (optional)</InputLabel>
-            <Input disableUnderline="true" disabled="true"/>
-            <input
-                accept="image/*"
-                className={classes.input}
-                id="image-file"
-                multiple
-                type="file"
-            />
-            <label htmlFor="image-file">
-                <Button variant="outlined" component="span" className={classes.button}>
-                Upload
-                </Button>
-            </label>
-            </FormControl>
-            
-            <Input disableUnderline="true" disabled="true"/>
-            
-            <Button variant="contained" color="primary" className={classes.button}>
-                Send
-                {/* This Button uses a Font Icon, see the installation instructions in the docs. */}
-                <Icon className={classes.rightIcon}>send</Icon>
-            </Button>
-            </form>
-        
-        </Container>
+        <React.Fragment>
+            <div className={classes.heroContent}></div>
+            <Container className={classes.container}>
+                <Grid container className={classes.grid}>
+                    <Grid item md={8}>
+                        <Card>
+                            <CardContent className={classes.cardContent}>
+                                <Typography className={classes.h4} component="h1" variant="h4" align="left" gutterBottom>
+                                    Tell us a bit about the item you lost
+                                </Typography>
+                                <form noValidate autoComplete="off">
+                                <Grid container className={classes.grid}>
+                                        <Grid item md={11}>
+                                            <TextField
+                                                id="standard-full-width"
+                                                htmlFor="titleItem"
+                                                placeholder="1. Please provide a title for the item you lost"
+                                                helperText="Please provide a title for the item you lost"
+                                                fullWidth
+                                                required
+                                                aria-describedby="location-helper-text"
+                                                InputLabelProps={{
+                                                    shrink: true
+                                                }}
+                                            />
+                                        </Grid>
+                                    </Grid>
+                                    <Grid container className={classes.grid}>
+                                        <Grid item md={11}>
+                                            <TextField
+                                                id="standard-full-width"
+                                                htmlFor="locationItem"
+                                                placeholder="2. Please indicate the location where the item was lost"
+                                                helperText="Please share the rough location or main intersection where you lost the item"
+                                                fullWidth
+                                                required
+                                                aria-describedby="location-helper-text"
+                                                InputLabelProps={{
+                                                    shrink: true,
+                                                }}
+                                            />
+                                        </Grid>
+                                    </Grid>
+                                    <Grid container className={classes.grid}>
+                                        <Grid item md={11}>
+                                            <TextField
+                                                id="standard-full-width"
+                                                htmlFor="colorItem"
+                                                placeholder="3. Please provide the colour(s) of the item"
+                                                helperText="Please share the colour(s) of the item you found"
+                                                fullWidth
+                                                required
+                                                aria-describedby="location-helper-text"
+                                                InputLabelProps={{
+                                                    shrink: true,
+                                                }}
+                                            />
+                                        </Grid>
+                                    </Grid>
+                                    <Grid container className={classes.grid}>
+                                        <Grid item md={11}>
+                                            <TextField
+                                                id="standard-full-width"
+                                                htmlFor="descriptionItem"
+                                                placeholder="4. Please provide a description of the item"
+                                                helperText="Please give us little discription about the item you lost"
+                                                fullWidth
+                                                required
+                                                multiline
+                                                aria-describedby="location-helper-text"
+                                                InputLabelProps={{
+                                                    shrink: true,
+                                                }}
+                                            />
+                                        </Grid>
+                                    </Grid>
+                                    <Grid container className={classes.grid}>
+                                        <Grid item md={11}>
+                                            <TextField
+                                                id="standard-full-width"
+                                                placeholder="5. Please upload the image of the item you lost in here"
+                                                helperText="Please upload the image of the item you lost in here"
+                                                fullWidth
+                                                aria-describedby="location-helper-text"
+                                                InputLabelProps={{
+                                                    shrink: true,
+                                                }}
+                                                accept="image/*"
+                                                className={classes.input}
+                                                multiple
+                                                type="file"
+                                            />
+                                            <Button variant="contained" color="default" className={classes.button} component="span">
+                                                Upload
+                                <CloudUploadIcon className={classes.rightIcon} />
+                                            </Button>
+                                        </Grid>
+                                    </Grid>
+                                </form>
+                            </CardContent>
+                            <CardActions>
+                                <Button className={classes.sendButton} variant="contained" color="#7FB800" >Send
+                                    <Icon className={classes.rightIcon}>send</Icon>
+                                </Button>
+                            </CardActions>
+                        </Card>
+                    </Grid>
+                </Grid>
+            </Container>
+        </React.Fragment>
     );
-  }
-  
-  export default Lost;
+}
