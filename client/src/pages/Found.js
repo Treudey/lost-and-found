@@ -1,135 +1,186 @@
 import React from "react";
-import "./LostAndFound.css";
+// import "./LostAndFound.css";
+
+//Material UI Imports
 import Container from '@material-ui/core/Container';
-import FormControl from '@material-ui/core/FormControl';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon'; 
+import Icon from '@material-ui/core/Icon';
+import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
 
 
+const backgroundImageFound = 'https://cdn.pixabay.com/photo/2017/09/13/22/25/lost-2747288_1280.png';
+
+//Styles
 const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
     },
-    container: {
+
+    heroContent: {
+        marginTop: theme.spacing(4),
+        backgroundImage: `url(${backgroundImageFound})`,
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "contain",
+        height: '30vh',
         display: 'flex',
-        flexWrap: 'wrap',
-        marginLeft:'10px',
-        
+        flexDirection: 'column',
+        borderBottomColor: "#7FB800",
+        borderBottomStyle: "solid"
     },
-    paper: {
-        padding: theme.spacing(2),
-        textAlign: 'left',
-        color: '#fff',
-        backgroundColor: '#e7cabc',
-        textShadow:'0 0 5px rgb(104, 100, 100)'
+    h4: {
+        color: "#FF9F1C",
+        paddingBottom: theme.spacing(3)
+    },
+    grid: {
+        marginBottom: "3rem"
+    },
+    container: {
+        // display: 'flex',
+        // flexWrap: 'wrap',
+        marginTop: '5%'
+
     },
     textfield: {
-        width:'80vw',   
-        borderRadius:'5px', 
-        marginBottom:'10px',
-        padding:theme.spacing(1),
-        backgroundColor: '#a1b4d5',
-        textShadow:'0 0 5px rgb(104, 100, 100)'
-        
-    },
-    inputInfo:{
-        color:'#fff',
-        
-    },
-    inputValue:{
-        color:'#0b2f55',
-        fontWeight:'bold'
-
+        marginBottom: '10px',
+        padding: theme.spacing(4),
     },
     rightIcon: {
         marginLeft: theme.spacing(1),
     },
     button: {
-       // marginLeft: theme.spacing(1),
         marginTop: theme.spacing(1),
     },
-    inputlabel:{
-        color:'rgb(7, 31, 138)',
-        marginRight:'10px',
-        textShadow:'0 0 0px'
-
+    sendButton: {
+        backgroundColor: "#7FB800",
+        marginLeft: theme.spacing(2),
+        marginBottom: theme.spacing(2),
     },
-  }));
+    cardContent: {
+        marginLeft: theme.spacing(8),
+        marginTop: theme.spacing(2),
+    },
+}));
 
-export function Found() {
+export default function Found() {
     const classes = useStyles();
     return (
-        <Container class="containerTop" spacing={10}>
-            <div class="row" id="topNavbar">
-               {/* <div class="col-md-1"></div> */}
-               <div id="navText">Found</div>
-               {/* <div class="col-md-1"></div> */}
-             </div>
-             
-             <Grid id="infoGrid" container spacing={0}>
-             {/* <Grid item xs></Grid> */}
-            <Grid item xs={12} className={classes.grid}>
-            <Paper id="infoTitle" className={classes.paper}>Please tell us some features about the item you found</Paper>
-            </Grid>
-            {/* <Grid item xs></Grid> */}
-            </Grid>
-           
-
-            <form className={classes.container} noValidate autoComplete="off">
-            <FormControl id="locationItemField" className={classes.textfield} variant="filled">
-            <InputLabel required="true" className={classes.inputlabel} htmlFor="locationItem">1. Write the location of the item found in here</InputLabel>
-            <Input required="true" className={classes.inputValue} id="locationItem" aria-describedby="location-helper-text" />
-            <FormHelperText className={classes.inputInfo}  id="location-helper-text">Please share the rough location or main intersection where you found the item</FormHelperText>
-            </FormControl>
-            
-            <FormControl id="colorItemField" className={classes.textfield} variant="filled">
-            <InputLabel required="true" className={classes.inputlabel} htmlFor="colorItem">2. Write the color of the item found in here</InputLabel>
-            <Input required="true" className={classes.inputValue} id="colorItem" aria-describedby="color-helper-text" />
-            <FormHelperText className={classes.inputInfo} id="color-helper-text">Please share the color of the item you found</FormHelperText>
-            </FormControl>
-
-            <FormControl id="descriptionItemField" className={classes.textfield} variant="filled">
-            <InputLabel className={classes.inputlabel} required="true" htmlFor="descriptionItem">3. Write the discription of the item found in here</InputLabel>
-            <Input required="true" multiline rows="4" className={classes.inputValue} id="descriptionItem" aria-describedby="description-helper-text" />
-            <FormHelperText className={classes.inputInfo} id="description-helper-text">Please give us little discription about the item you found</FormHelperText>
-            </FormControl>
-
-            <Input disableUnderline="true" disabled="true"/>
-
-            <FormControl id="descriptionItemField" className={classes.textfield} variant="filled">
-            <InputLabel className={classes.inputlabel} htmlFor="descriptionItem">4. Please upload the image of the item you found in here (optional)</InputLabel>
-            <Input disableUnderline="true" disabled="true"/>
-            <input
-                accept="image/*"
-                className={classes.input}
-                id="image-file"
-                multiple
-                type="file"
-            />
-            <label htmlFor="image-file">
-                <Button variant="outlined" component="span" className={classes.button}>
-                Upload
-                </Button>
-            </label>
-            </FormControl>
-
-            <Input disableUnderline="true" disabled="true"/>
-            
-            <Button variant="contained" color="primary" className={classes.button}>
-                Send
-                {/* This Button uses a Font Icon, see the installation instructions in the docs. */}
-                <Icon className={classes.rightIcon}>send</Icon>
-            </Button>
-            </form>
-
-        </Container>
+        <React.Fragment>
+            <div className={classes.heroContent}></div>
+            <Container className={classes.container}>
+                <Grid container className={classes.grid}>
+                    <Grid item md={8}>
+                        <Card>
+                            <CardContent className={classes.cardContent}>
+                                <Typography className={classes.h4} component="h1" variant="h4" align="left" gutterBottom>
+                                    Tell us a bit about the item you found
+                                </Typography>
+                                <form noValidate autoComplete="off">
+                                <Grid container className={classes.grid}>
+                                        <Grid item md={11}>
+                                            <TextField
+                                                id="standard-full-width"
+                                                htmlFor="titleItem"
+                                                placeholder="1. Please provide a title for the item you found"
+                                                helperText="Please provide a title for the item you found"
+                                                fullWidth
+                                                required
+                                                aria-describedby="location-helper-text"
+                                                InputLabelProps={{
+                                                    shrink: true
+                                                }}
+                                            />
+                                        </Grid>
+                                    </Grid>
+                                    <Grid container className={classes.grid}>
+                                        <Grid item md={11}>
+                                            <TextField
+                                                id="standard-full-width"
+                                                htmlFor="locationItem"
+                                                placeholder="2. Please indicate the location where the item was found"
+                                                helperText="Please share the rough location or main intersection where you found the item"
+                                                fullWidth
+                                                required
+                                                aria-describedby="location-helper-text"
+                                                InputLabelProps={{
+                                                    shrink: true,
+                                                }}
+                                            />
+                                        </Grid>
+                                    </Grid>
+                                    <Grid container className={classes.grid}>
+                                        <Grid item md={11}>
+                                            <TextField
+                                                id="standard-full-width"
+                                                htmlFor="colorItem"
+                                                placeholder="3. Please provide the colour(s) of the item"
+                                                helperText="Please share the colour(s) of the item you found"
+                                                fullWidth
+                                                required
+                                                aria-describedby="location-helper-text"
+                                                InputLabelProps={{
+                                                    shrink: true,
+                                                }}
+                                            />
+                                        </Grid>
+                                    </Grid>
+                                    <Grid container className={classes.grid}>
+                                        <Grid item md={11}>
+                                            <TextField
+                                                id="standard-full-width"
+                                                htmlFor="descriptionItem"
+                                                placeholder="4. Please provide a description of the item"
+                                                helperText="Please give us little discription about the item you found"
+                                                fullWidth
+                                                required
+                                                multiline
+                                                aria-describedby="location-helper-text"
+                                                InputLabelProps={{
+                                                    shrink: true,
+                                                }}
+                                            />
+                                        </Grid>
+                                    </Grid>
+                                    <Grid container className={classes.grid}>
+                                        <Grid item md={11}>
+                                            <TextField
+                                                id="standard-full-width"
+                                                placeholder="4. Please upload the image of the item you found in here"
+                                                helperText="Please upload the image of the item you found in here"
+                                                fullWidth
+                                                aria-describedby="location-helper-text"
+                                                InputLabelProps={{
+                                                    shrink: true,
+                                                }}
+                                                accept="image/*"
+                                                className={classes.input}
+                                                multiple
+                                                type="file"
+                                            />
+                                            <Button variant="contained" color="default" className={classes.button} component="span">
+                                                Upload
+                                <CloudUploadIcon className={classes.rightIcon} />
+                                            </Button>
+                                        </Grid>
+                                    </Grid>
+                                </form>
+                            </CardContent>
+                            <CardActions>
+                                <Button className={classes.sendButton} variant="contained" color="#7FB800" >Send
+                                    <Icon className={classes.rightIcon}>send</Icon>
+                                </Button>
+                            </CardActions>
+                        </Card>
+                    </Grid>
+                </Grid>
+            </Container>
+        </React.Fragment>
     );
-  }
-  
-  export default Found;
+}
