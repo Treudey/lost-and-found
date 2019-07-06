@@ -1,11 +1,15 @@
 .button {
     position: relative;
-    margin: 1rem;
-    padding: 1rem;
+    margin: 0 0 0.5rem 0.5rem;
+    padding: 5rem 2rem 5rem 2rem;
     display: inline-block;
     text-align: center;
     text-decoration: none;
     border-radius: 5px;
-    color: white;
+    color: black;
     font-weight: bold;
+    font-family: "Roboto";
+    font-size:  16pt;
+    border-width: 4px;
+    border-style: solid;
 }

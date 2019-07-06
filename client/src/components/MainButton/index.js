@@ -7,16 +7,16 @@ function MainButton(props) {
 		address = '/searchitem';
 		text = 'Lost Something? Search It!';
 		color = '#FF9F1C';
-		icon = 'fab fa-searchengin';
+		icon = 'fab fa-searchengin fa-2x';
 	} else {
 		address = '/postitem';
 		text = 'Found Something? Post It!';
 		color = '#0D2C54';
-		icon = 'fas fa-arrow-circle-up';
+		icon = 'fas fa-arrow-circle-up fa-2x';
 	}
   return (
-    <a className="button" style={{background: color}} href={address}>
-        <i className={icon}></i> {text}
+    <a className="button" style={{borderColor: color}} href={address}>  {text}
+        {/* <i className={icon}></i> {text} */}
     </a>
   );
 }
