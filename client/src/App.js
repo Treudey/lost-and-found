@@ -22,8 +22,8 @@ class App extends Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={SignUp} />
           <Route exact path="/loginform" component={Loginform} />
-          <Route exact path="/searchitem" component={Found} />
-          <Route exact path="/postitem" component={Lost} />
+          <Route exact path="/searchitem" component={Lost} />
+          <Route exact path="/postitem" component={Found} />
           <Route exact path="/profile" component={Profile} />
           <Profile history= {this.props.history}/>
           <Route component={NoMatch} />

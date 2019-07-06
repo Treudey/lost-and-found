@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 // import "./LostAndFound.css";
 
 //Material UI Imports
@@ -13,6 +13,16 @@ import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
+import API from '../utils/API';
+import ListItem from '@material-ui/core/ListItem'
+import List from '@material-ui/core/List'
+import ListItemText from '@material-ui/core/ListItemText'
+import ListItemAvatar from '@material-ui/core/ListItemAvatar'
+import Avatar from '@material-ui/core/Avatar'
+import Divider from '@material-ui/core/Divider'
+import { spacing } from '@material-ui/system';
+
+
 
 const backgroundImageLost = 'https://cdn.pixabay.com/photo/2017/09/13/22/25/lost-2747289_1280.png';
 
@@ -97,25 +107,107 @@ const useStyles = makeStyles(theme => ({
   //   textShadow: '0 0 0px'
   // },
 }));
+// const classes = useStyles();
+class Lost extends Component {
+  state = {
+    items: [],
+    title: "",
+    color: "",
+    location: "",
+    description: "",
+    image: "",
+    date:""
+  };
 
-export default function Lost() {
-  const classes = useStyles();
+// When the component mounts, load all found items and save them to this.state.items
+componentDidMount() {
+this.loadItems();
+}
+
+
+// Loads all items and sets them to this.state.items
+loadItems = () => {
+API.getFoundItems()
+  .then(res =>
+    this.setState({ items: res.data, title: "", color: "", location: "", description: "", image: "", date:""  })
+  )
+  .catch(err => console.log(err));
+};  
+
+// Handles updating component state when the user types into the input field
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    console.log("Event.target", event.target.id);
+    console.log("NAME", name);
+    console.log("value", value);
+    if(event.target.id==="titleItemField")
+    {
+    this.setState({
+      title: value });
+    }else if(event.target.id==="locationItemField")
+    {
+      this.setState({
+        location: value });
+    }else if(event.target.id==="colorItemField")
+    {
+      this.setState({
+        color: value });
+    }else if(event.target.id==="descriptionItemField")
+    {
+      this.setState({
+        description: value });
+    }else if(event.target.id==="imageItemField")
+    {
+      this.setState({
+        image: value });
+    }
+    
+  };
+
+
+// When the form is submitted, use the API.postFoundItem method to save the book data
+// Then reload books from the database
+handleFormSubmit = event => {
+event.preventDefault();
+console.log("handleformsubmit:");
+console.log(this.state);
+// debugger;
+if (this.state.title) {
+  API.postLostItem({
+    lostTitle: this.state.title,
+    lostColor: this.state.color,
+    lostLocation: this.state.location,
+    lostDescription: this.state.description,
+    lostImage: this.state.image,
+    lostDate: this.state.date
+  })
+    .then(res => this.loadItems())
+    .catch(err => console.log(err));
+}
+};
+
+render() {
+  //console.log("State", this.state);
   return (
+    
     <React.Fragment>
-      <div className={classes.heroContent}></div>
-      <Container className={classes.container}>
-        <Grid container className={classes.grid}>
+      <div ></div>
+      <Container>
+        <Grid container>
           <Grid item md={12} sm={12} xs={12}>
             <Card>
-              <CardContent className={classes.cardContent}>
-                <Typography className={classes.h4} component="h1" variant="h4" align="left" gutterBottom>
+              <CardContent>
+                <Typography component="h1" variant="h4" align="left" gutterBottom>
                   Tell us a bit about the item you lost
                   </Typography>
-                <form noValidate autoComplete="off">
-                  <Grid item md={12} sm={12} xs={12} className={classes.grid}>
+                <form validate autoComplete="off">
+                  <Grid item md={12} sm={12} xs={12}>
                     <TextField
-                      className={classes.textfield}
+                      // className={classes.textfield}
+                      value={this.state.title}
+                      onChange={this.handleInputChange}
                       id="titleItemField"
+                      name="titleItemField"
                       htmlFor="titleItem"
                       label="1. Please provide a title for the item you lost"
                       helperText="Please provide a title for the item you lost"
@@ -124,10 +216,13 @@ export default function Lost() {
                       aria-describedby="title-lost-helper-text"
                     />
                   </Grid>
-                  <Grid item md={12} sm={12} xs={12} className={classes.grid}>
+                  <Grid item md={12} sm={12} xs={12}>
                     <TextField
-                      className={classes.textfield}
+                      // className={classes.textfield}
+                      value={this.state.location}
+                      onChange={this.handleInputChange}
                       id="locationItemField"
+                      name="locationItemField"
                       htmlFor="locationItem"
                       label="2. Please indicate the location where the item was found"
                       helperText="Please share the rough location or main intersection where you found the item"
@@ -136,10 +231,13 @@ export default function Lost() {
                       aria-describedby="location-lost-helper-text"
                     />
                   </Grid>
-                  <Grid item md={12} sm={12} xs={12} className={classes.grid}>
+                  <Grid item md={12} sm={12} xs={12}>
                     <TextField
-                      className={classes.textfield}
+                      // className={classes.textfield}
+                      value={this.state.color}
+                      onChange={this.handleInputChange}
                       id="colorItemField"
+                      name="colorItemField"
                       htmlFor="colorItem"
                       label="3. Please provide the colour(s) of the item"
                       helperText="Please share the colour(s) of the item you found"
@@ -148,9 +246,12 @@ export default function Lost() {
                       aria-describedby="color-lost-helper-text"
                     />
                   </Grid>
-                  <Grid item md={12} sm={12} xs={12} className={classes.grid}>
+                  <Grid item md={12} sm={12} xs={12}>
                     <TextField
+                      value={this.state.description}
+                      onChange={this.handleInputChange}
                       id="descriptionItemField"
+                      name="descriptionItemField"
                       htmlFor="descriptionItem"
                       label="4. Please provide a description of the item"
                       helperText="Please give us little description about the item you found"
@@ -162,10 +263,13 @@ export default function Lost() {
                       margin="normal"
                     />
                   </Grid>
-                  <Grid item md={12} sm={12} xs={12} className={classes.grid}>
+                  <Grid item md={12} sm={12} xs={12}>
                     <TextField
-                      className={classes.textfield}
+                      // className={classes.textfield}
+                      value={this.state.image}
+                      onChange={this.handleInputChange}
                       id="imageItemField"
+                      name="imageItemField"
                       label="5. Please upload the image of the item you found in here"
                       helperText="Please upload the image of the item you found in here"
                       fullWidth={true}
@@ -178,22 +282,58 @@ export default function Lost() {
                       multiple
                       type="file"
                     />
-                    <Button variant="contained" color="default" className={classes.button} component="span">
+                    <Button variant="contained" color="default" component="span">
                       Upload
-                        <CloudUploadIcon className={classes.rightIcon} />
+                        <CloudUploadIcon/>
                     </Button>
                   </Grid>
                 </form>
               </CardContent>
               <CardActions>
-                <Button className={classes.sendButton} variant="contained" color="#7FB800" >Send
-                      <Icon className={classes.rightIcon}>send</Icon>
+                <Button variant="contained" color="#7FB800" onClick={this.handleFormSubmit}>Send
+                      <Icon>send</Icon>
+                      
                 </Button>
               </CardActions>
             </Card>
           </Grid>
         </Grid>
+
+
+        {this.state.items.map(item => {
+                  return (
+                    <List>
+                    <ListItem alignItems="flex-start">
+                      <ListItemAvatar>
+                        <Avatar alt="Remy Sharp" src="https://www.supervia.com.br/sites/default/files/achados_perdidos.jpg" />
+                      </ListItemAvatar>
+                      <ListItemText
+                        primary={"Item:",item.foundTitle}
+                        secondary={
+                          <React.Fragment>
+                            <Typography
+                              component="span"
+                              variant="body2"
+                              color="textPrimary"
+                            >
+                              Location: {item.foundLocation} Date: {item.foundDate}
+                            </Typography>
+                            {item.foundDescription}
+                          </React.Fragment>
+                        }
+                      />
+                    </ListItem>
+                    <Divider variant="inset" component="li" />
+                    </List>
+                    
+                   
+                  );
+                })}
+
       </Container>
     </React.Fragment>
   );
+  }
 }
+
+  export default Lost;

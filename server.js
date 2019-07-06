@@ -8,7 +8,8 @@ cors = require('cors'),
 PORT = process.env.PORT || 3001;
 
 const Users = require('./routes/Users')
-const losts = require('./routes/api/Lost')
+const losts = require('./routes/api/lost')
+const founds = require('./routes/api/found')
 
 const app = express();
 
@@ -33,7 +34,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 // app.use(passport.session());
 
 /*********Connect to mongoose**********/
-const mongoURI = 'mongodb://localhost:27017/lostandfound'
+const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/lostandfound'
 
 mongoose
 .connect(mongoURI,{useNewUrlParser:true})
@@ -47,7 +48,8 @@ mongoose.set('useCreateIndex', true);
 
 
 app.use('/users',Users)
-app.use('/api/losts',losts)
+app.use('/api/lost',losts)
+app.use('/api/found',founds)
 
 /*********Passport.js*
 passport.use(User.createStrategy());

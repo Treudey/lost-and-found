@@ -1,32 +1,32 @@
 const db = require("../models")
 
 module.exports = {
-  //Find All Found Items, sort descending by date
+  //Find All Lost Items, sort descending by date
   findAll: function (req, res) {
-    db.Found
+    db.Lost
       .find()
       .sort("-date")
-      .then(dbFound => res.json(dbFound))
+      .then(dbLost => res.json(dbLost))
       .catch(err => res.status(422).json(err));
   },
   //Find by keyword search- not sure what the field name is. Must be verified.
   //Implement text search and index material that is posted in db for searching purposes?
   findByKeyword: function (req, res) {
-    db.Found
+    db.Lost
     //No clue if this will work
       .find({"search": {$regex: req.query.search, $option: "i"}})
       .sort("-date")
-      .then(dbFound => res.json(dbFound))
+      .then(dbLost => res.json(dbLost))
       .catch(err => res.status(422).json(err));
   },
   //Create new
   create: function (req, res) {
-    console.log("Found Controller create: ",req.body);
-    db.Found
+    console.log("Lost Controller create: ",req.body);
+    db.Lost
       .create(req.body)
-      .then(dbFound => {
-        console.log(dbFound)
-        return res.json(dbFound)
+      .then(dbLost => {
+        console.log(dbLost)
+        return res.json(dbLost)
       })
       .catch(err => {
         console.log("catch data:")
@@ -36,16 +36,16 @@ module.exports = {
   },
   //Update entry
   update: function (req, res) {
-    db.Found
+    db.Lost
       .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbFound => res.json(dbFound))
+      .then(dbLost => res.json(dbLost))
       .catch(err => res.status(422).json(err));
   },
   //Delete entry
   delete: function (req, res) {
-    db.Found
+    db.Lost
       .deleteOne({ _id: req.params.id })
-      .then(dbFound => res.json(dbFound))
+      .then(dbLost => res.json(dbLost))
       .catch(err => res.status(422).json(err));
   }
 }
