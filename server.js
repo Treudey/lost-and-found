@@ -36,7 +36,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 const mongoURI = 'mongodb://localhost:27017/lostandfound'
 
 mongoose
-.connect(mongoURI,{useNewUrlParser:true})
+.connect(process.env.MONGODB_URI || mongoURI,{useNewUrlParser:true})
 .then(()=>console.log("Mongo connected"))
 .catch(err => console.log(err))
 
