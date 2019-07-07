@@ -1,23 +1,23 @@
-import React from "react";
-import "./style.css";
+import React from 'react';
+
+import Button from '@material-ui/core/Button'
+
+import './style.css';
 
 function MainButton(props) {
-	let address, text, color, icon;
+	let address, text, color;
 	if (props.type === 'lost') {
 		address = '/searchitem';
-		text = 'Lost Something? Search It!';
-		color = '#FF9F1C';
-		icon = 'fab fa-searchengin fa-2x';
+		text = 'Lost Something?';
+		color = '#7FB800';
 	} else {
 		address = '/postitem';
-		text = 'Found Something? Post It!';
-		color = '#0D2C54';
-		icon = 'fas fa-arrow-circle-up fa-2x';
+		text = 'Found Something?';
+		color = '#F6511D';
 	}
   return (
-    <a className="button" style={{borderColor: color}} href={address}>  {text}
-        {/* <i className={icon}></i> {text} */}
-    </a>
+    <Button className='buttonMain' style={{backgroundColor: color}} href={address} variant='contained'> {text}
+    </Button>
   );
 }
 

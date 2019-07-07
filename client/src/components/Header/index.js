@@ -1,27 +1,19 @@
-import React from "react";
-import Typography from '@material-ui/core/Typography';
-import "./style.css";
+import React from 'react';
+import './style.css';
 
-export default function Header () {
+function Header(props) {
+  let backgroundImage, color;
+  if(props.type === 'found'){
+    backgroundImage = "url('https://cdn.pixabay.com/photo/2017/09/13/22/25/lost-2747288_1280.png')";
+    color = '#7FB800'
+  }
+  else if (props.type === 'lost'){
+    backgroundImage = "url('https://cdn.pixabay.com/photo/2017/09/13/22/25/lost-2747289_1280.png')";
+    color = '#F6511D'
+  }
   return (
-    <div className="img">
-      {/* Increase the network loading priority of the background image. */}
-      <Typography color="inherit" align="center" variant="h2" marked="center">
-        Upgrade your Sundays
-      </Typography>
-      <Typography color="inherit" align="center" variant="h5">
-        Enjoy secret offers up to -70% off the best luxury hotels every Sunday.
-      </Typography>
-      {/* <Button
-        color="secondary"
-        variant="contained"
-        size="large"
-        className={classes.button}
-        component="a"
-        href="/premium-themes/onepirate/sign-up/"
-      >
-        Register
-      </Button> */}
-      </div>
+    <div className='heroContent' style={{backgroundImage: backgroundImage, borderColor: color}}></div>
   );
 }
+
+export default Header

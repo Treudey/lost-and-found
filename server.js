@@ -33,7 +33,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 // app.use(passport.session());
 
 /*********Connect to mongoose**********/
-const mongoURI = 'mongodb://localhost:27017/lostandfound'
+const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/lostandfound'
 
 mongoose
 .connect(mongoURI,{useNewUrlParser:true})

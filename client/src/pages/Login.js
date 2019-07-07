@@ -1,10 +1,10 @@
-import React,{Component} from "react";
-import {Route,Link,Redirect} from "react-router-dom";
+import React,{Component} from 'react';
+import {Route,Link,Redirect} from 'react-router-dom';
 import GoogleLogin from 'react-google-login';
-import "./Login.css";
-import Loginform from "../components/Loginform";
+import './Login.css';
+import Loginform from '../components/Loginform';
 import Signup from '../components/SignUp';
-import {PostData} from "./PostData";
+import {PostData} from './PostData';
 
 
 class login extends Component{
@@ -35,7 +35,7 @@ class login extends Component{
    if (postData) {
     PostData('signup', postData).then((result) => {
        let responseJson = result;
-       sessionStorage.setItem("userData", JSON.stringify(responseJson));
+       sessionStorage.setItem('userData', JSON.stringify(responseJson));
        this.setState({redirect: true});
     });
     } else {}
@@ -53,12 +53,12 @@ class login extends Component{
 
     return(
 
-        <div className="login">
-            {/* <Link to="/signup">Sign Up</Link>
-            <Link to="/loginform">Login</Link> */}
+        <div className='login'>
+            {/* <Link to='/signup'>Sign Up</Link>
+            <Link to='/loginform'>Login</Link> */}
             <Loginform/>
-            <Route path="/loginform" component={Loginform} />
-            <Route path="/signup" component={Signup} />
+            <Route path='/loginform' component={Loginform} />
+            <Route path='/signup' component={Signup} />
         </div>
     )
 }
