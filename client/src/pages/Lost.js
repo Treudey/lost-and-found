@@ -172,7 +172,7 @@ event.preventDefault();
 console.log("handleformsubmit:");
 console.log(this.state);
 // debugger;
-if (this.state.title) {
+if (this.state.title && this.state.color && this.state.location && this.state.description) {
   API.postLostItem({
     lostTitle: this.state.title,
     lostColor: this.state.color,
@@ -224,8 +224,8 @@ render() {
                       id="locationItemField"
                       name="locationItemField"
                       htmlFor="locationItem"
-                      label="2. Please indicate the location where the item was found"
-                      helperText="Please share the rough location or main intersection where you found the item"
+                      label="2. Please indicate the location where the item was lost"
+                      helperText="Please share the rough location or main intersection where you lost the item"
                       fullWidth={true}
                       required={true}
                       aria-describedby="location-lost-helper-text"
@@ -240,7 +240,7 @@ render() {
                       name="colorItemField"
                       htmlFor="colorItem"
                       label="3. Please provide the colour(s) of the item"
-                      helperText="Please share the colour(s) of the item you found"
+                      helperText="Please share the colour(s) of the item you lost"
                       fullWidth={true}
                       required={true}
                       aria-describedby="color-lost-helper-text"
@@ -254,7 +254,7 @@ render() {
                       name="descriptionItemField"
                       htmlFor="descriptionItem"
                       label="4. Please provide a description of the item"
-                      helperText="Please give us little description about the item you found"
+                      helperText="Please give us little description about the item you lost"
                       fullWidth={true}
                       required={true}
                       multiline={true}
@@ -270,8 +270,8 @@ render() {
                       onChange={this.handleInputChange}
                       id="imageItemField"
                       name="imageItemField"
-                      label="5. Please upload the image of the item you found in here"
-                      helperText="Please upload the image of the item you found in here"
+                      label="5. Please upload the image of the item you lost in here"
+                      helperText="Please upload the image of the item you lost in here"
                       fullWidth={true}
                       disabled={true}
                       aria-describedby="image-lost-helper-text"
@@ -299,7 +299,6 @@ render() {
           </Grid>
         </Grid>
 
-
         {this.state.items.map(item => {
                   return (
                     <List>
@@ -308,7 +307,7 @@ render() {
                         <Avatar alt="Remy Sharp" src="https://www.supervia.com.br/sites/default/files/achados_perdidos.jpg" />
                       </ListItemAvatar>
                       <ListItemText
-                        primary={"Item:",item.foundTitle}
+                        primary={item.foundTitle}
                         secondary={
                           <React.Fragment>
                             <Typography
@@ -318,7 +317,7 @@ render() {
                             >
                               Location: {item.foundLocation} Date: {item.foundDate}
                             </Typography>
-                            {item.foundDescription}
+                            --- {item.foundDescription}
                           </React.Fragment>
                         }
                       />
