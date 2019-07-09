@@ -106,6 +106,7 @@ const useStyles = makeStyles(theme => ({
   //   textShadow: '0 0 0px'
   // },
 }));
+
 class Found extends Component {
     state = {
       items: [],
@@ -186,6 +187,7 @@ class Found extends Component {
   
   render() {
     //console.log("State", this.state);
+    
     return (
       
       <React.Fragment>
@@ -214,6 +216,16 @@ class Found extends Component {
                         aria-describedby="title-found-helper-text"
                       />
                     </Grid>
+
+                    <CardContent>
+                        <Maps
+                    google={this.props.google}
+                    center={{lat: 43.662609, lng: -79.397849}} 
+                    height='300px'
+                    zoom={15}
+                    />
+                   </CardContent>
+                   
                     <Grid item md={12} sm={12} xs={12}>
                       <TextField
                         // className={classes.textfield}
@@ -229,6 +241,7 @@ class Found extends Component {
                         aria-describedby="location-found-helper-text"
                       />
                     </Grid>
+                   
                     <Grid item md={12} sm={12} xs={12}>
                       <TextField
                         // className={classes.textfield}
@@ -296,16 +309,9 @@ class Found extends Component {
               </Card>
             </Grid>
           </Grid>
-                    <Maps
-                google={this.props.google}
-                center={{lat: 43.662609, lng: -79.397849}} 
-                height='300px'
-                zoom={15}
-                />
-               
-                
-                
-          {/* {this.state.items.map(item => {
+              
+         <CardContent>
+          {this.state.items.map(item => {
                     return (
                       <List>
                       <ListItem alignItems="flex-start">
@@ -333,8 +339,8 @@ class Found extends Component {
                       
                      
                     );
-                  })} */}
-  
+                  })}
+          </CardContent>
         </Container>
       </React.Fragment>
     );
