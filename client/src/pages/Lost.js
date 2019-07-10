@@ -137,7 +137,7 @@ class Lost extends Component {
                           helperText="Please provide a title for the item you found"
                           fullWidth
                           required
-                          aria-describedby="title-found-helper-text"
+                          aria-describedby="title-lost-helper-text"
                         />
                       </Grid>
                       <Grid item md={12} sm={12} xs={12} className='grid'>
@@ -152,7 +152,7 @@ class Lost extends Component {
                           helperText="Please provide a your contact number where person can reach you"
                           fullWidth
                           required
-                          aria-describedby="contact-found-helper-text"
+                          aria-describedby="contact-lost-helper-text"
                         />
                       </Grid>
                       <Grid item md={12} sm={12} xs={12}>
@@ -166,7 +166,7 @@ class Lost extends Component {
                           helperText="Please share the postal code where you found the item by dragging pin on map above"
                           fullWidth={true}
                           required={true}
-                          aria-describedby="location-found-helper-text"
+                          aria-describedby="location-lost-helper-text"
                         />
                         <Maps
                           google={this.props.google}
@@ -186,7 +186,7 @@ class Lost extends Component {
                           helperText="Please share the colour(s) of the item you found"
                           fullWidth={true}
                           required={true}
-                          aria-describedby="color-found-helper-text"
+                          aria-describedby="color-lost-helper-text"
                         />
                       </Grid> <Grid item md={12} sm={12} xs={12}>
                         <TextField
@@ -201,7 +201,7 @@ class Lost extends Component {
                           required={true}
                           multiline={true}
                           rows="3"
-                          aria-describedby="description-found-helper-text"
+                          aria-describedby="description-lost-helper-text"
                           margin="normal"
                         />
                       </Grid>
@@ -213,7 +213,7 @@ class Lost extends Component {
                           helperText='Please upload the image of the item you found in here'
                           fullWidth={true}
                           disabled={true}
-                          aria-describedby='image-found-helper-text'
+                          aria-describedby='image-lost-helper-text'
                           InputLabelProps={{
                             shrink: true,
                           }}
