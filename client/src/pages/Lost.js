@@ -20,8 +20,7 @@ import ListItemText from '@material-ui/core/ListItemText'
 import ListItemAvatar from '@material-ui/core/ListItemAvatar'
 import Avatar from '@material-ui/core/Avatar'
 import Divider from '@material-ui/core/Divider'
-import { spacing } from '@material-ui/system';
-
+import Maps from '../components/Map'
 
 
 const backgroundImageLost = 'https://cdn.pixabay.com/photo/2017/09/13/22/25/lost-2747289_1280.png';
@@ -216,6 +215,14 @@ render() {
                       aria-describedby="title-lost-helper-text"
                     />
                   </Grid>
+                  <CardContent>
+                        <Maps
+                    google={this.props.google}
+                    center={{lat: 43.662609, lng: -79.397849}} 
+                    height='300px'
+                    zoom={15}
+                    />
+                   </CardContent>
                   <Grid item md={12} sm={12} xs={12}>
                     <TextField
                       // className={classes.textfield}

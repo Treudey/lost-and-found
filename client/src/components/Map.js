@@ -5,7 +5,7 @@ import Geocode from "react-geocode";
 
 //const googleAPI=process.env.Google_API;
 
-Geocode.setApiKey("AIzaSyBsMteTgM6LfmYMdPPhelZYJTh2Ibps1wA");
+Geocode.setApiKey("AIzaSyDnvIL9Dk4LZOU-vXfiSiQRtn4bTEBdID4");
 Geocode.enableDebug();
 class Map extends React.Component{
 constructor( props ){
@@ -271,7 +271,7 @@ let map;
    map = <div>
      <div>
      <AsyncMap                                                
-      googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsMteTgM6LfmYMdPPhelZYJTh2Ibps1wA&libraries=places"
+      googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnvIL9Dk4LZOU-vXfiSiQRtn4bTEBdID4&libraries=places"
       loadingElement={
        <div style={{ height: `100%` }} />
       }
