@@ -3,10 +3,12 @@ import { withGoogleMap, GoogleMap, withScriptjs, InfoWindow, Marker } from "reac
 import Autocomplete from 'react-google-autocomplete';
 import Geocode from "react-geocode";
 import { TextField } from '@material-ui/core/'
+require('dotenv').config()
 
-//const googleAPI=process.env.Google_API;
+const key="AIzaSyCQ5X85Pq2cC8TAMziyhWccGRqVTZ75cTY";
+const MapURL = "https://maps.googleapis.com/maps/api/js?key="+key+"&libraries=places";
 
-Geocode.setApiKey("AIzaSyDnvIL9Dk4LZOU-vXfiSiQRtn4bTEBdID4");
+Geocode.setApiKey(key);
 Geocode.enableDebug();
 class Map extends React.Component {
   constructor(props) {
@@ -226,6 +228,11 @@ class Map extends React.Component {
       }
     );
   };
+
+  googleURL() {
+    console.log("https://maps.googleapis.com/maps/api/js?key="+process.env.Google_API+"&libraries=places");
+    return MapURL;
+  };
   render() {
     const AsyncMap = withScriptjs(
       withGoogleMap(
@@ -270,9 +277,10 @@ class Map extends React.Component {
     let map;
     if (this.props.center.lat !== undefined) {
       map = <div>
+        
         <div>
           <AsyncMap
-            googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnvIL9Dk4LZOU-vXfiSiQRtn4bTEBdID4&libraries=places"
+            googleMapURL = {this.googleURL()}
             loadingElement={
               <div style={{ height: `100%` }} />
             }
