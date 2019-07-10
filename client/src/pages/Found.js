@@ -83,7 +83,7 @@ class Found extends Component {
     if (this.state.title && this.state.color && this.state.location && this.state.description) {
       API.postFoundItem({
         foundTitle: this.state.title,
-        lostPhoneNumber: this.state.contact,
+        foundPhoneNumber: this.state.contact,
         foundColor: this.state.color,
         foundLocation: this.state.location,
         foundDescription: this.state.description,
@@ -113,7 +113,7 @@ class Found extends Component {
                         id='titleItemField'
                         htmlFor='titleItem'
                         label='1. Title'
-                        helperText='Please provide a title for the item you lost'
+                        helperText='Please provide a title for the item you found'
                         fullWidth={true}
                         required={true}
                         aria-describedby='title-found-helper-text'
@@ -123,8 +123,8 @@ class Found extends Component {
                     <TextField
                         id='locationItemField'
                         htmlFor='locationItem'
-                        label='2. Location'
-                        helperText='Please share the rough location or main intersection where you found the item'
+                        label='2. Postal Code'
+                        helperText='Please share (or copy & paste) the postal code where you found the item by dragging pin on the map below'
                         fullWidth={true}
                         required={true}
                         aria-describedby='location-found-helper-text'
@@ -191,7 +191,7 @@ class Found extends Component {
               </Card>
               <Card>
                 <CardContent> 
-                  <Typography variant='h4' className='h4'>Other Lost Items That Have Been Found</Typography>
+                  <Typography variant='h4' className='h4'>Lost Items</Typography>
                 {this.state.items.map(item => {
                     return (
                       <List>

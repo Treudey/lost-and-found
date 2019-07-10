@@ -5,7 +5,7 @@ import Geocode from "react-geocode";
 import { TextField } from '@material-ui/core/'
 require('dotenv').config()
 
-const key="AIzaSyCQ5X85Pq2cC8TAMziyhWccGRqVTZ75cTY";
+const key="AIzaSyDnvIL9Dk4LZOU-vXfiSiQRtn4bTEBdID4";
 const MapURL = "https://maps.googleapis.com/maps/api/js?key="+key+"&libraries=places";
 
 Geocode.setApiKey(key);
@@ -279,24 +279,6 @@ class Map extends React.Component {
       map = <div>
         
         <div>
-          <AsyncMap
-            googleMapURL = {this.googleURL()}
-            loadingElement={
-              <div style={{ height: `100%` }} />
-            }
-            containerElement={
-              <div style={{ height: this.props.height }} />
-            }
-            mapElement={
-              <div style={{ height: `100%` }} />
-            }
-          />
-        </div>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-
         <TextField
           name='city'
           htmlFor=''
@@ -358,6 +340,26 @@ class Map extends React.Component {
         
         />
       </div>
+      <br></br>
+        
+          <AsyncMap
+            googleMapURL = {this.googleURL()}
+            loadingElement={
+              <div style={{ height: `100%` }} />
+            }
+            containerElement={
+              <div style={{ height: this.props.height }} />
+            }
+            mapElement={
+              <div style={{ height: `100%` }} />
+            }
+          />
+           <br></br>
+        <br></br>
+        </div>
+       
+
+       
     } else {
       map = <div style={{ height: this.props.height }} />
     }
