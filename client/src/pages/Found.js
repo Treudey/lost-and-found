@@ -92,19 +92,6 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(1),
   },
 
-  ///I DON'T USE THESE ANYWHERE
-  // inputInfo: {
-  //   // color:'#fff',
-  // },
-  // inputValue: {
-  //   // color:'#0b2f55',
-  //   // fontWeight:'bold'
-  // },
-  // inputlabel: {
-  //   // color:'rgb(7, 31, 138)',
-  //   marginRight: '10px',
-  //   textShadow: '0 0 0px'
-  // },
 }));
 
 class Found extends Component {

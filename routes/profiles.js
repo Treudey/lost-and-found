@@ -40,13 +40,12 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name, email, phone, type,location,description } = req.body;
+    const { name, email, type,location,description } = req.body;
 
     try {
       const newProfile = new Profile({
         name,
         email,
-        phone,
         type,
         location,
         description,
@@ -67,13 +66,12 @@ router.post(
 // Update profile
 // Private
 router.put('/:id', auth, async (req, res) => {
-  const { name, email, phone, type,location,description } = req.body;
+  const { name, email, type,location,description } = req.body;
 
   // Build profile object
   const profileFields = {};
   if (name) profileFields.name = name;
   if (email) profileFields.email = email;
-  if (phone) profileFields.phone = phone;
   if (type) profileFields.type = type;
   if (location) profileFields.location = location;
   if (description) profileFields.description = description;

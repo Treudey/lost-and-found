@@ -13,9 +13,6 @@ const ProfileSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  phone: {
-    type: String
-  },
   type: {
     type: String,
     default: 'lost'

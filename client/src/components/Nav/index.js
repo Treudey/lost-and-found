@@ -28,8 +28,7 @@ const  Navbar =({title}) => {
 
   const authLinks = (
     <Fragment>
-      <li>Hello {user && user.name}</li>
-      <li>
+      Hello {user && user.name}
         <Button>
           <Linkm
             onClick={onLogout}
@@ -38,25 +37,20 @@ const  Navbar =({title}) => {
           >Logout
           </Linkm>
         </Button>
-      </li>
     </Fragment>
   );
 
   const guestLinks = (
     <Fragment>
-      <li>
         <Linkm
           component={Link}
           to='/register' size='large'
           color='white'>Register</Linkm>
-      </li>
-      <li>
         <Linkm 
           component={Link}
         to='/login'
         size='large'
         color='white'>Login</Linkm>
-      </li>
     </Fragment>
   );
 
@@ -65,11 +59,11 @@ const  Navbar =({title}) => {
       <AppBar id="nav" position="fixed">
         <Toolbar>
           <div className="title">
-            <a href="/" className="home-link">
+            <Link to="/" className="home-link">
               <Typography variant="h5" >
                 {title}
               </Typography>
-            </a>
+            </Link>
           </div>
           <Button>
             <Linkm

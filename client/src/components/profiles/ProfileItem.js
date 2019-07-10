@@ -6,7 +6,7 @@ const ProfileItem = ({ profile }) => {
   const profileContext = useContext(ProfileContext);
   const { deleteProfile, setCurrent, clearCurrent } = profileContext;
 
-  const { _id, name, email, phone,type,location,description } = profile;
+  const { _id, name, email,type,location,description } = profile;
 
   const onDelete = () => {
     deleteProfile(_id);
@@ -31,11 +31,6 @@ const ProfileItem = ({ profile }) => {
         {email && (
           <li>
              {email}
-          </li>
-        )}
-        {phone && (
-          <li>
-             {phone}
           </li>
         )}
 
