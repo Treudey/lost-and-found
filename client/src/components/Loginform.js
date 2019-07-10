@@ -7,11 +7,7 @@ import Profile from './Profile'
 import "./Loginform.css"
 
 // Material UI Imports
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
+import { Button, Card, CardContent, Container, CssBaseline, Grid, TextField, Typography } from '@material-ui/core/'
 
 class Loginform extends Component {
   constructor() {
@@ -85,56 +81,64 @@ class Loginform extends Component {
       this.signup(response, 'google')
     }
     return (
-      <Container component="main" maxWidth="xs" className="form-wrapper">
+      <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <div>
-          <Typography component="h1" variant="h4">
-            Login
-        </Typography>
-          <form onSubmit={this.onSubmit} noValidate>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-              value={this.state.email}
-              onChange={this.onChange}
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-              value={this.state.password}
-              onChange={this.onChange}
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              className="register"
-            >
-              Login
+        <Grid container>
+          <Grid item md={12} sm={12} xs={12}>
+            <Card className='card'>
+              <CardContent className='cardContent'>
+                <div>
+                  <Typography component="h1" variant="h4">
+                    Login
+                  </Typography>
+                  <form onSubmit={this.onSubmit} noValidate>
+                    <TextField
+                      variant="outlined"
+                      margin="normal"
+                      required
+                      fullWidth
+                      id="email"
+                      label="Email Address"
+                      name="email"
+                      autoComplete="email"
+                      autoFocus
+                      value={this.state.email}
+                      onChange={this.onChange}
+                    />
+                    <TextField
+                      variant="outlined"
+                      margin="normal"
+                      required
+                      fullWidth
+                      name="password"
+                      label="Password"
+                      type="password"
+                      id="password"
+                      autoComplete="current-password"
+                      value={this.state.password}
+                      onChange={this.onChange}
+                    />
+                    <Button
+                      type="submit"
+                      fullWidth
+                      variant="contained"
+                      className="register"
+                    >
+                      Login
           </Button>
-            <GoogleLogin
-              clientId="972112242986-chls7kd871dadf311gfa8539moa9ggv1.apps.googleusercontent.com"
-              buttonText="Login"
-              onSuccess={responseGoogle}
-              onFailure={responseGoogle}
-              cookiePolicy={'single_host_origin'}
-            />
-          </form>
-        </div>
+                    <GoogleLogin
+                      clientId="972112242986-chls7kd871dadf311gfa8539moa9ggv1.apps.googleusercontent.com"
+                      buttonText="Login"
+                      onSuccess={responseGoogle}
+                      onFailure={responseGoogle}
+                      cookiePolicy={'single_host_origin'}
+                    />
+                  </form>
+                </div>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
       </Container>
     )
   }

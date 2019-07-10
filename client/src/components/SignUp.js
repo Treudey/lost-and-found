@@ -7,11 +7,7 @@ import "./Loginform.css"
 
 
 // Material UI Imports
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
+import { Button, Card, CardContent, Container, CssBaseline, Grid, TextField, Typography } from '@material-ui/core/'
 
 class Signup extends Component{
   constructor(props) {
@@ -86,6 +82,10 @@ PostData('signup', postData).then((result) => {
     return(
       <Container component="main" maxWidth="xs" className="form-wrapper">
       <CssBaseline />
+      <Grid container>
+          <Grid item md={12} sm={12} xs={12}>
+            <Card className='card'>
+              <CardContent className='cardContent'>
       <div>
         <Typography component="h1" variant="h4">
           Sign Up
@@ -146,10 +146,13 @@ PostData('signup', postData).then((result) => {
           />
         </form>
       </div>
+      </CardContent>
+      </Card>
+      </Grid>
+      </Grid>
     </Container>
     )
 }
 }
 
 export default Signup
-

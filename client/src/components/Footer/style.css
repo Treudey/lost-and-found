@@ -4,16 +4,12 @@
 
 #footer {
   background-color: #00A6ED;
-  top: "auto";
-  /* bottom: 0; */
-}
-
-#text {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: auto;
+  padding: 1rem 0 1rem 0;
+  width: 100%;
+  color: white;
   text-align: center!important;
-}
-
-.home-link {
-  text-decoration: none;
-  color: inherit;
-  font-weight: bold;
 }
