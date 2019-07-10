@@ -24,7 +24,7 @@ class Lost extends Component {
     date: ""
   };
 
-  // When the component mounts, load all found items and save them to this.state.items
+  // When the component mounts, load all lost items and save them to this.state.items
   componentDidMount() {
     this.loadItems();
   }
@@ -72,7 +72,7 @@ class Lost extends Component {
     }
   };
 
-  // When the form is submitted, use the API.postFoundItem method to save the book data
+  // When the form is submitted, use the API.postLostItem method to save the book data
   // Then reload books from the database
   handleFormSubmit = event => {
     event.preventDefault();
@@ -134,7 +134,7 @@ class Lost extends Component {
                           name="titleItemField"
                           htmlFor="titleItem"
                           label="1. Title"
-                          helperText="Please provide a title for the item you found"
+                          helperText="Please provide a title for the item you lost"
                           fullWidth
                           required
                           aria-describedby="title-lost-helper-text"
@@ -162,8 +162,8 @@ class Lost extends Component {
                           id="locationItemField"
                           name="locationItemField"
                           htmlFor="locationItem"
-                          label="3. Location"
-                          helperText="Please share the postal code where you found the item by dragging pin on map above"
+                          label="3. Postal Code"
+                          helperText="Please share the postal code where you lost the item by dragging pin on the map below"
                           fullWidth={true}
                           required={true}
                           aria-describedby="location-lost-helper-text"
@@ -183,7 +183,7 @@ class Lost extends Component {
                           name="colorItemField"
                           htmlFor="colorItem"
                           label="4. Color(s)"
-                          helperText="Please share the colour(s) of the item you found"
+                          helperText="Please share the colour(s) of the item you lost"
                           fullWidth={true}
                           required={true}
                           aria-describedby="color-lost-helper-text"
@@ -196,7 +196,7 @@ class Lost extends Component {
                           name="descriptionItemField"
                           htmlFor="descriptionItem"
                           label="5. Description"
-                          helperText="Please give us little description about the item you found"
+                          helperText="Please give us little description about the item you lost"
                           fullWidth={true}
                           required={true}
                           multiline={true}
@@ -210,7 +210,7 @@ class Lost extends Component {
                           className='textfield'
                           id='imageItemField'
                           label='6. Image'
-                          helperText='Please upload the image of the item you found in here'
+                          helperText='Please upload the image of the item you lost in here'
                           fullWidth={true}
                           disabled={true}
                           aria-describedby='image-lost-helper-text'
@@ -240,7 +240,7 @@ class Lost extends Component {
               <Card>
                 <CardContent className='cardContent'>
                   <Typography className='h4' component='h1' variant='h4' align='center' gutterBottom>
-                    Search Results
+                    Search Results For Found Items
                   </Typography>
                   {this.state.items.map(item => {
                     return (
