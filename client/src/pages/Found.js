@@ -111,6 +111,7 @@ class Found extends Component {
     state = {
       items: [],
       title: "",
+      contact:"",
       color: "",
       location: "",
       description: "",
@@ -159,6 +160,10 @@ class Found extends Component {
       {
         this.setState({
           image: value });
+      }else if(event.target.id==="contactItemField")
+      {
+        this.setState({
+          contact: value });
       }
       
     };
@@ -174,6 +179,7 @@ class Found extends Component {
   if (this.state.title && this.state.color && this.state.location && this.state.description) {
     API.postFoundItem({
       foundTitle: this.state.title,
+      lostPhoneNumber: this.state.contact,
       foundColor: this.state.color,
       foundLocation: this.state.location,
       foundDescription: this.state.description,
@@ -209,11 +215,26 @@ class Found extends Component {
                         id="titleItemField"
                         name="titleItemField"
                         htmlFor="titleItem"
-                        label="1. Please provide a title for the item you found"
+                        label="1. Title"
                         helperText="Please provide a title for the item you found"
                         fullWidth
                         required
                         aria-describedby="title-found-helper-text"
+                      />
+                    </Grid>
+                    <Grid item md={12} sm={12} xs={12}>
+                      <TextField
+                        // className={classes.textfield}
+                        value={this.state.contact}
+                        onChange={this.handleInputChange}
+                        id="contactItemField"
+                        name="contactItemField"
+                        htmlFor="contactItem"
+                        label="2. Contact Number"
+                        helperText="Please provide a your contact number where person can reach you"
+                        fullWidth
+                        required
+                        aria-describedby="contact-found-helper-text"
                       />
                     </Grid>
 
@@ -234,8 +255,8 @@ class Found extends Component {
                         id="locationItemField"
                         name="locationItemField"
                         htmlFor="locationItem"
-                        label="2. Please indicate the location where the item was found"
-                        helperText="Please share the rough location or main intersection where you found the item"
+                        label="3. Location"
+                        helperText="Please share the postal code where you found the item by dragging pin on map above"
                         fullWidth={true}
                         required={true}
                         aria-describedby="location-found-helper-text"
@@ -250,7 +271,7 @@ class Found extends Component {
                         id="colorItemField"
                         name="colorItemField"
                         htmlFor="colorItem"
-                        label="3. Please provide the colour(s) of the item"
+                        label="4. Color(s)"
                         helperText="Please share the colour(s) of the item you found"
                         fullWidth={true}
                         required={true}
@@ -264,7 +285,7 @@ class Found extends Component {
                         id="descriptionItemField"
                         name="descriptionItemField"
                         htmlFor="descriptionItem"
-                        label="4. Please provide a description of the item"
+                        label="5. Description"
                         helperText="Please give us little description about the item you found"
                         fullWidth={true}
                         required={true}
@@ -281,7 +302,7 @@ class Found extends Component {
                         onChange={this.handleInputChange}
                         id="imageItemField"
                         name="imageItemField"
-                        label="5. Please upload the image of the item you found in here"
+                        label="6. Image (optional)"
                         helperText="Please upload the image of the item you found in here"
                         fullWidth={true}
                         disabled={true}
