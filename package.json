@@ -42,7 +42,10 @@
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^5.0.1",
     "react-facebook-login": "^4.1.1",
+    "react-geocode": "^0.1.2",
+    "react-google-autocomplete": "^1.1.0",
     "react-google-login": "^5.0.4",
+    "react-google-maps": "^9.4.5",
     "validator": "^11.0.0",
     "whatwg-fetch": "^3.0.0"
   },

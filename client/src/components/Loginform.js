@@ -85,13 +85,13 @@ class Loginform extends Component {
       this.signup(response, 'google')
     }
     return (
-      <Container component="main" maxWidth="xs" className="wrapper">
+      <Container component="main" maxWidth="xs" className="form-wrapper">
         <CssBaseline />
         <div>
           <Typography component="h1" variant="h4">
             Login
         </Typography>
-          <form onSubmit={this.onSubmit} className="form-wrapper" noValidate>
+          <form onSubmit={this.onSubmit} noValidate>
             <TextField
               variant="outlined"
               margin="normal"

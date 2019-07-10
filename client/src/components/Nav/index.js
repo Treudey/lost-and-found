@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { Route, Link, Redirect, withRouter } from "react-router-dom"
 
+//Material UI Imports
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Linkm from '@material-ui/core/Link';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import Icon from '@material-ui/core/Icon';
+
+//File Imports
 import "./style.css";
 
 class Navbar extends Component {
@@ -84,7 +85,7 @@ class Navbar extends Component {
             <div className="title">
               <a href="/" className="home-link">
                 <Typography variant="h5" >
-                  Finders Keepers
+                  Lost & Found
                 </Typography>
               </a>
             </div>

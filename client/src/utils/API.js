@@ -1,29 +1,50 @@
 import axios from "axios"
 
 export default {
+  //Lost ITEMS =========================================  
+  // Gets all Lost items
+  getLostItems: function () {
+    return axios.get("/api/lost");
+  },
+
+  //Post Lost item to DB
+  postLostItem: function (itemData) {
+    return axios.post("/api/lost", itemData);
+  },
+
+  //Update Lost item's status
+  updateLostItem: function (id) {
+    return axios.put("/api/lost" + id);
+  },
+
+  // Deletes an Lost item from database
+  deleteLostItem: function (id) {
+    return axios.delete("/api/lost/" + id);
+  },
+
   //FOUND ITEMS =========================================  
   // Gets all found items
-  getItems: function () {
+  getFoundItems: function () {
     return axios.get("/api/found");
   },
 
-  // Gets items through search parameters
+  // Gets Found items through search parameters
   getItemSearch: function (search) {
     return axios.get("/api/found/" + search);
   },
 
-  //Post found item to DB
-  postItem: function () {
-    return axios.post("/api/found");
+  //Post Found item to DB
+  postFoundItem: function (itemData) {
+    return axios.post("/api/found", itemData);
   },
 
-  //Update item's status
-  updateItem: function (id) {
+  //Update Found item's status
+  updateFoundItem: function (id) {
     return axios.put("/api/found" + id);
   },
 
-  // Deletes an item from database
-  deleteItem: function (id) {
+  // Deletes Found an item from database
+  deleteFoundItem: function (id) {
     return axios.delete("/api/found/" + id);
   },
   

@@ -12,17 +12,18 @@ const useStyles = makeStyles(theme => ({
 		background: "#00A6ED",
 		align: "center",
 		paddingTop: "1rem",
-		paddingBottom: "1rem"
+		paddingBottom: "1rem",
   },
   root: {
 		flexGrow: 1,
+		marginTop: "8rem"
 	},
 }));
 
 export default function Footer() {
 	const classes = useStyles();
 	return (
-		<div className="root">
+		<div className={classes.root}>
 			<AppBar id="footer" position="fixed" className={classes.appBar}>
 					<Typography variant="h5" className="align">
 						Copyright 2019

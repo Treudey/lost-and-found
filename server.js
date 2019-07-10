@@ -8,7 +8,8 @@ cors = require('cors'),
 PORT = process.env.PORT || 3001;
 
 const Users = require('./routes/Users')
-const losts = require('./routes/api/Lost')
+const losts = require('./routes/api/lost')
+const founds = require('./routes/api/found')
 
 const app = express();
 
@@ -47,7 +48,8 @@ mongoose.set('useCreateIndex', true);
 
 
 app.use('/users',Users)
-app.use('/api/losts',losts)
+app.use('/api/lost',losts)
+app.use('/api/found',founds)
 
 /*********Passport.js*
 passport.use(User.createStrategy());
