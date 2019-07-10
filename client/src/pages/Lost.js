@@ -163,7 +163,7 @@ class Lost extends Component {
                           name="locationItemField"
                           htmlFor="locationItem"
                           label="3. Postal Code"
-                          helperText="Please share the postal code where you lost the item by dragging pin on the map below"
+                          helperText="Please share (or copy & paste) the postal code where you lost the item by dragging pin on the map below"
                           fullWidth={true}
                           required={true}
                           aria-describedby="location-lost-helper-text"
