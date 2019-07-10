@@ -13,11 +13,6 @@ const founds = require('./routes/api/found')
 
 const app = express();
 
-// Serve up static assets (usually on heroku)
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static("client/build"));
-// }
-
 /*********Define middleware here**********/
 app.use(bodyParser.json());
 app.use(cors())
@@ -36,6 +31,10 @@ app.use(bodyParser.urlencoded({extended:true}));
 /*********Connect to mongoose**********/
 const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/lostandfound'
 
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 mongoose
 .connect(mongoURI,{useNewUrlParser:true})
 .then(()=>console.log("Mongo connected"))
