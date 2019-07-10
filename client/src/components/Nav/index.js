@@ -1,5 +1,8 @@
-import React, { Component } from "react";
+import React, {Fragment, useContext } from "react";
 import { Route, Link, Redirect, withRouter } from "react-router-dom"
+import PropTypes from 'prop-types';
+import AuthContext from '../../context/auth/authContext';
+import ProfileContext from '../../context/profile/profileContext';
 
 //Material UI Imports
 import AppBar from '@material-ui/core/AppBar';
@@ -11,103 +14,87 @@ import Button from '@material-ui/core/Button';
 //File Imports
 import "./style.css";
 
-class Navbar extends Component {
+const  Navbar =({title}) => {
+  const authContext = useContext(AuthContext);
+  const profileContext = useContext(ProfileContext);
 
-  logOut(e) {
-    e.preventDefault()
-    localStorage.removeItem('usertoken')
-    this.props.history.push(`/`)
-  }
+  const { isAuthenticated, logout, user } = authContext;
+  const { clearProfiles } = profileContext;
 
-  // function LoginAndSignup() {
-  //   return (
-  //     <div>
-  //       <Linkm
-  //       component={Link}
-  //       to="/signup" size="large" color="inherit">Sign Up</Linkm>
-  //       <Linkm 
-  //       component={Link}
-  //       to="/login" size="large" color="inherit">Login</Linkm>
-  //     </div>
-  //   );
-  // }
-
-  // function ProfileButton() {
-  //   return ( <IconButton href="/profile/:id" size="large" color="inherit"><Icon>account_circle</Icon></IconButton> );
-  // }
-
-  // function RenderedUserButtons() {
-  //   if (props.isLoggedIn) {
-  //     return <ProfileButton />;
-  //   } else {
-  //     return <LoginAndSignup />;
-  //   }
-  // }
-
-  render() {
-    const loginRegLink = (
-      <div>
-        <Button>
-          <Linkm
-            component={Link}
-            to="/register" size="large" color="white">Sign Up
-        </Linkm>
-        </Button>
-        <Button>
-          <Linkm
-            component={Link}
-            to="/login" size="large" color="white">Login</Linkm>
-        </Button>
-      </div>
-    )
-
-    const userLink = (
-      <div>
-        <Button>
-          <Linkm
-            component={Link}
-            to="/profile" size="large" color="white">User
-        </Linkm>
-        </Button>
-        <Button>
-          <Linkm
-            component={Link}
-            path="/" onClick={this.logOut.bind(this)} size="large" color="white">Logout
-        </Linkm>
-        </Button>
-      </div>
-    )
-
-    return (
-      <div className="root">
-        <AppBar id="nav" position="fixed">
-          <Toolbar>
-            <div className="title">
-              <a href="/" className="home-link">
-                <Typography variant="h5" >
-                  Lost & Found
-                </Typography>
-              </a>
-            </div>
-            <Button>
-              <Linkm
-                component={Link}
-                to="/searchitem" size="large" color="white">Search</Linkm>
-            </Button>
-            <Button
-              component={Link}
-              to="/postitem" size="large" color="inherit">Post Item</Button>
-            {/* <RenderedUserButtons /> */}
-
-            <div>
-              {localStorage.usertoken ? userLink : loginRegLink}
-            </div>
-
-          </Toolbar>
-        </AppBar>
-      </div>
-    )
+  const onLogout = () => {
+    logout();
+    clearProfiles();
   };
+
+  const authLinks = (
+    <Fragment>
+      <li>Hello {user && user.name}</li>
+      <li>
+        <Button>
+          <Linkm
+            onClick={onLogout}
+            href='#!' size='large'
+            color='white'
+          >Logout
+          </Linkm>
+        </Button>
+      </li>
+    </Fragment>
+  );
+
+  const guestLinks = (
+    <Fragment>
+      <li>
+        <Linkm
+          component={Link}
+          to='/register' size='large'
+          color='white'>Register</Linkm>
+      </li>
+      <li>
+        <Linkm 
+          component={Link}
+        to='/login'
+        size='large'
+        color='white'>Login</Linkm>
+      </li>
+    </Fragment>
+  );
+
+  return (
+    <div className="root">
+      <AppBar id="nav" position="fixed">
+        <Toolbar>
+          <div className="title">
+            <a href="/" className="home-link">
+              <Typography variant="h5" >
+                {title}
+              </Typography>
+            </a>
+          </div>
+          <Button>
+            <Linkm
+              component={Link}
+              to="/searchitem" size="large" color="white">Search</Linkm>
+          </Button>
+          <Button
+            component={Link}
+            to="/postitem" size="large" color="inherit">Post Item</Button>
+          <div>
+          {isAuthenticated ? authLinks : guestLinks}
+          </div>
+        </Toolbar>
+      </AppBar>
+    </div>
+  );
 }
+
+Navbar.propTypes = {
+  title: PropTypes.string.isRequired,
+  icon: PropTypes.string
+};
+
+Navbar.defaultProps = {
+  title: 'Lost & Found',
+};
 
 export default withRouter(Navbar)

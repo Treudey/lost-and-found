@@ -19,24 +19,7 @@ const foundSchema = new Schema({
     required: true,
     trim: true
   },
-  // foundCity: {
-  //   type: String,
-  //   required: true,
-  //   trim: true
-  // },
-  // foundPostal: {
-  //   type: String,
-  //   validate(value) {
-  //     if(!validator.isPostalCode(value, "CA")) {
-  //       throw new Error("Postal code is invalid")
-  //     }
-  //   }
-  // },
-  // foundPhysicalLocation: {
-  //   type: String,
-  //   required: true,
-  //   trim: true,
-  // },
+  
   foundTitle: {
     type: String,
     required: true,

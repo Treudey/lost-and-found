@@ -46,21 +46,6 @@ export default {
   // Deletes Found an item from database
   deleteFoundItem: function (id) {
     return axios.delete("/api/found/" + id);
-  },
-  
-  //USERS =================================================
-  //get user by id
-  getUser: function (id) {
-    return axios.get("/api/user" + id);
-  },
-
-  // Deletes user from database
-  deleteUser: function (id) {
-    return axios.delete("/api/user/" + id);
-  },
-
-  // Updates user info
-  updateUser: function (id) {
-    return axios.put("/api/user/" + id);
-  },
+  }
 }
+  
