@@ -5,7 +5,6 @@
   .container {
     display: flex;
     flex-wrap: wrap;
-    margin-top: -5rem!important;
     margin-bottom: 5rem
   }
 
@@ -21,6 +20,7 @@
   .card {
     padding: 1rem;
     box-shadow: 2px 2px 2px 2px rgb(168, 168, 168)!important;
+    margin-top: 50rem!important;
   }
 
   .cardContent {

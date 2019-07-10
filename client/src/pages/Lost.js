@@ -125,7 +125,7 @@ export default function Lost() {
             <Card>
               <CardContent className='cardContent'>
                 <Typography className='h4' component='h1' variant='h4' align='center' gutterBottom>
-                  Results
+                  Search Results
                   </Typography>
               </CardContent>
             </Card>
