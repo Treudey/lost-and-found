@@ -97,7 +97,8 @@ export default function Found() {
               </CardContent>
               <CardActions> <Button className='sendButton' variant='contained'>Send
                       <Icon className='rightIcon'>send</Icon>
-                    </Button></CardActions>
+                    </Button>
+              </CardActions>
             </Card>
           </Grid>
         </Grid>

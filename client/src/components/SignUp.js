@@ -156,4 +156,3 @@ PostData('signup', postData).then((result) => {
 }
 
 export default Signup
-
