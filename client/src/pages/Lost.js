@@ -111,6 +111,7 @@ class Lost extends Component {
   state = {
     items: [],
     title: "",
+    contact:"",
     color: "",
     location: "",
     description: "",
@@ -159,6 +160,10 @@ API.getFoundItems()
     {
       this.setState({
         image: value });
+    }else if(event.target.id==="contactItemField")
+    {
+      this.setState({
+        contact: value });
     }
     
   };
@@ -174,6 +179,7 @@ console.log(this.state);
 if (this.state.title && this.state.color && this.state.location && this.state.description) {
   API.postLostItem({
     lostTitle: this.state.title,
+    lostPhoneNumber: this.state.contact,
     lostColor: this.state.color,
     lostLocation: this.state.location,
     lostDescription: this.state.description,
@@ -200,22 +206,38 @@ render() {
                   Tell us a bit about the item you lost
                   </Typography>
                 <form validate autoComplete="off">
-                  <Grid item md={12} sm={12} xs={12}>
-                    <TextField
-                      // className={classes.textfield}
-                      value={this.state.title}
-                      onChange={this.handleInputChange}
-                      id="titleItemField"
-                      name="titleItemField"
-                      htmlFor="titleItem"
-                      label="1. Please provide a title for the item you lost"
-                      helperText="Please provide a title for the item you lost"
-                      fullWidth
-                      required
-                      aria-describedby="title-lost-helper-text"
-                    />
-                  </Grid>
-                  <CardContent>
+                <Grid item md={12} sm={12} xs={12}>
+                      <TextField
+                        // className={classes.textfield}
+                        value={this.state.title}
+                        onChange={this.handleInputChange}
+                        id="titleItemField"
+                        name="titleItemField"
+                        htmlFor="titleItem"
+                        label="1. Title"
+                        helperText="Please provide a title for the item you found"
+                        fullWidth
+                        required
+                        aria-describedby="title-found-helper-text"
+                      />
+                    </Grid>
+                    <Grid item md={12} sm={12} xs={12}>
+                      <TextField
+                        // className={classes.textfield}
+                        value={this.state.contact}
+                        onChange={this.handleInputChange}
+                        id="contactItemField"
+                        name="contactItemField"
+                        htmlFor="contactItem"
+                        label="2. Contact Number"
+                        helperText="Please provide a your contact number where person can reach you"
+                        fullWidth
+                        required
+                        aria-describedby="contact-found-helper-text"
+                      />
+                    </Grid>
+
+                    <CardContent>
                         <Maps
                     google={this.props.google}
                     center={{lat: 43.662609, lng: -79.397849}} 
@@ -223,77 +245,79 @@ render() {
                     zoom={15}
                     />
                    </CardContent>
-                  <Grid item md={12} sm={12} xs={12}>
-                    <TextField
-                      // className={classes.textfield}
-                      value={this.state.location}
-                      onChange={this.handleInputChange}
-                      id="locationItemField"
-                      name="locationItemField"
-                      htmlFor="locationItem"
-                      label="2. Please indicate the location where the item was lost"
-                      helperText="Please share the rough location or main intersection where you lost the item"
-                      fullWidth={true}
-                      required={true}
-                      aria-describedby="location-lost-helper-text"
-                    />
-                  </Grid>
-                  <Grid item md={12} sm={12} xs={12}>
-                    <TextField
-                      // className={classes.textfield}
-                      value={this.state.color}
-                      onChange={this.handleInputChange}
-                      id="colorItemField"
-                      name="colorItemField"
-                      htmlFor="colorItem"
-                      label="3. Please provide the colour(s) of the item"
-                      helperText="Please share the colour(s) of the item you lost"
-                      fullWidth={true}
-                      required={true}
-                      aria-describedby="color-lost-helper-text"
-                    />
-                  </Grid>
-                  <Grid item md={12} sm={12} xs={12}>
-                    <TextField
-                      value={this.state.description}
-                      onChange={this.handleInputChange}
-                      id="descriptionItemField"
-                      name="descriptionItemField"
-                      htmlFor="descriptionItem"
-                      label="4. Please provide a description of the item"
-                      helperText="Please give us little description about the item you lost"
-                      fullWidth={true}
-                      required={true}
-                      multiline={true}
-                      rows="3"
-                      aria-describedby="description-lost-helper-text"
-                      margin="normal"
-                    />
-                  </Grid>
-                  <Grid item md={12} sm={12} xs={12}>
-                    <TextField
-                      // className={classes.textfield}
-                      value={this.state.image}
-                      onChange={this.handleInputChange}
-                      id="imageItemField"
-                      name="imageItemField"
-                      label="5. Please upload the image of the item you lost in here"
-                      helperText="Please upload the image of the item you lost in here"
-                      fullWidth={true}
-                      disabled={true}
-                      aria-describedby="image-lost-helper-text"
-                      InputLabelProps={{
-                        shrink: true,
-                      }}
-                      accept="image/*"
-                      multiple
-                      type="file"
-                    />
-                    <Button variant="contained" color="default" component="span">
-                      Upload
-                        <CloudUploadIcon/>
-                    </Button>
-                  </Grid>
+                   
+                    <Grid item md={12} sm={12} xs={12}>
+                      <TextField
+                        // className={classes.textfield}
+                        value={this.state.location}
+                        onChange={this.handleInputChange}
+                        id="locationItemField"
+                        name="locationItemField"
+                        htmlFor="locationItem"
+                        label="3. Location"
+                        helperText="Please share the postal code where you found the item by dragging pin on map above"
+                        fullWidth={true}
+                        required={true}
+                        aria-describedby="location-found-helper-text"
+                      />
+                    </Grid>
+                   
+                    <Grid item md={12} sm={12} xs={12}>
+                      <TextField
+                        // className={classes.textfield}
+                        value={this.state.color}
+                        onChange={this.handleInputChange}
+                        id="colorItemField"
+                        name="colorItemField"
+                        htmlFor="colorItem"
+                        label="4. Color(s)"
+                        helperText="Please share the colour(s) of the item you found"
+                        fullWidth={true}
+                        required={true}
+                        aria-describedby="color-found-helper-text"
+                      />
+                    </Grid>
+                    <Grid item md={12} sm={12} xs={12}>
+                      <TextField
+                        value={this.state.description}
+                        onChange={this.handleInputChange}
+                        id="descriptionItemField"
+                        name="descriptionItemField"
+                        htmlFor="descriptionItem"
+                        label="5. Description"
+                        helperText="Please give us little description about the item you found"
+                        fullWidth={true}
+                        required={true}
+                        multiline={true}
+                        rows="3"
+                        aria-describedby="description-found-helper-text"
+                        margin="normal"
+                      />
+                    </Grid>
+                    <Grid item md={12} sm={12} xs={12}>
+                      <TextField
+                        // className={classes.textfield}
+                        value={this.state.image}
+                        onChange={this.handleInputChange}
+                        id="imageItemField"
+                        name="imageItemField"
+                        label="6. Image (optional)"
+                        helperText="Please upload the image of the item you found in here"
+                        fullWidth={true}
+                        disabled={true}
+                        aria-describedby="image-found-helper-text"
+                        InputLabelProps={{
+                          shrink: true,
+                        }}
+                        accept="image/*"
+                        multiple
+                        type="file"
+                      />
+                      <Button variant="contained" color="default" component="span">
+                        Upload
+                          <CloudUploadIcon/>
+                      </Button>
+                    </Grid>
                 </form>
               </CardContent>
               <CardActions>

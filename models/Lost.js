@@ -14,6 +14,11 @@ const lostSchema = new Schema({
     required: true,
     trim: true
   },
+  lostPhoneNumber:{
+    type:Number,
+    required: true,
+    trim: true
+  },
   // lostCity: {
   //   type: String,
   //   required: true,
