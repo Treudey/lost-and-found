@@ -1,22 +1,18 @@
-import React,{Component} from "react";
-import MainButton from "../components/MainButton";
-import {Route,Link} from "react-router-dom"
-import "./Home.css";
+import React from 'react';
+import MainButton from '../components/MainButton';
+import { Route, Link } from 'react-router-dom'
+import './Home.css';
+import Typography from '@material-ui/core/Typography';
 
-
-class Home extends Component {
-  render(){
+export default function Home() {
   return (
-    <div>
-      <h1>Finders Keepers</h1>
-      <h2>The internet's most comprehensive lost & found web app</h2>
-      <div className="button-container">
-        <MainButton type="lost" />
-        <MainButton type="found" />
+    <React.Fragment>
+      <div className="left"></div>
+      <div className="right">
+        <Typography className='heading' variant='h4' align='center'>The internet's most comprehensive lost & found web app</Typography>
+        <MainButton className='button-container' type='lost' />
+        <MainButton type='found' />
       </div>
-    </div>
-  );
+    </React.Fragment>
+  )
 }
-}
-
-export default Home;

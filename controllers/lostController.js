@@ -5,9 +5,9 @@ module.exports = {
   findAll: function (req, res) {
     db.Lost
       .find()
-      .sort("-date")
+      .sort({ _id: -1 })
       .then(dbLost => res.json(dbLost))
-      .catch(err => res.status(422).json(err));
+      .catch(err => res.status(422).json(err)); 
   },
   //Find by keyword search- not sure what the field name is. Must be verified.
   //Implement text search and index material that is posted in db for searching purposes?
@@ -15,7 +15,7 @@ module.exports = {
     db.Lost
     //No clue if this will work
       .find({"search": {$regex: req.query.search, $option: "i"}})
-      .sort("-date")
+      .sort({ _id: -1 })
       .then(dbLost => res.json(dbLost))
       .catch(err => res.status(422).json(err));
   },

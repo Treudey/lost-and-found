@@ -1,18 +1,46 @@
-.title, .root {
-
+.title {
   flex-grow: 1;
 }
 
-#nav {
-  background-color: #00A6ED;
-}
-
-.title {
-  text-align: left;
-}
-
-.home-link {
+.homelink {
   text-decoration: none;
   color: inherit;
   font-weight: bold;
+  font-style: italic;
+  text-align: left;
+}
+
+.appBar {
+  background-color: #00A6ED!important;
+}
+
+.toolbar {
+  margin-top: 2rem;
+  margin-left: 0.5rem;
+  width: 240px;
+}
+
+.navigation {
+  color: white!important;
+  border-right-color: white;
+  border-right-style: solid;
+  padding-right: 1rem
+}
+
+@media screen and (min-width: 641px) {
+  .menuButton {
+    visibility: hidden;
+  }
+}
+
+/* MEDIA QUERIES */
+@media screen and (min-width: 320px) and (max-width: 642px) {
+  .drawer {
+    flex-shrink: 0;
+  } 
+  .navigation {
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+  }
 }

@@ -1,11 +1,22 @@
-.button {
-    position: relative;
-    margin: 1rem;
-    padding: 1rem;
+.buttonMain {
+    margin: 1rem 1rem 0.5rem 0.5rem!important;
     display: inline-block;
     text-align: center;
     text-decoration: none;
     border-radius: 5px;
-    color: white;
+    color: black;
     font-weight: bold;
+    font-family: "Roboto";
+    font-size:  16pt;
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .buttonMain {
+        margin: 0rem 0.5rem 0 0!important;
+    } 
+  }
+@media screen and (min-width: 320px) and (max-width: 481px) {
+    .buttonMain {
+        margin: 0 0 0.5rem 0!important;
+    } 
 }
