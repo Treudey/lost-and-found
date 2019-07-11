@@ -2,6 +2,16 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import ProfileContext from '../../context/profile/profileContext';
 
+// Material UI Imports
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+import { Card, CardContent, Grid } from '@material-ui/core/'
+import { withStyles} from '@material-ui/core/styles'
+
+
 const ProfileItem = ({ profile }) => {
   const profileContext = useContext(ProfileContext);
   const { deleteProfile, setCurrent, clearCurrent } = profileContext;
@@ -14,8 +24,9 @@ const ProfileItem = ({ profile }) => {
   };
 
   return (
-    <div className='card bg-light'>
-      <h3 className='text-primary text-left'>
+   
+      <div className='card formcard bg-light'>
+      <h3 className='text-success text-left'>
         {name}{' '}
         <span
           style={{ float: 'right' }}
@@ -28,19 +39,19 @@ const ProfileItem = ({ profile }) => {
         </span>
       </h3>
       <ul className='list'>
-        {email && (
+        <span className='text-danger'> Color:</span>{email && (
           <li>
              {email}
           </li>
         )}
 
-        {location && (
+      <span className='text-danger'> Location:</span>{location && (
           <li>
-             {location}
+            {location}
           </li>
         )}
 
-        {description && (
+      <span className='text-danger'> Description:</span>{description && (
           <li>
              {description}
           </li>
@@ -50,7 +61,7 @@ const ProfileItem = ({ profile }) => {
       </ul>
       <p>
         <button
-          className='btn btn-dark btn-sm'
+          className='btn btn-success btn-sm'
           onClick={() => setCurrent(profile)}
         >
           Edit

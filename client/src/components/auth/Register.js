@@ -8,6 +8,17 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+import { Card, CardContent, Grid } from '@material-ui/core/'
+import { withStyles} from '@material-ui/core/styles'
+
+
+
+
+const styles = theme=>({
+  containerMargin:{
+    marginTop:'80px',
+  },
+})
 
 const Register = props => {
   const alertContext = useContext(AlertContext);
@@ -15,6 +26,8 @@ const Register = props => {
 
   const { setAlert } = alertContext;
   const { register, error, clearErrors, isAuthenticated } = authContext;
+
+  const {classes} = props
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -53,85 +66,91 @@ const Register = props => {
       });
     }
   };
-
   return (
-    < Container component = "main"
-      maxWidth = "xs"
-      className = "form-wrapper" >
+    <Container component = "main" maxWidth = "xs" className={classes.containerMargin} >
     <CssBaseline />
-    <div>
-    <Typography component="h1" variant="h4">
-      Account Register
-    </Typography>
-      <form onSubmit={onSubmit}>
-        <TextField 
-          onChange={onChange}
-          value={name}
-          name='name'
-          label="username"
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          id="name"
-          autoFocus
-          type='text'
-        />
+      <Grid container>
+      <Grid item md={12} sm={12} xs={12}>
+        <Card className='card' >
+        <CardContent className='cardContent'>
+          <div>
+          <Typography component="h1" variant="h4">
+              Register
+          </Typography>
+                <form onSubmit={onSubmit}>
+              <TextField 
+                onChange={onChange}
+                value={name}
+                name='name'
+                label="username"
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                id="name"
+                autoFocus
+                type='text'
+              />
 
-        <TextField 
-          onChange={onChange}
-          value={email}
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          id="email"
-          label="Email Address"
-          name="email"
-          autoComplete="email"
-          autoFocus
-        />
+              <TextField 
+                onChange={onChange}
+                value={email}
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+                autoFocus
+              />
 
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-            value={password}
-            onChange={onChange}
-          />
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="current-password"
+                  value={password}
+                  onChange={onChange}
+                />
 
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password2"
-            label="Confirm Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-            value={password2}
-            onChange={onChange}
-          />
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  name="password2"
+                  label="Confirm Password"
+                  type="password"
+                  id="password"
+                  autoComplete="current-password"
+                  value={password2}
+                  onChange={onChange}
+                />
 
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            className="register"
-          >
-            Register
-        </Button>
-      </form>
-    </div>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  className="register"
+                >
+                  Register
+              </Button>
+            </form>
+          </div>
+        </CardContent>
+        </Card>
+      </Grid>
+      </Grid>
     </Container>
   );
 };
 
-export default Register;
+
+export default withStyles(styles)(Register);

@@ -4,6 +4,15 @@ import ProfileItem from './ProfileItem';
 import Spinner from '../layout/Spinner';
 import ProfileContext from '../../context/profile/profileContext';
 
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+import { Card, CardContent, Grid } from '@material-ui/core/'
+import { withStyles} from '@material-ui/core/styles'
+
+
 const Profiles = () => {
   const profileContext = useContext(ProfileContext);
 
@@ -20,31 +29,29 @@ const Profiles = () => {
 
   return (
     <Fragment>
-      {profiles !== null && !loading ? (
-        <TransitionGroup>
-          {filtered !== null
+      <Container>
+        <CssBaseline />
+          <Grid>
+              {profiles !== null && !loading ? (
+          filtered !== null
             ? filtered.map(profile => (
-                <CSSTransition
+                <div
                   key={profile._id}
-                  timeout={500}
                   classNames='item'
                 >
                   <ProfileItem profile={profile} />
-                </CSSTransition>
+                </div>
               ))
             : profiles.map(profile => (
-                <CSSTransition
-                  key={profile._id}
-                  timeout={500}
-                  classNames='item'
-                >
+              
                   <ProfileItem profile={profile} />
-                </CSSTransition>
-              ))}
-        </TransitionGroup>
+              ))
       ) : (
         <Spinner />
       )}
+          </Grid>
+      </Container>
+    
     </Fragment>
   );
 };

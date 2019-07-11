@@ -1,11 +1,15 @@
 import React, { useContext, useRef, useEffect } from 'react';
 import ProfileContext from '../../context/profile/profileContext';
 
+// Material UI Imports
+
+
 const ProfileFilter = () => {
   const profileContext = useContext(ProfileContext);
   const text = useRef('');
 
   const { filterProfiles, clearFilter, filtered } = profileContext;
+
 
   useEffect(() => {
     if (filtered === null) {
@@ -22,13 +26,13 @@ const ProfileFilter = () => {
   };
 
   return (
-    <form>
-      <input
-        ref={text}
-        type='text'
-        placeholder='Filter Profiles...'
-        onChange={onChange}
-      />
+    <form className="form">
+    <input
+      ref={text}
+      type='text'
+      placeholder='Lookup your posting here'
+      onChange={onChange}
+    />
     </form>
   );
 };

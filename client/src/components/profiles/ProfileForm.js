@@ -2,24 +2,10 @@ import React, { useState, useContext, useEffect } from 'react';
 import ProfileContext from '../../context/profile/profileContext';
 
 //Material UI Imports
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
-import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-import CloudUploadIcon from '@material-ui/icons/CloudUpload';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import ListItem from '@material-ui/core/ListItem'
-import List from '@material-ui/core/List'
-import ListItemText from '@material-ui/core/ListItemText'
-import ListItemAvatar from '@material-ui/core/ListItemAvatar'
-import Avatar from '@material-ui/core/Avatar'
-import Divider from '@material-ui/core/Divider'
 import { spacing } from '@material-ui/system';
+
+import { Button, Card, CardContent, Container, CssBaseline, Grid, TextField, Typography } from '@material-ui/core/'
 
 //Styles
 const useStyles = makeStyles(theme => ({
@@ -95,6 +81,7 @@ const ProfileForm = () => {
 
   const { addProfile, updateProfile, clearCurrent, current } = profileContext;
 
+
   useEffect(() => {
     if (current !== null) {
       setProfile(current);
@@ -137,16 +124,13 @@ const ProfileForm = () => {
   };
 
   return (
-
     <React.Fragment>
+      <div className='formcontainer'>
       <Container>
-        <Grid container>
+        <Grid >
           <Grid item md={12} sm={12} xs={12}>
-            <Card>
+            <Card classname="formcard" >
               <CardContent>
-                <Typography component="h1" variant="h4" align="left" gutterBottom>
-                  You can see your searching history here
-                </Typography>
                 <h2>{current ? 'Edit Item' : 'Add Item'}</h2>
                 <form validate autoComplete="off" onSubmit={onSubmit}>
                   <Grid item md={12} sm={12} xs={12}>
@@ -221,7 +205,7 @@ const ProfileForm = () => {
                       <input
                         type='submit'
                         value={current ? 'Update Profile' : 'Add Profile'}
-                        className='btn btn-primary btn-block'
+                        className='btn btn-success btn-block'
                       />
                     </div>
                     {current && (
@@ -237,6 +221,7 @@ const ProfileForm = () => {
           </Grid>
         </Grid>
       </Container>
+      </div>
     </React.Fragment>
   );
 };
