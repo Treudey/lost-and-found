@@ -15,6 +15,8 @@ import './lost.css';
 class Lost extends Component {
   state = {
     items: [],
+    matchedItemsTitle:[],
+    matchedItemsLocation:[],
     title: "",
     contact: "",
     color: "",
@@ -37,6 +39,29 @@ class Lost extends Component {
         this.setState({ items: res.data, title: "", color: "", location: "", description: "", image: "", date: "" })
       )
       .catch(err => console.log(err));
+  };
+
+  loadMatchedItems = () => {
+    var matchedArrayTitle=[];
+    var matchedArrayLocation=[];
+    var foundArray = this.state.items;
+    
+    for(var i=0; i<foundArray.length;i++)
+      {
+        if(foundArray[i].foundTitle.toString().toUpperCase()===this.state.title.toString().toUpperCase())
+        {
+          matchedArrayTitle.push(foundArray[i]);
+          console.log("found Title");
+        }
+
+        if(foundArray[i].foundLocation.toString().substr(0,3).toUpperCase() ===this.state.location.toString().substr(0,3).toUpperCase())
+        {
+          matchedArrayLocation.push(foundArray[i]);
+          console.log("found Location");
+        }
+      }
+      this.setState({matchedItemsTitle:matchedArrayTitle});
+      this.setState({matchedItemsLocation:matchedArrayLocation});
   };
 
   // Handles updating component state when the user types into the input field
@@ -89,13 +114,14 @@ class Lost extends Component {
         lostImage: this.state.image,
         lostDate: this.state.date
       })
-        .then(res => this.loadItems())
+        .then(res => this.loadItems(), this.loadMatchedItems())
         .catch(err => console.log(err));
     }
   };
 
 
   render() {
+    console.log(this.state);
     return (
       <React.Fragment>
         <Header type='lost' />
@@ -109,7 +135,7 @@ class Lost extends Component {
                   </Typography>
                   <form noValidate autoComplete='off'>
                     <Grid item sm={12} xs={12} className='grid'>
-                      <TextField
+                    {/*   <TextField
                         onChange={this.handleInputChange}
                         id='search'
                         style={{ margin: 8 }}
@@ -125,7 +151,7 @@ class Lost extends Component {
                             </InputAdornment>
                           ),
                         }}
-                      />
+                      /> */}
                       <Grid item md={12} sm={12} xs={12} className='grid'>
                         <TextField
                           value={this.state.title}
@@ -226,7 +252,7 @@ class Lost extends Component {
                         <CloudUploadIcon className='rightIcon' />
                         </Button>
                       </Grid>
-                      <Button variant='contained' className='button'>
+                      <Button variant='contained' className='button' onClick={this.handleFormSubmit}>
                         Search
                     </Button>
                     </Grid>
@@ -239,9 +265,76 @@ class Lost extends Component {
             <Grid item md={12} sm={12} xs={12}>
               <Card>
                 <CardContent className='cardContent'>
+                  
+                {/* Match found function to retrieve matched items and output it on front end */}
+                {this.state.matchedItemsTitle.map(item => {
+                    return (
+                      <List>
+                        <ListItem alignItems="flex-start">
+                          <ListItemAvatar>
+                            <Avatar alt="Remy Sharp" src="https://www.supervia.com.br/sites/default/files/achados_perdidos.jpg" />
+                          </ListItemAvatar>
+                          <ListItemText
+                             primary={<b><i>Found Item That Matches Your Title:</i> {item.foundTitle.toString().toUpperCase()}</b>}
+                             secondary={
+                               <React.Fragment>
+                                 <Typography
+                                   component="span"
+                                   variant="body2"
+                                   color="textPrimary"
+                                 >
+                                   <b>Location:</b> {item.foundLocation} <b>Date:</b> {item.createdAt.toString().substring(0,10)} <b>Contact#:</b> {item.foundPhoneNumber}
+                                 </Typography>
+                                 --- {item.foundDescription}
+                              </React.Fragment>
+                            }
+                          />
+                        </ListItem>
+                        <Divider variant="inset" component="li" />
+                      </List>
+                    );
+                  })} 
+
+                
+                {/* Match found function to retrieve matched items by the location and output it on front end */}
+                {this.state.matchedItemsLocation.map(item => {
+                    return (
+                      <List>
+                        <ListItem alignItems="flex-start">
+                          <ListItemAvatar>
+                            <Avatar alt="Remy Sharp" src="https://www.supervia.com.br/sites/default/files/achados_perdidos.jpg" />
+                          </ListItemAvatar>
+                          <ListItemText
+                             primary={<b><i>Found Item That Matches Your Location:</i> {item.foundTitle.toString().toUpperCase()}</b>}
+                             secondary={
+                               <React.Fragment>
+                                 <Typography
+                                   component="span"
+                                   variant="body2"
+                                   color="textPrimary"
+                                 >
+                                   <b>Location:</b> {item.foundLocation} <b>Date:</b> {item.createdAt.toString().substring(0,10)} <b>Contact#:</b> {item.foundPhoneNumber}
+                                 </Typography>
+                                 --- {item.foundDescription}
+                              </React.Fragment>
+                            }
+                          />
+                        </ListItem>
+                        <Divider variant="inset" component="li" />
+                      </List>
+                    );
+                  })} 
+
+
+                  {/* <Divider variant="inset" component="li" /> */}
+
+                  {/* Retrieve Found items and output it on front end */}
+                  
+
                   <Typography className='h4' component='h1' variant='h4' align='center' gutterBottom>
-                    Search Results For Found Items
+                    Search Results For All Found Items 
                   </Typography>
+                  
                   {this.state.items.map(item => {
                     return (
                       <List>
@@ -250,17 +343,17 @@ class Lost extends Component {
                             <Avatar alt="Remy Sharp" src="https://www.supervia.com.br/sites/default/files/achados_perdidos.jpg" />
                           </ListItemAvatar>
                           <ListItemText
-                            primary={item.foundTitle}
-                            secondary={
-                              <React.Fragment>
-                                <Typography
-                                  component="span"
-                                  variant="body2"
-                                  color="textPrimary"
-                                >
-                                  Location: {item.foundLocation} Date: {item.foundDate}
-                                </Typography>
-                                --- {item.foundDescription}
+                             primary={<b>{item.foundTitle.toString().toUpperCase()}</b>}
+                             secondary={
+                               <React.Fragment>
+                                 <Typography
+                                   component="span"
+                                   variant="body2"
+                                   color="textPrimary"
+                                 >
+                                   <b>Location:</b> {item.foundLocation} <b>Date:</b> {item.createdAt.toString().substring(0,10)} <b>Contact#:</b> {item.foundPhoneNumber}
+                                 </Typography>
+                                 --- {item.foundDescription}
                               </React.Fragment>
                             }
                           />
@@ -268,7 +361,7 @@ class Lost extends Component {
                         <Divider variant="inset" component="li" />
                       </List>
                     );
-                  })}
+                  })} 
                 </CardContent>
               </Card>
             </Grid>

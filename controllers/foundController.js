@@ -5,7 +5,7 @@ module.exports = {
   findAll: function (req, res) {
     db.Found
       .find()
-      .sort("-date")
+      .sort({ _id: -1 })
       .then(dbFound => res.json(dbFound))
       .catch(err => res.status(422).json(err));
   },
@@ -15,7 +15,7 @@ module.exports = {
     db.Found
     //No clue if this will work
       .find({"search": {$regex: req.query.search, $option: "i"}})
-      .sort("-date")
+      .sort({ _id: -1 })
       .then(dbFound => res.json(dbFound))
       .catch(err => res.status(422).json(err));
   },
