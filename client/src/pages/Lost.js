@@ -53,19 +53,24 @@ class Lost extends Component {
         if(foundArray[i].foundTitle.toString().toUpperCase()===this.state.title.toString().toUpperCase() && foundArray[i].foundLocation.toString().substr(0,3).toUpperCase() ===this.state.location.toString().substr(0,3).toUpperCase())
         {
           matchedArrayTitleLocation.push(foundArray[i]);
-          console.log("found Title");
+          foundArray.splice(i,1);
+          console.log("found Title",foundArray);
         }
 
         if(foundArray[i].foundTitle.toString().toUpperCase()===this.state.title.toString().toUpperCase())
         {
           matchedArrayTitle.push(foundArray[i]);
           console.log("found Title");
+          foundArray.splice(i,1);
+          console.log("found Title",foundArray);
         }
 
         if(foundArray[i].foundLocation.toString().substr(0,3).toUpperCase() ===this.state.location.toString().substr(0,3).toUpperCase())
         {
           matchedArrayLocation.push(foundArray[i]);
           console.log("found Location");
+          foundArray.splice(i,1);
+          console.log("found Title",foundArray);
         }
       }
       this.setState({matchedItemsTitleLocation:matchedArrayTitleLocation});
