@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from 'react';
-import Profiles from '../profiles/Profiles';
-import ProfileForm from '../profiles/ProfileForm';
-import ProfileFilter from '../profiles/ProfileFilter';
-import AuthContext from '../../context/auth/authContext';
+import Profiles from '../components/profiles/Profiles';
+import ProfileForm from '../components/profiles/ProfileForm';
+import ProfileFilter from '../components/profiles/ProfileFilter';
+import AuthContext from '../context/auth/authContext';
 
 const Profilepg = () => {
   const authContext = useContext(AuthContext);

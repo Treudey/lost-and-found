@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import AuthContext from '../../context/auth/authContext';
 import ProfileContext from '../../context/profile/profileContext';
 
-
 //Material UI
 import {
   AppBar, Button, CssBaseline, Divider, Drawer, Hidden, IconButton, List, ListItem, Toolbar, Typography
@@ -55,19 +54,11 @@ const Navbar =({title})=> {
     const authLinks = (
       <Fragment>
         <Button>
-        <ListItem
-          component={Link}
-          to="/profile" size="large" color="white">Hello {user && user.name}
-        </ListItem>
+          <Linkm className="navigation" component={Link} to="/profile" size="medium">Hello {user && user.name}</Linkm>
         </Button>
 
         <Button>
-        <ListItem
-          component={Link}
-          onClick={onLogout}
-          href='#!' 
-          size='large'
-          color="white">Logout</ListItem>
+          <Linkm className="navigation" onClick={onLogout} component={Link} to="#!" size="medium">Logout</Linkm>
         </Button>
       </Fragment>
     )

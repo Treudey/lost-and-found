@@ -22,9 +22,8 @@
 
 .navigation {
   color: white!important;
-  border-right-color: white;
-  border-right-style: solid;
-  padding-right: 1rem
+  padding-right: .5rem;
+  padding-left: .5rem;
 }
 
 @media screen and (min-width: 641px) {

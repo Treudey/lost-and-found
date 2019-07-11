@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
-import Profilepg from "./components/pages/Profilepg";
+import Profilepg from "./pages/Profilepg";
 import Lost from "./pages/Lost";
 import Found from "./pages/Found";
 import NoMatch from "./pages/NoMatch";
@@ -35,8 +35,8 @@ const App =()=> {
               <Navbar />
               <div className='container'>
                 <Switch>
-                  <PrivateRoute exact path='/profile' component={Profilepg}/>
                   <Route exact path="/" component={Home} />
+                  <PrivateRoute exact path='/profile' component={Profilepg}/>
                   <Route exact path='/register' component={Register} />
                   <Route exact path='/login' component={Login} />
                    {/* Please double check Route for seatch & found */}
