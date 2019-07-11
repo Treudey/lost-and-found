@@ -110,6 +110,8 @@ class Found extends Component {
                   <form noValidate autoComplete='off'>
                     <Grid item md={12} sm={12} xs={12} className='grid'>
                       <TextField
+                        value={this.state.title}
+                        onChange={this.handleInputChange}
                         id='titleItemField'
                         htmlFor='titleItem'
                         label='1. Title'
@@ -120,10 +122,27 @@ class Found extends Component {
                       />
                     </Grid>
                     <Grid item md={12} sm={12} xs={12} className='grid'>
+
+                        <TextField
+                          value={this.state.contact}
+                          onChange={this.handleInputChange}
+                          id="contactItemField"
+                          name="contactItemField"
+                          htmlFor="contactItem"
+                          label="2. Contact Number"
+                          helperText="Please provide a your contact number where person can reach you"
+                          fullWidth
+                          required
+                          aria-describedby="contact-lost-helper-text"
+                        />
+                      </Grid>
+                    <Grid item md={12} sm={12} xs={12} className='grid'>
                     <TextField
+                        value={this.state.location}
+                        onChange={this.handleInputChange}
                         id='locationItemField'
                         htmlFor='locationItem'
-                        label='2. Postal Code'
+                        label='3. Postal Code'
                         helperText='Please share (or copy & paste) the postal code where you found the item by dragging pin on the map below'
                         fullWidth={true}
                         required={true}
@@ -138,9 +157,11 @@ class Found extends Component {
                     </Grid>
                     <Grid item md={12} sm={12} xs={12} className='grid'>
                       <TextField
+                        value={this.state.color}
+                        onChange={this.handleInputChange}
                         id='colorItemField'
                         htmlFor='colorItem'
-                        label='3. Colour'
+                        label='4. Colour'
                         helperText='Please share the colour(s) of the item you found'
                         fullWidth={true}
                         required={true}
@@ -149,9 +170,11 @@ class Found extends Component {
                     </Grid>
                     <Grid item md={12} sm={12} xs={12} className='grid'>
                       <TextField
+                        value={this.state.description}
+                        onChange={this.handleInputChange}
                         id='descriptionItemField'
                         htmlFor='descriptionItem'
-                        label='4. Description'
+                        label='5. Description'
                         helperText='Please give us little description about the item you found'
                         fullWidth={true}
                         required={true}
@@ -163,9 +186,11 @@ class Found extends Component {
                     </Grid>
                     <Grid item md={12} sm={12} xs={12} className='grid'>
                       <TextField
+                        value={this.state.image}
+                        onChange={this.handleInputChange}
                         className='textfield'
                         id='imageItemField'
-                        label='5. Image'
+                        label='6. Image'
                         helperText='Please upload the image of the item you found in here'
                         fullWidth={true}
                         disabled={true}
@@ -184,7 +209,7 @@ class Found extends Component {
                     </Grid>
                   </form>
                 </CardContent>
-                <CardActions> <Button className='sendButton' variant='contained'>Send
+                <CardActions> <Button className='sendButton' variant='contained' onClick={this.handleFormSubmit}>Send
                       <Icon className='rightIcon'>send</Icon>
                 </Button>
                 </CardActions>
@@ -200,7 +225,7 @@ class Found extends Component {
                           <Avatar alt="Remy Sharp" src="https://www.supervia.com.br/sites/default/files/achados_perdidos.jpg" />
                         </ListItemAvatar>
                         <ListItemText
-                          primary={item.lostTitle}
+                          primary={<b>{item.lostTitle.toString().toUpperCase()}</b>}
                           secondary={
                             <React.Fragment>
                               <Typography
@@ -208,7 +233,7 @@ class Found extends Component {
                                 variant="body2"
                                 color="textPrimary"
                               >
-                                Location: {item.lostLocation} Date: {item.lostDate}
+                                <b>Location:</b> {item.lostLocation} <b>Date:</b> {item.createdAt.toString().substring(0,10)} <b>Contact#:</b> {item.lostPhoneNumber}
                               </Typography>
                               --- {item.lostDescription}
                             </React.Fragment>
