@@ -15,6 +15,7 @@ import './lost.css';
 class Lost extends Component {
   state = {
     items: [],
+    matchedItemsTitleLocation:[],
     matchedItemsTitle:[],
     matchedItemsLocation:[],
     title: "",
@@ -42,12 +43,19 @@ class Lost extends Component {
   };
 
   loadMatchedItems = () => {
+    var matchedArrayTitleLocation=[];
     var matchedArrayTitle=[];
     var matchedArrayLocation=[];
     var foundArray = this.state.items;
     
     for(var i=0; i<foundArray.length;i++)
       {
+        if(foundArray[i].foundTitle.toString().toUpperCase()===this.state.title.toString().toUpperCase() && foundArray[i].foundLocation.toString().substr(0,3).toUpperCase() ===this.state.location.toString().substr(0,3).toUpperCase())
+        {
+          matchedArrayTitleLocation.push(foundArray[i]);
+          console.log("found Title");
+        }
+
         if(foundArray[i].foundTitle.toString().toUpperCase()===this.state.title.toString().toUpperCase())
         {
           matchedArrayTitle.push(foundArray[i]);
@@ -60,6 +68,7 @@ class Lost extends Component {
           console.log("found Location");
         }
       }
+      this.setState({matchedItemsTitleLocation:matchedArrayTitleLocation});
       this.setState({matchedItemsTitle:matchedArrayTitle});
       this.setState({matchedItemsLocation:matchedArrayLocation});
   };
@@ -265,7 +274,35 @@ class Lost extends Component {
             <Grid item md={12} sm={12} xs={12}>
               <Card>
                 <CardContent className='cardContent'>
-                  
+                {/* Match found function to retrieve matched items by title & location and output it on front end */}
+                {this.state.matchedItemsTitleLocation.map(item => {
+                    return (
+                      <List>
+                        <ListItem alignItems="flex-start">
+                          <ListItemAvatar>
+                            <Avatar alt="Remy Sharp" src="https://www.supervia.com.br/sites/default/files/achados_perdidos.jpg" />
+                          </ListItemAvatar>
+                          <ListItemText
+                             primary={<b><i>Found Item That Matches Your Title and Location:</i> {item.foundTitle.toString().toUpperCase()}</b>}
+                             secondary={
+                               <React.Fragment>
+                                 <Typography
+                                   component="span"
+                                   variant="body2"
+                                   color="textPrimary"
+                                 >
+                                   <b>Location:</b> {item.foundLocation} <b>Date:</b> {item.createdAt.toString().substring(0,10)} <b>Contact#:</b> {item.foundPhoneNumber}
+                                 </Typography>
+                                 --- {item.foundDescription}
+                              </React.Fragment>
+                            }
+                          />
+                        </ListItem>
+                        <Divider variant="inset" component="li" />
+                      </List>
+                    );
+                  })} 
+
                 {/* Match found function to retrieve matched items and output it on front end */}
                 {this.state.matchedItemsTitle.map(item => {
                     return (
