@@ -34,7 +34,6 @@ const App =()=> {
             <Fragment>
               <Navbar />
               <div className='container'>
-                <Alerts />
                 <Switch>
                   <PrivateRoute exact path='/profile' component={Profilepg}/>
                   <Route exact path="/" component={Home} />

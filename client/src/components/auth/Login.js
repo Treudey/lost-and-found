@@ -1,6 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react';
 import AuthContext from '../../context/auth/authContext';
 import AlertContext from '../../context/alert/alertContext';
+import Alerts from '../layout/Alerts';
+
 
 // Material UI Imports
 import { Button, Card, CardContent, Container, CssBaseline, Grid, TextField, Typography } from '@material-ui/core/'
@@ -60,6 +62,7 @@ const Login = props => {
       <Grid container>
         <Grid item md={12} sm={12} xs={12}>
           <Card className='card'>
+            <Alerts />
             <CardContent className='cardContent'>
               <div>
               <Typography component="h1" variant="h4">
