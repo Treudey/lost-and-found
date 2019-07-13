@@ -13,6 +13,7 @@
 .right{
     width:50%;
     float:right;
+    text-align:center; 
     margin-top: 15rem;
     padding: 0 2rem 0 2rem
 }
