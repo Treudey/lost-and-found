@@ -35,6 +35,7 @@ class Lost extends Component {
 
   // Loads all items and sets them to this.state.items
   loadItems = () => {
+    this.setState({ items: []})
     API.getFoundItems()
       .then(res =>
         this.setState({ items: res.data, title: "", color: "", location: "", description: "", image: "", date: "" })
