@@ -13,7 +13,8 @@
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build",
-    "coveralls": "jest --coverage && cat ./tests/coverage/lcov.info | coveralls"
+    "coveralls": "jest --coverage && cat ./tests/coverage/lcov.info | coveralls",
+    "test": "jest --watchALL"
   },
   "repository": {
     "type": "git",
@@ -48,6 +49,7 @@
   "devDependencies": {
     "concurrently": "^4.1.1",
     "coveralls": "^3.0.5",
+    "jest": "^24.8.0",
     "nodemon": "^1.19.1"
   }
 }
