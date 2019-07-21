@@ -8,8 +8,23 @@ const Profile = require('../models/Profile');
 
 //GET api/profiles
 //Get all users profiles
+//Public
+router.get('/', async (req, res) => {
+  try {
+    const profiles = await Profile.find().sort({
+      date: -1
+    });
+    res.json(profiles);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+//GET api/profiles/user
+//Get all users profiles
 //Private
-router.get('/', auth, async (req, res) => {
+router.get('/user', auth, async (req, res) => {
   try {
     const profiles = await Profile.find({ user: req.user.id }).sort({
       date: -1
@@ -40,15 +55,11 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name, email, type,location,description } = req.body;
+    req.body.foundPhoneNumber = parseInt(req.body.foundPhoneNumber);
 
     try {
       const newProfile = new Profile({
-        name,
-        email,
-        type,
-        location,
-        description,
+        ...req.body,
         user: req.user.id
       });
 
@@ -66,15 +77,17 @@ router.post(
 // Update profile
 // Private
 router.put('/:id', auth, async (req, res) => {
-  const { name, email, type,location,description } = req.body;
+  const {foundTitle, foundPhoneNumber, foundDate, foundColor, foundLocation, foundDescription, foundImage } = req.body;
 
   // Build profile object
   const profileFields = {};
-  if (name) profileFields.name = name;
-  if (email) profileFields.email = email;
-  if (type) profileFields.type = type;
-  if (location) profileFields.location = location;
-  if (description) profileFields.description = description;
+  if (foundTitle) profileFields.foundTitle = foundTitle;
+  if (foundPhoneNumber) profileFields.foundPhoneNumber = parseInt(foundPhoneNumber);
+  if (foundDate) profileFields.foundDate = foundDate;
+  if (foundColor) profileFields.foundColor = foundColor;
+  if (foundLocation) profileFields.foundLocation = foundLocation;
+  if (foundDescription) profileFields.foundDescription = foundDescription;
+  if (foundImage) profileFields.foundImage = foundImage;
 
   try {
     let profile = await Profile.findById(req.params.id);

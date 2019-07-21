@@ -5,27 +5,36 @@ const ProfileSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'users'
   },
-  name: {
+  foundTitle: {
     type: String,
-    required: true
+    required: true,
+    trim: true
   },
-  email: {
-    type: String,
-    required: true
+  foundPhoneNumber:{
+    type:Number,
+    required: true,
+    trim: true
   },
-  type: {
-    type: String,
-    default: 'lost'
-  },
-  date: {
+  foundDate: {
     type: Date,
     default: Date.now
   },
-  location:{
-    type: String
+  foundColor:{
+    type:String,
+    required: true,
+    trim: true
   },
-  description:{
-    type: String
+  foundLocation:{
+    type:String,
+    required: true,
+    trim: true
+  },
+  foundDescription: {
+    type: String,
+    required: true
+  },
+  foundImage: {
+    type: String,
   }
 });
 

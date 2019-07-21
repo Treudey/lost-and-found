@@ -12,11 +12,11 @@ app.use(express.json({ extended: false }));
 
 
 // Define Routes
-app.use('/api/users',require('./routes/Users'));
+app.use('/api/users', require('./routes/Users'));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/profiles', require('./routes/profiles'));
-app.use('/api/found',require('./routes/api/found'));
-app.use('/api/lost',require('./routes/api/lost'));
+app.use('/api/found', require('./routes/api/found'));
+app.use('/api/lost', require('./routes/api/lost'));
 
 //for heroku
 if (process.env.NODE_ENV === "production") {

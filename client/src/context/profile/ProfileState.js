@@ -28,7 +28,7 @@ const ProfileState = props => {
   // Get 
   const getProfiles = async () => {
     try {
-      const res = await axios.get('/api/profiles');
+      const res = await axios.get('/api/profiles/user');
 
       dispatch({
         type: GET_PROFILES,

@@ -5,21 +5,20 @@ const Schema = mongoose.Schema
 
 const foundSchema = new Schema({
   foundLocation:{
-    type:String,
+    type: String,
     required: true,
     trim: true
   },
   foundColor:{
-    type:String,
+    type: String,
     required: true,
     trim: true
   },
   foundPhoneNumber:{
-    type:Number,
+    type: Number,
     required: true,
     trim: true
   },
-  
   foundTitle: {
     type: String,
     required: true,
@@ -38,7 +37,7 @@ const foundSchema = new Schema({
   }
 })
 
-foundSchema.set("timestamps", true)
+foundSchema.set("timestamps", true);
 
 const Found = mongoose.model("Found", foundSchema)
 

@@ -1,13 +1,17 @@
 import React, { useState, useContext, useEffect } from 'react';
 import ProfileContext from '../../context/profile/profileContext';
+import Maps from '../Map'
 
 //Material UI Imports
+
 import { makeStyles } from '@material-ui/core/styles';
 import { spacing } from '@material-ui/system';
 
-import { Button, Card, CardContent, Container, CssBaseline, Grid, TextField, Typography } from '@material-ui/core/'
+import { Button, Card, CardActions, CardContent, Grid, Icon, TextField, Typography } from '@material-ui/core/';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 
 //Styles
+/*
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -74,9 +78,9 @@ const useStyles = makeStyles(theme => ({
   },
 
 }));
+*/
 
-
-const ProfileForm = () => {
+const ProfileForm = (props) => {
   const profileContext = useContext(ProfileContext);
 
   const { addProfile, updateProfile, clearCurrent, current } = profileContext;
@@ -87,30 +91,36 @@ const ProfileForm = () => {
       setProfile(current);
     } else {
       setProfile({
-        name: '',
-        email: '',
-        type: 'lost',
-        location:'',
-        description:''
+        foundTitle: '',
+        foundPhoneNumber: '',
+        foundColor: '',
+        foundLocation: '',
+        foundDescription: '',
+        foundImage: '',
+        foundDate: ''
       });
     }
   }, [profileContext, current]);
 
   const [profile, setProfile] = useState({
-    name: '',
-    email: '',
-    type: 'lost',
-    location:'',
-    description:''
+    foundTitle: '',
+    foundPhoneNumber: '',
+    foundColor: '',
+    foundLocation: '',
+    foundDescription: '',
+    foundImage: '',
+    foundDate: ''
   });
 
-  const { name, email, type,location,description } = profile;
+  const {foundTitle, foundPhoneNumber, foundDate, foundColor, foundLocation, foundDescription, foundImage } = profile;
 
   const onChange = e =>
     setProfile({ ...profile, [e.target.name]: e.target.value });
 
   const onSubmit = e => {
     e.preventDefault();
+    console.log("handleformsubmit:");
+    console.log(profile);
     if (current === null) {
       addProfile(profile);
     } else {
@@ -124,105 +134,122 @@ const ProfileForm = () => {
   };
 
   return (
-    <React.Fragment>
-      <div className='formcontainer'>
-      <Container>
-        <Grid >
-          <Grid item md={12} sm={12} xs={12}>
-            <Card classname="formcard" >
-              <CardContent>
-                <h2>{current ? 'Edit Item' : 'Add Item'}</h2>
-                <form validate autoComplete="off" onSubmit={onSubmit}>
-                  <Grid item md={12} sm={12} xs={12}>
-                    <TextField
-                      value={name}
-                      onChange={onChange}
-                      name='name'
-                      label='Item'
-                      helperText='Please tell us what you found or lost'
-                      fullWidth
-                      required
-                      aria-describedby="title-helper-text"
-                    />
-                  </Grid>
-
-                  <Grid item md={12} sm={12} xs={12}>
-                    <TextField
-                      value={email}
-                      onChange={onChange}
-                      name='email'
-                      label='Color'
-                      helperText='Please tell us what color is the item'
-                      fullWidth
-                      required
-                      aria-describedby="item-helper-text"
-                    />
-                  </Grid>
-
-                  <Grid item md={12} sm={12} xs={12}>
-                    <TextField
-                      value={location}
-                      onChange={onChange}
-                      name='location'
-                      label='location'
-                      helperText='Please tell us where you found it'
-                      fullWidth
-                      required
-                      aria-describedby="location-helper-text"
-                    />
-                  </Grid>
-
-                  <Grid item md={12} sm={12} xs={12}>
-                    <TextField
-                      value={description}
-                      onChange={onChange}
-                      name='description'
-                      label='description'
-                      helperText='Please give us more details'
-                      fullWidth
-                      required
-                      aria-describedby="description-helper-text"
-                    />
-                  </Grid>
-                  <h5>Item Type</h5>
-                    <input
-                      type='radio'
-                      name='type'
-                      value='lost'
-                      checked={type === 'lost'}
-                      onChange={onChange}
-                    />{' '}
-                    Lost{' '}
-                    <input
-                      type='radio'
-                      name='type'
-                      value='found'
-                      checked={type === 'found'}
-                      onChange={onChange}
-                    />{' '}
-                    Found
-                    <div>
-                      <input
-                        type='submit'
-                        value={current ? 'Update Profile' : 'Add Profile'}
-                        className='btn btn-success btn-block'
-                      />
-                    </div>
-                    {current && (
-                      <div>
-                        <button className='btn btn-light btn-block' onClick={clearAll}>
-                          Clear
-                        </button>
-                      </div>
-                    )}
-                  </form>
-              </CardContent>
-            </Card>
+    <Card className="card">
+      <CardContent className="cardContent">
+        <Typography component="h1" variant="h4" className='h4' gutterBottom>
+          Tell us a bit about the item you found
+          </Typography>
+        <form noValidate autoComplete='off'>
+          <Grid item md={12} sm={12} xs={12} className='grid'>
+            <TextField
+              value={foundTitle}
+              onChange={onChange}
+              name='foundTitle'
+              id='titleItemField'
+              htmlFor='titleItem'
+              label='1. Title'
+              helperText='Please provide a title for the item you found'
+              fullWidth
+              required
+              aria-describedby='title-found-helper-text'
+            />
           </Grid>
-        </Grid>
-      </Container>
-      </div>
-    </React.Fragment>
+          <Grid item md={12} sm={12} xs={12} className='grid'>
+              <TextField
+                value={foundPhoneNumber}
+                onChange={onChange}
+                name='foundPhoneNumber'
+                id="contactItemField"
+                htmlFor="contactItem"
+                label="2. Contact Number"
+                helperText="Please provide a your contact number where person can reach you"
+                fullWidth
+                required
+                aria-describedby="contact-lost-helper-text"
+              />
+            </Grid>
+          <Grid item md={12} sm={12} xs={12} className='grid'>
+          <TextField
+              value={foundLocation}
+              onChange={onChange}
+              name='foundLocation'
+              id='locationItemField'
+              htmlFor='locationItem'
+              label='3. Postal Code'
+              helperText='Please share (or copy & paste) the postal code where you found the item by dragging pin on the map below'
+              fullWidth={true}
+              required={true}
+              aria-describedby='location-found-helper-text'
+            />
+            <Maps
+              google={props.google}
+              center={{ lat: 43.662609, lng: -79.397849 }}
+              height='300px'
+              zoom={15}
+            />
+          </Grid>
+          <Grid item md={12} sm={12} xs={12} className='grid'>
+            <TextField
+              value={foundColor}
+              onChange={onChange}
+              name='foundColor'
+              id='colorItemField'
+              htmlFor='colorItem'
+              label='4. Colour'
+              helperText='Please share the colour(s) of the item you found'
+              fullWidth={true}
+              required={true}
+              aria-describedby='color-found-helper-text'
+            />
+          </Grid>
+          <Grid item md={12} sm={12} xs={12} className='grid'>
+            <TextField
+              value={foundDescription}
+              onChange={onChange}
+              name='foundDescription'
+              id='descriptionItemField'
+              htmlFor='descriptionItem'
+              label='5. Description'
+              helperText='Please give us little description about the item you found'
+              fullWidth={true}
+              required={true}
+              multiline={true}
+              rows='3'
+              aria-describedby='description-found-helper-text'
+              margin='normal'
+            />
+          </Grid>
+          <Grid item md={12} sm={12} xs={12} className='grid'>
+            <TextField
+              value={foundImage}
+              onChange={onChange}
+              name='foundImage'
+              className='textfield'
+              id='imageItemField'
+              label='6. Image'
+              helperText='Please upload the image of the item you found in here'
+              fullWidth={true}
+              disabled={true}
+              aria-describedby='image-found-helper-text'
+              InputLabelProps={{
+                shrink: true,
+              }}
+              accept='image/*'
+              multiple
+              type='file'
+            />
+            <Button variant='contained' color='default' className='buttonUpload'>
+              Upload
+              <CloudUploadIcon className='rightIcon' />
+            </Button>
+          </Grid>
+        </form>
+      </CardContent>
+      <CardActions> <Button className='sendButton' variant='contained' onClick={onSubmit}>Send
+            <Icon className='rightIcon'>send</Icon>
+      </Button>
+      </CardActions>
+    </Card>
   );
 };
 
