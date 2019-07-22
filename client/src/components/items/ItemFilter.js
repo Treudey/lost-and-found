@@ -1,14 +1,14 @@
 import React, { useContext, useRef, useEffect } from 'react';
-import ProfileContext from '../../context/profile/profileContext';
+import ItemContext from '../../context/item/itemContext';
 
 // Material UI Imports
 
 
-const ProfileFilter = () => {
-  const profileContext = useContext(ProfileContext);
+const ItemFilter = () => {
+  const itemContext = useContext(ItemContext);
   const text = useRef('');
 
-  const { filterProfiles, clearFilter, filtered } = profileContext;
+  const { filterItems, clearFilter, filtered } = itemContext;
 
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const ProfileFilter = () => {
 
   const onChange = e => {
     if (text.current.value !== '') {
-      filterProfiles(e.target.value);
+      filterItems(e.target.value);
     } else {
       clearFilter();
     }
@@ -37,4 +37,4 @@ const ProfileFilter = () => {
   );
 };
 
-export default ProfileFilter;
+export default ItemFilter;

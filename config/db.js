@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
-// const config = require('config');
-// const db = config.get('mongoURI');
+const config = require('config');
+const db = config.get('mongoURI');
 
 const connectDB = async () => {
-  const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/lostandfound';
+  // const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/lostandfound';
   try {
-    await mongoose.connect(mongoURI, {
+    await mongoose.connect(db, {
       useNewUrlParser: true,
       useCreateIndex: true,
       useFindAndModify: false
