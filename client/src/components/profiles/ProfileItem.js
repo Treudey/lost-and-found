@@ -1,81 +1,26 @@
-import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
-import ProfileContext from '../../context/profile/profileContext';
+import React, {useContext} from 'react'
+import PropTypes from'prop-types'
+import ProfileContext from '../../context/profile/profileContext'
 
-// Material UI Imports
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import { Card, CardContent, Grid } from '@material-ui/core/'
-import { withStyles} from '@material-ui/core/styles'
+const ProfileItem = ({user}) => {
+  const profileContext = useContext(ProfileContext)
+  const {setCurrent} = profileContext
 
-
-const ProfileItem = ({ profile }) => {
-  const profileContext = useContext(ProfileContext);
-  const { deleteProfile, setCurrent, clearCurrent } = profileContext;
-
-  const { _id, name, email,type,location,description } = profile;
-
-  const onDelete = () => {
-    deleteProfile(_id);
-    clearCurrent();
-  };
+  const {id,name,email}=user
 
   return (
-   
-      <div className='card formcard bg-light'>
-      <h3 className='text-success text-left'>
-        {name}{' '}
-        <span
-          style={{ float: 'right' }}
-          className={
-            'badge ' +
-            (type === 'found' ? 'badge-success' : 'badge-primary')
-          }
-        >
-          {type.charAt(0).toUpperCase() + type.slice(1)}
-        </span>
-      </h3>
-      <ul className='list'>
-        <span className='text-danger'> Color:</span>{email && (
-          <li>
-             {email}
-          </li>
-        )}
+    <div className='card bg-light'>
+      <h2 className='text-left'>User Info</h2>
+      <h3 className='text-left'>Your Username: {name}</h3>
+      <h3 className='text-left'>Your email: {email}</h3>
 
-      <span className='text-danger'> Location:</span>{location && (
-          <li>
-            {location}
-          </li>
-        )}
-
-      <span className='text-danger'> Description:</span>{description && (
-          <li>
-             {description}
-          </li>
-        )}
-
-
-      </ul>
-      <p>
-        <button
-          className='btn btn-success btn-sm'
-          onClick={() => setCurrent(profile)}
-        >
-          Edit
-        </button>
-        <button className='btn btn-danger btn-sm' onClick={onDelete}>
-          Delete
-        </button>
-      </p>
+      <button className='btn btn-primary' onClick={()=>setCurrent(user)}>Update</button>
     </div>
-  );
-};
+  )
+}
 
 ProfileItem.propTypes = {
-  profile: PropTypes.object.isRequired
-};
+  user:PropTypes.object.isRequired,
+}
 
-export default ProfileItem;
+export default ProfileItem
