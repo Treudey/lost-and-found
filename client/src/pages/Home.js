@@ -1,6 +1,5 @@
 import React from 'react';
 import MainButton from '../components/MainButton';
-import { Route, Link } from 'react-router-dom'
 import './Home.css';
 import Typography from '@material-ui/core/Typography';
 

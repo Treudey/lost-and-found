@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 
 //Material UI Imports
-import { Avatar, Button, Card, CardContent, Container, Divider, Grid, InputAdornment, List, ListItemAvatar, ListItemText, ListItem, TextField, Typography } from '@material-ui/core/'
+import { Avatar, Button, Card, CardContent, Container, Divider, Grid, List, ListItemAvatar, ListItemText, ListItem, TextField, Typography } from '@material-ui/core/'
 
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
-import Search from '@material-ui/icons/Search';
 
 //Import Files
 import Header from '../components/Header'
@@ -150,23 +149,6 @@ class Lost extends Component {
                   </Typography>
                   <form noValidate autoComplete='off'>
                     <Grid item sm={12} xs={12} className='grid'>
-                    {/*   <TextField
-                        onChange={this.handleInputChange}
-                        id='search'
-                        style={{ margin: 8 }}
-                        placeholder='Search'
-                        helperText='Search'
-                        fullWidth
-                        margin='normal'
-                        variant='outlined'
-                        InputProps={{
-                          startAdornment: (
-                            <InputAdornment position='start'>
-                              <Search />
-                            </InputAdornment>
-                          ),
-                        }}
-                      /> */}
                       <Grid item md={12} sm={12} xs={12} className='grid'>
                         <TextField
                           value={this.state.title}
@@ -174,8 +156,8 @@ class Lost extends Component {
                           id="titleItemField"
                           name="titleItemField"
                           htmlFor="titleItem"
-                          label="1. Title"
-                          helperText="Please provide a title for the item you lost"
+                          label="1. Type of item lost"
+                          helperText="Please provide us with the type of item lost"
                           fullWidth
                           required
                           aria-describedby="title-lost-helper-text"

@@ -1,4 +1,4 @@
-import React, {Component,Fragment} from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Home from "./pages/Home";
@@ -8,6 +8,7 @@ import Profilepg from "./pages/Profilepg";
 import Lost from "./pages/Lost";
 import Found from "./pages/Found";
 import NoMatch from "./pages/NoMatch";
+import About from "./pages/About"
 
 import Navbar from "./components/Nav";
 import Footer from "./components/Footer";
@@ -38,9 +39,9 @@ const App =()=> {
               <PrivateRoute exact path='/profile' component={Profilepg}/>
               <Route exact path='/register' component={Register} />
               <Route exact path='/login' component={Login} />
-                {/* Please double check Route for seatch & found */}
               <Route exact path="/searchitem" component={Lost} />
               <Route exact path="/postitem" component={Found} />
+              <Route exact path="/about" component={About} />
               <Route component={NoMatch} />
             </Switch>
             <Footer />

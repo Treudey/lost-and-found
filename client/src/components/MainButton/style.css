@@ -8,6 +8,7 @@
     font-weight: bold;
     font-family: "Roboto";
     font-size:  16pt;
+    color: white!important;
 }
 
 @media (min-width: 481px) and (max-width: 767px) {

@@ -1,0 +1,24 @@
+.text-align {
+  text-align: center;
+}
+
+.avatar-login {
+  color: #e35d33;
+}
+
+.avatar-signup {
+  color: #8cb737;
+}
+
+.container {
+  margin-bottom: 10%;
+}
+
+.link {
+  margin-left: 11rem!important;
+  font-size: 12px!important;
+}
+
+.account {
+  margin-bottom: 1rem;
+}

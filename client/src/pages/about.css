@@ -1,0 +1,52 @@
+.main {
+  margin: 9rem 0 8rem 0;
+}
+
+.heading{
+  color: #152B51;
+  margin-top: 2rem!important;
+  font-weight: 800!important;
+  text-decoration: underline;
+  text-decoration-color: #152B51;
+}
+/* 
+.style {
+ background-color: #333333!important;
+ margin: 1rem 0 1rem 0!important;
+} */
+
+.about {
+  color: #f3a953;
+  margin: 2rem 0 2rem 0!important;
+  border-bottom: 3px solid #f3a953;
+}
+
+.displayBox {
+  margin-bottom: 1rem!important;
+}
+
+/* .card-about {
+  margin-top: 0
+} */
+
+.content {
+  /* flex: 1 0 auto; */
+  margin-top: -1rem;
+}
+
+.cover {
+  width: 100;
+}
+
+.pages {
+  color: #152B51;
+}
+
+.pages:hover {
+  color: #f3a953;
+}
+
+.lostFound{
+  color: #152B51;
+  font-weight: 800;
+}

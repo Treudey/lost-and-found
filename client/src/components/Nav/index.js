@@ -5,17 +5,17 @@ import ProfileContext from '../../context/profile/profileContext';
 
 //Material UI
 import {
-  AppBar, Button, CssBaseline, Divider, Drawer, Hidden, IconButton, List, ListItem, Toolbar, Typography, Menu, MenuItem
+  AppBar, Button, CssBaseline, Divider, Drawer, Hidden, IconButton, List, ListItem, Toolbar, Menu, MenuItem
 } from '@material-ui/core'
 import Linkm from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import { withStyles } from '@material-ui/core/styles';
+// import { withStyles } from '@material-ui/core/styles';
 
 //Files
 import "./style.css"
 
-const Navbar =({title})=> {
+const Navbar = () => {
 
   const [mobileOpen, setMobileOpen] = useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -49,7 +49,7 @@ const Navbar =({title})=> {
         <Linkm
           className="navigation"
           component={Link}
-          to="/register" size="medium" >Sign Up
+          to="/register" size="medium">Sign Up
             </Linkm>
       </Button>
       <Button>
@@ -81,7 +81,8 @@ const Navbar =({title})=> {
   //For responsive menu
   const drawer = (
     <div className="toolbar">
-      <Typography variant="h5">Lost & Found</Typography>
+        <img className='displayDrawer' src='/images/logo2.png' alt='Lost and Found Logo'/>
+
       <Divider />
       <List>
         <ListItem button component={Link} to="/searchitem" size="small">SEARCH ITEM</ListItem>
@@ -108,9 +109,7 @@ const Navbar =({title})=> {
           </IconButton>
           <div className="title">
             <Link to="/" className="homelink">
-              <Typography variant="h5" >
-              {title}
-              </Typography>
+              <img className='display' src='/images/logo.png' alt='Lost and Found Logo'/>
             </Link>
           </div>
           <Button>
@@ -140,8 +139,5 @@ const Navbar =({title})=> {
   
 }
 
-Navbar.defaultProps = {
-  title: 'Lost & Found',
-};
 
-export default withStyles({ withTheme: true })(Navbar);
+export default Navbar;

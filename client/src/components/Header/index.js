@@ -4,11 +4,11 @@ import './style.css';
 function Header(props) {
   let backgroundImage, color;
   if(props.type === 'found'){
-    backgroundImage = "url('https://cdn.pixabay.com/photo/2017/09/13/22/25/lost-2747288_1280.png')";
+    backgroundImage = "url('/images/found.png')";
     color = '#7FB800'
   }
   else if (props.type === 'lost'){
-    backgroundImage = "url('https://cdn.pixabay.com/photo/2017/09/13/22/25/lost-2747289_1280.png')";
+    backgroundImage = "url('/images/lost.png')";
     color = '#F6511D'
   }
   return (

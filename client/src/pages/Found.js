@@ -103,7 +103,7 @@ class Found extends Component {
             <Grid item md={12} sm={12} xs={12}>
               <Card className="card">
                 <CardContent className="cardContent">
-                  <Typography component="h1" variant="h4" className='h4' gutterBottom>
+                  <Typography component="h1" variant="h4" className='h4' align='center' gutterBottom>
                     Tell us a bit about the item you found
                     </Typography>
                   <form noValidate autoComplete='off'>
@@ -113,15 +113,14 @@ class Found extends Component {
                         onChange={this.handleInputChange}
                         id='titleItemField'
                         htmlFor='titleItem'
-                        label='1. Title'
-                        helperText='Please provide a title for the item you found'
+                        label='1. Type of item found'
+                        helperText='Please provide use a name for the item you found'
                         fullWidth={true}
                         required={true}
                         aria-describedby='title-found-helper-text'
                       />
                     </Grid>
                     <Grid item md={12} sm={12} xs={12} className='grid'>
-
                         <TextField
                           value={this.state.contact}
                           onChange={this.handleInputChange}
@@ -215,7 +214,7 @@ class Found extends Component {
               </Card>
               <Card>
                 <CardContent> 
-                  <Typography variant='h4' className='h4'>Lost Items</Typography>
+                  <Typography variant='h4' className='h4' align='center'>Lost Items</Typography>
                 {this.state.items.map(item => {
                     return (
                       <List>

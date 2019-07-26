@@ -2,14 +2,58 @@
   flex-grow: 1;
 }
 
+.positionBottom {
+  position:relative;
+}
+
+#bottom {
+  position: absolute;
+  bottom: 0;
+  padding: 0 0 0.5rem 9rem;
+}
+
+#logo {
+  margin-top: 0.5rem!important;
+}
+
 #footer {
   background-color: #00A6ED;
   position: fixed;
   left: 0;
   bottom: 0;
   top: auto;
-  padding: 1rem 0 1rem 0;
+  padding: 0.5rem 0 0.5rem 0;
   width: 100%;
   color: white;
   text-align: center!important;
+  height: 12%;
+  z-index:999; 
+}
+
+.display {
+  width: 250px;
+}
+
+.displayDrawer {
+  width: 200px;
+}
+
+.navigationFooter {
+  text-decoration: none;
+  font-size: 12pt;
+}
+
+.navigationFooter:hover {
+  text-decoration: underline;
+}
+
+.navigationFooter:visited {
+  color: white!important;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 320px) and (max-width: 959px) {
+ #footer {
+   height: 30%;
+ }
 }
