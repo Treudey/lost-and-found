@@ -1,7 +1,8 @@
 import React, { useState, Fragment, useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from '../../context/auth/authContext';
-import ProfileContext from '../../context/profile/profileContext';
+import ItemContext from '../../context/item/itemContext';
+import ProfileContext from '../../context/profile/profileContext'
 
 //Material UI
 import {
@@ -32,14 +33,17 @@ const Navbar = () => {
   }
 
   const authContext = useContext(AuthContext);
-  const profileContext = useContext(ProfileContext);
+  const itemContext = useContext(ItemContext);
+  const profileContext = useContext(ProfileContext)
 
-  const { isAuthenticated, logout } = authContext;
-  const { clearProfiles } = profileContext;
+  const { isAuthenticated, logout, user } = authContext;
+  const { clearItems } = itemContext;
+  const {clearProfile} = profileContext
 
   const onLogout = () => {
     logout();
-    clearProfiles();
+    clearItems();
+    clearProfile();
   };
 
   //For Login and Signup

@@ -1,229 +1,90 @@
-import React, { useState, useContext, useEffect } from 'react';
-import ProfileContext from '../../context/profile/profileContext';
-
-//Material UI Imports
-import { makeStyles } from '@material-ui/core/styles';
-import { spacing } from '@material-ui/system';
-
-import { Button, Card, CardContent, Container, CssBaseline, Grid, TextField, Typography } from '@material-ui/core/'
-
-//Styles
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-    display: 'flex',
-    flexWrap: 'wrap',
-    flexDirection: "column"
-  },
-  heroContent: {
-    marginTop: theme.spacing(4),
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "contain",
-    height: '30vh',
-    display: 'flex',
-    flexDirection: 'column',
-    borderBottomColor: "#7FB800",
-    borderBottomStyle: "solid",
-  },
-  h4: {
-    color: "#FF9F1C",
-    paddingBottom: theme.spacing(3),
-    textAlign: "center",
-    [theme.breakpoints.between("xs","sm")]: 
-    {
-      paddingBottom: theme.spacing(0)
-  },
-},
-  grid: {
-    marginBottom: "3rem",
-    [theme.breakpoints.between("xs","sm")]: 
-     {
-      marginBottom: theme.spacing(1)
-     },
-  },
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    marginTop: '5%',
-  },
-  rightIcon: {
-    marginLeft: theme.spacing(1),
-  },
-  button: {
-    marginTop: theme.spacing(1),
-  },
-  sendButton: {
-    backgroundColor: "#7FB800",
-    marginLeft: theme.spacing(2),
-    marginBottom: theme.spacing(1),
-    [theme.breakpoints.between("xs", "sm")]:
-      {
-        marginLeft: theme.spacing(1),
-      }
-  },
-  cardContent: {
-    marginTop: theme.spacing(2),
-  },
-  card: {
-    padding: theme.spacing(2),
-    boxShadow: "2px 2px 2px 2px #555",
-  },
-  textfield: {
-    padding: theme.spacing(1),
-  },
-
-}));
+import React, {useState,useContext,useEffect} from 'react'
+import ProfileContext from '../../context/profile/profileContext'
+import AlertContext from '../../context/alert/alertContext';
+import AuthContext from '../../context/auth/authContext';
+import Alerts from '../layout/Alerts';
 
 
-const ProfileForm = () => {
-  const profileContext = useContext(ProfileContext);
 
-  const { addProfile, updateProfile, clearCurrent, current } = profileContext;
+const ProfileForm = props => {
+    const profileContext = useContext(ProfileContext);
+    const {current,clearCurrent,updateProfile} = profileContext
+
+    const authContext = useContext(AuthContext);
+    const {  error, clearErrors, isAuthenticated } = authContext;
+
+    const alertContext = useContext(AlertContext);
+    const { setAlert } = alertContext;
 
 
-  useEffect(() => {
-    if (current !== null) {
-      setProfile(current);
-    } else {
-      setProfile({
-        name: '',
-        email: '',
-        type: 'lost',
-        location:'',
-        description:''
-      });
+    useEffect(()=>{
+        if(current!==null){
+            setUser(current)
+        }else{
+            setUser(
+                {
+                    name:'',
+                    email:'',
+                }
+            )
+        }
+        if (error === 'User already exists') {
+        setAlert(error, 'danger');
+        clearErrors();
+        }
+        // eslint-disable-next-line
+    },[error, isAuthenticated,profileContext,current]) //[]: only want it to change when profilecontext and current change
+
+    const [user,setUser]=useState({
+        name:'',
+        email:'',
+    });
+
+    const {name,email} = user;
+
+    const onChange = e => setUser({...user, [e.target.name]:e.target.value})
+    const onSubmit = e =>{
+        e.preventDefault();
+        updateProfile(user)
+        clearCurrent()
     }
-  }, [profileContext, current]);
 
-  const [profile, setProfile] = useState({
-    name: '',
-    email: '',
-    type: 'lost',
-    location:'',
-    description:''
-  });
+    return (
+        <form onSubmit={onSubmit}>
+           
+            <h2>Change your Account Info here</h2>
+            <Alerts />
+            <input 
+                type="text"
+                placeholder='name'
+                name='name'
+                value={name}
+                onChange={onChange} >
+            </input>
+            <input 
+                type="text"
+                placeholder='Email'
+                name='email'
+                value={email}
+                onChange={onChange} >
+            </input>
+            <div>
+                <input
+                    type='submit'
+                    value='Update User Info'
+                    className='btn btn-primary'
+                />
+                {current && 
+                <input
+                    type='submit'
+                    value='Clear'
+                    className='btn btn-primary'
+                    onClick={()=>clearCurrent()}
+                />
+            }
+            </div>
+        </form>
+    )
+}
 
-  const { name, email, type,location,description } = profile;
-
-  const onChange = e =>
-    setProfile({ ...profile, [e.target.name]: e.target.value });
-
-  const onSubmit = e => {
-    e.preventDefault();
-    if (current === null) {
-      addProfile(profile);
-    } else {
-      updateProfile(profile);
-    }
-    clearAll();
-  };
-
-  const clearAll = () => {
-    clearCurrent();
-  };
-
-  return (
-    <React.Fragment>
-      <div className='formcontainer'>
-      <Container>
-        <Grid >
-          <Grid item md={12} sm={12} xs={12}>
-            <Card classname="formcard" >
-              <CardContent>
-                <h2>{current ? 'Edit Item' : 'Add Item'}</h2>
-                <form validate autoComplete="off" onSubmit={onSubmit}>
-                  <Grid item md={12} sm={12} xs={12}>
-                    <TextField
-                      value={name}
-                      onChange={onChange}
-                      name='name'
-                      label='Item'
-                      helperText='Please tell us what you found or lost'
-                      fullWidth
-                      required
-                      aria-describedby="title-helper-text"
-                    />
-                  </Grid>
-
-                  <Grid item md={12} sm={12} xs={12}>
-                    <TextField
-                      value={email}
-                      onChange={onChange}
-                      name='email'
-                      label='Color'
-                      helperText='Please tell us what color is the item'
-                      fullWidth
-                      required
-                      aria-describedby="item-helper-text"
-                    />
-                  </Grid>
-
-                  <Grid item md={12} sm={12} xs={12}>
-                    <TextField
-                      value={location}
-                      onChange={onChange}
-                      name='location'
-                      label='location'
-                      helperText='Please tell us where you found it'
-                      fullWidth
-                      required
-                      aria-describedby="location-helper-text"
-                    />
-                  </Grid>
-
-                  <Grid item md={12} sm={12} xs={12}>
-                    <TextField
-                      value={description}
-                      onChange={onChange}
-                      name='description'
-                      label='description'
-                      helperText='Please give us more details'
-                      fullWidth
-                      required
-                      aria-describedby="description-helper-text"
-                    />
-                  </Grid>
-                  <h5>Item Type</h5>
-                    <input
-                      type='radio'
-                      name='type'
-                      value='lost'
-                      checked={type === 'lost'}
-                      onChange={onChange}
-                    />{' '}
-                    Lost{' '}
-                    <input
-                      type='radio'
-                      name='type'
-                      value='found'
-                      checked={type === 'found'}
-                      onChange={onChange}
-                    />{' '}
-                    Found
-                    <div>
-                      <input
-                        type='submit'
-                        value={current ? 'Update Profile' : 'Add Profile'}
-                        className='btn btn-success btn-block'
-                      />
-                    </div>
-                    {current && (
-                      <div>
-                        <button className='btn btn-light btn-block' onClick={clearAll}>
-                          Clear
-                        </button>
-                      </div>
-                    )}
-                  </form>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
-      </Container>
-      </div>
-    </React.Fragment>
-  );
-};
-
-export default ProfileForm;
+export default ProfileForm

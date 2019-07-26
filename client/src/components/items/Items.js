@@ -1,8 +1,8 @@
 import React, { Fragment, useContext, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import ProfileItem from './ProfileItem';
+import PostedItem from './PostedItem';
 import Spinner from '../layout/Spinner';
-import ProfileContext from '../../context/profile/profileContext';
+import ItemContext from '../../context/item/itemContext';
 
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -13,17 +13,18 @@ import { Card, CardContent, Grid } from '@material-ui/core/'
 import { withStyles} from '@material-ui/core/styles'
 
 
-const Profiles = () => {
-  const profileContext = useContext(ProfileContext);
 
-  const { profiles, filtered, getProfiles, loading } = profileContext;
+const Items = () => {
+  const itemContext = useContext(ItemContext);
+
+  const { items, filtered, getItems, loading } = itemContext;
 
   useEffect(() => {
-    getProfiles();
+    getItems();
     // eslint-disable-next-line
   }, []);
 
-  if (profiles !== null && profiles.length === 0 && !loading) {
+  if (items !== null && items.length === 0 && !loading) {
     return <h4>Please add an Item you found or lost</h4>;
   }
 
@@ -32,19 +33,19 @@ const Profiles = () => {
       <Container>
         <CssBaseline />
           <Grid>
-              {profiles !== null && !loading ? (
+              {items !== null && !loading ? (
           filtered !== null
-            ? filtered.map(profile => (
+            ? filtered.map(item => (
                 <div
-                  key={profile._id}
+                  key={item._id}
                   classNames='item'
                 >
-                  <ProfileItem profile={profile} />
+                  <PostedItem item={item} />
                 </div>
               ))
-            : profiles.map(profile => (
+            : items.map(item => (
               
-                  <ProfileItem profile={profile} />
+                  <PostedItem item={item} />
               ))
       ) : (
         <Spinner />
@@ -56,4 +57,4 @@ const Profiles = () => {
   );
 };
 
-export default Profiles;
+export default Items;

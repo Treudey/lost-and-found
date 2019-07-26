@@ -4,25 +4,25 @@ const auth = require('../middleware/auth');
 const { check, validationResult } = require('express-validator/check');
 
 const User = require('../models/User');
-const Profile = require('../models/Profile');
+const Item = require('../models/Item');
 
-//GET api/profiles
-//Get all users profiles
+//GET api/items
+//Get all users items
 //Private
 router.get('/', auth, async (req, res) => {
   try {
-    const profiles = await Profile.find({ user: req.user.id }).sort({
+    const items = await Item.find({ user: req.user.id }).sort({
       date: -1
     });
-    res.json(profiles);
+    res.json(items);
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');
   }
 });
 
-// POST api/profiles
-// Add new profile
+// POST api/items
+// Add new item
 // Private
 router.post(
   '/',
@@ -43,7 +43,7 @@ router.post(
     const { name, email, type,location,description } = req.body;
 
     try {
-      const newProfile = new Profile({
+      const newItem = new Item({
         name,
         email,
         type,
@@ -52,9 +52,9 @@ router.post(
         user: req.user.id
       });
 
-      const profile = await newProfile.save();
+      const item = await newItem.save();
 
-      res.json(profile);
+      res.json(item);
     } catch (err) {
       console.error(er.message);
       res.status(500).send('Server Error');
@@ -62,58 +62,58 @@ router.post(
   }
 );
 
-// PUT api/profiles/:id
-// Update profile
+// PUT api/items/:id
+// Update item
 // Private
 router.put('/:id', auth, async (req, res) => {
   const { name, email, type,location,description } = req.body;
 
-  // Build profile object
-  const profileFields = {};
-  if (name) profileFields.name = name;
-  if (email) profileFields.email = email;
-  if (type) profileFields.type = type;
-  if (location) profileFields.location = location;
-  if (description) profileFields.description = description;
+  // Build item object
+  const itemFields = {};
+  if (name) itemFields.name = name;
+  if (email) itemFields.email = email;
+  if (type) itemFields.type = type;
+  if (location) itemFields.location = location;
+  if (description) itemFields.description = description;
 
   try {
-    let profile = await Profile.findById(req.params.id);
+    let item = await Item.findById(req.params.id);
 
-    if (!profile) return res.status(404).json({ msg: 'profile not found' });
+    if (!item) return res.status(404).json({ msg: 'item not found' });
 
-    // each user with their own profile
-    if (profile.user.toString() !== req.user.id) {
+    // each user with their own item
+    if (item.user.toString() !== req.user.id) {
       return res.status(401).json({ msg: 'Not authorized' });
     }
 
-    profile = await Profile.findByIdAndUpdate(
+    item = await Item.findByIdAndUpdate(
       req.params.id,
-      { $set: profileFields },
+      { $set: itemFields },
       { new: true }
     );
 
-    res.json(profile);
+    res.json(item);
   } catch (err) {
     console.error(er.message);
     res.status(500).send('Server Error');
   }
 });
 
-//DELETE api/profiles/:id
-// Delete profile
+//DELETE api/items/:id
+// Delete item
 // Private
 router.delete('/:id', auth, async (req, res) => {
   try {
-    let profile = await Profile.findById(req.params.id);
+    let item = await Item.findById(req.params.id);
 
-    if (!profile) return res.status(404).json({ msg: ' not found' });
+    if (!item) return res.status(404).json({ msg: ' not found' });
 
-    // Make sure user owns profile
-    if (profile.user.toString() !== req.user.id) {
+    // Make sure user owns item
+    if (item.user.toString() !== req.user.id) {
       return res.status(401).json({ msg: 'Not authorized' });
     }
 
-    await Profile.findByIdAndRemove(req.params.id);
+    await Item.findByIdAndRemove(req.params.id);
 
     res.json({ msg: ' deleted' });
   } catch (err) {
