@@ -12,7 +12,9 @@
     "seed": "node scripts/seedDB.js",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "coveralls": "jest --coverage && cat ./tests/coverage/lcov.info | coveralls",
+    "test": "jest --watchALL"
   },
   "repository": {
     "type": "git",
@@ -36,6 +38,7 @@
     "express-validator": "^6.1.1",
     "if-env": "^1.0.4",
     "jsonwebtoken": "^8.5.1",
+    "latest": "^0.2.0",
     "mongoose": "^5.6.1",
     "mongoose-findorcreate": "^3.0.0",
     "react-geocode": "^0.1.2",
@@ -46,6 +49,8 @@
   },
   "devDependencies": {
     "concurrently": "^4.1.1",
+    "coveralls": "^3.0.5",
+    "jest": "^24.8.0",
     "nodemon": "^1.19.1"
   }
 }

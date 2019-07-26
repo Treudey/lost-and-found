@@ -19,7 +19,6 @@ const foundSchema = new Schema({
     required: true,
     trim: true
   },
-  
   foundTitle: {
     type: String,
     required: true,
