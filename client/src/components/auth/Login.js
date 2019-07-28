@@ -9,6 +9,7 @@ import { Button, Card, CardContent, Container, CssBaseline, Grid, TextField, Typ
 import Lock from '@material-ui/icons/Lock'
 
 import './auth.css'
+import '../../App.css'
 
 const Login = props => {
   const alertContext = useContext(AlertContext);
@@ -53,52 +54,52 @@ const Login = props => {
   };
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component='main' maxWidth='xs' className='loginContainer'>
       <CssBaseline />
       <Grid container>
         <Grid item md={12} sm={12} xs={12}>
-          <Card className='card'>
+          <Card className='loginCard'>
            <div className='text-align'>
             <Lock style={{fontSize: 60}} className='avatar-login'/>
            </div>
             <Alerts />
-            <CardContent className='cardContent'>
+            <CardContent>
               <div>
-                <Typography component="h1" variant="h4" className='text-align'>
+                <Typography component='h1' variant='h4' className='text-align'>
                   Login
               </Typography>
                 <form onSubmit={onSubmit}>
                   <TextField
-                    variant="outlined"
-                    margin="normal"
+                    variant='outlined'
+                    margin='normal'
                     required
                     fullWidth
-                    id="email"
-                    label="Email Address"
-                    name="email"
-                    autoComplete="email"
+                    id='email'
+                    label='Email Address'
+                    name='email'
+                    autoComplete='email'
                     autoFocus
                     value={email}
                     onChange={onChange}
                   />
                   <TextField
-                    variant="outlined"
-                    margin="normal"
+                    variant='outlined'
+                    margin='normal'
                     required
                     fullWidth
-                    name="password"
-                    label="Password"
-                    type="password"
-                    id="password"
-                    autoComplete="current-password"
+                    name='password'
+                    label='Password'
+                    type='password'
+                    id='password'
+                    autoComplete='current-password'
                     value={password}
                     onChange={onChange}
-                  />
+                  /><br></br>
                   <Button
-                    type="submit"
+                    type='submit'
                     fullWidth
-                    variant="contained"
-                    className="register"
+                    variant='contained'
+                    className='register hover'
                     style={{backgroundColor: '#152b51', color: 'white'}}
                   >
                     Login

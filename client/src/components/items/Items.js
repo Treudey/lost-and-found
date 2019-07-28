@@ -10,51 +10,53 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import { Card, CardContent, Grid } from '@material-ui/core/'
-import { withStyles} from '@material-ui/core/styles'
+import { withStyles } from '@material-ui/core/styles'
+
+import './style.css'
 
 
 
 const Items = () => {
-  const itemContext = useContext(ItemContext);
+    const itemContext = useContext(ItemContext);
 
-  const { items, filtered, getItems, loading } = itemContext;
+    const { items, filtered, getItems, loading } = itemContext;
 
-  useEffect(() => {
-    getItems();
-    // eslint-disable-next-line
-  }, []);
+    useEffect(() => {
+        getItems();
+        // eslint-disable-next-line
+    }, []);
 
-  if (items !== null && items.length === 0 && !loading) {
-    return <h4>Please add an Item you found or lost</h4>;
-  }
+    if (items !== null && items.length === 0 && !loading) {
+        return <h4>Please add an Item you found or lost</h4>;
+    }
 
-  return (
-    <Fragment>
-      <Container>
-        <CssBaseline />
-          <Grid>
-              {items !== null && !loading ? (
-          filtered !== null
-            ? filtered.map(item => (
-                <div
-                  key={item._id}
-                  classNames='item'
-                >
-                  <PostedItem item={item} />
-                </div>
-              ))
-            : items.map(item => (
-              
-                  <PostedItem item={item} />
-              ))
-      ) : (
-        <Spinner />
-      )}
-          </Grid>
-      </Container>
-    
-    </Fragment>
-  );
+    return (
+        <Fragment>
+            <Container className='infoContainer'>
+                <CssBaseline />
+                <Grid>
+                    {items !== null && !loading ? (
+                        filtered !== null
+                            ? filtered.map(item => (
+                                <div
+                                    key={item._id}
+                                    classNames='item'
+                                >
+                                    <PostedItem item={item} />
+                                </div>
+                            ))
+                            : items.map(item => (
+
+                                <PostedItem item={item} />
+                            ))
+                    ) : (
+                            <Spinner />
+                        )}
+                </Grid>
+            </Container>
+
+        </Fragment>
+    );
 };
 
 export default Items;

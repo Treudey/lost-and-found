@@ -31,6 +31,7 @@
 }
 
 /* MEDIA QUERIES */
+/* Drawer */
 @media screen and (min-width: 772px) {
   .menuButton {
     visibility: hidden;
@@ -42,8 +43,20 @@
     flex-shrink: 0;
   } 
   .navigation {
-    position: absolute !important;
-    top: -9999px !important;
-    left: -9999px !important;
+    display: none;
   }
+}
+
+/* iPad *******************************************/
+/* Portrait */
+@media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+  .homelink{
+    float: right!important;
+   }
+}
+
+/* iPhone 5, 5S, 5C, 5SE ************************************/
+/* Portrait */
+@media only screen and (min-width: 320px) and (max-width: 568px)and (-webkit-min-device-pixel-ratio: 2)and (orientation: portrait) {
+  
 }

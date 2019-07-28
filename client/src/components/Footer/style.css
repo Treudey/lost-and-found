@@ -1,59 +1,219 @@
 .root {
-  flex-grow: 1;
-}
-
-.positionBottom {
-  position:relative;
-}
-
-#bottom {
-  position: absolute;
-  bottom: 0;
-  padding: 0 0 0.5rem 9rem;
+    flex-grow: 1;
 }
 
 #logo {
-  margin-top: 0.5rem!important;
+    margin-top: 0.5rem!important;
 }
 
 #footer {
-  background-color: #00A6ED;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  top: auto;
-  padding: 0.5rem 0 0.5rem 0;
-  width: 100%;
-  color: white;
-  text-align: center!important;
-  height: 12%;
-  z-index:999; 
+    align-items: flex-end!important;
+    background-color: #00A6ED;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: auto;
+    padding: 0.5rem 0 1rem 0;
+    width: 100%;
+    color: white;
+    text-align: center!important;
+    height: 12%;
+    z-index: 999;
 }
 
-.display {
-  width: 250px;
+#hide {
+    visibility: hidden;
+}
+
+.displayFooter {
+    width: 250px;
 }
 
 .displayDrawer {
-  width: 200px;
+    width: 200px;
 }
 
 .navigationFooter {
-  text-decoration: none;
-  font-size: 12pt;
+    text-decoration: none;
 }
 
 .navigationFooter:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .navigationFooter:visited {
-  color: white!important;
-  text-decoration: none;
+    color: white!important;
+    text-decoration: none;
 }
 
-@media screen and (min-width: 320px) and (max-width: 959px) {
+/* MEDIA QUERIES ***************************************/
+
+/* iPad Pro *******************************************/
+/* Portrait */
+@media (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+    #footer {
+        height: 8%;
+    }
+    #bottom {
+        padding: 0.5rem 0 0.5rem 6rem;
+    }
+}
+
+/* Landscape */
+@media (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
+    #footer {
+        height: 10%;
+    }
+}
+
+/* iPad *******************************************/
+/* Portrait */
+@media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+    #footer {
+        height: 10%!important;
+        padding: 0; 
+    }
+    #show {
+        visibility: visible; 
+    }
+    .displayFooter{
+        display: none;
+    }
+    .navigationFooter {
+        display: none;
+    }
+}
+/* Landscape */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    #footer {
+        height: 12%!important;
+    }
+    #bottom {
+        padding: 0 0 0 6rem;
+    }
+}
+
+/* iPhone X *******************************************/
+/* Portrait */
+@media only screen and (min-width: 375px) and (max-width: 812px) and (-webkit-min-device-pixel-ratio: 3)and (orientation: portrait) {
+    #footer {
+        height: 8%!important;
+        padding: 0;
+    }
+}
+
+/* Landscape */
+@media only screen and (min-width: 375px) and (max-width: 812px) and (orientation: landscape) {
+    #footer {
+        height: 20%!important;
+        padding: 0; 
+    }
+    #show {
+        visibility: visible; 
+    }
+    .displayFooter{
+        display: none;
+    }
+    .navigationFooter {
+        display: none;
+    }
+}
+
+/* iPhone 6+, 7+, 8+ *******************************************/
+/* Portrait */
+@media only screen and (min-width: 414px) and (max-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+    #footer {
+        height: 25%!important;
+    }
+    #bottom {
+        padding: 0
+    }
+}
+
+@media only screen and (min-width: 414px) and (max-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+    #footer {
+        height: 20%!important;
+        padding: 0; 
+    }
+    #show {
+        visibility: visible; 
+    }
+    .displayFooter{
+        display: none;
+    }
+    .navigationFooter {
+        display: none;
+    }
+}
+
+
+/* iPhone 6, 7, 8 *******************************************/
+/* Portrait */
+@media only screen and (min-width: 375px) and (max-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+    #footer {
+        height: 27%!important;
+        padding: 0
+    }
+}
+/* Landscape */
+@media only screen and (min-width: 375px) and (max-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+    #footer {
+        height: 20%!important;
+        padding: 0; 
+    }
+    #show {
+        visibility: visible; 
+    }
+    .displayFooter{
+        display: none;
+    }
+    .navigationFooter {
+        display: none;
+    }
+}
+
+/* iPhone 5, 5S, 5C, 5SE *******************************************/
+/* Portrait */
+@media only screen and (min-width: 320px) and (max-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+    #footer {
+        height: 25%!important;
+        padding: 0
+    }
+    .displayFooter {
+        display: none;
+    }
+    
+}
+
+/* Landscape */
+@media only screen and (min-width: 320px) and (max-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+    #footer {
+        height: 25%!important;
+        padding: 0;
+        align-content: center!important;
+        align-items: center!important;
+        justify-content: center!important
+        
+    }
+    #show {
+        visibility: visible;
+        align-items: center!important 
+    }
+    .displayFooter{
+        display: none;
+    }
+    #hide {
+        display: none;
+    }
+    .navigationFooter {
+        display: none;
+    }
+    #logo{
+        padding:0
+    }
+}
+/* @media screen and (min-width: 320px) and (max-width: 959px) {
  #footer {
    height: 30%;
  }
-}
+} */

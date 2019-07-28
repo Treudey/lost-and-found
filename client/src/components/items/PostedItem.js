@@ -9,73 +9,70 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import { Card, CardContent, Grid } from '@material-ui/core/'
-import { withStyles} from '@material-ui/core/styles'
+import { withStyles } from '@material-ui/core/styles'
 
 
 const PostedItem = ({ item }) => {
-  const itemContext = useContext(ItemContext);
-  const { deleteItem, setCurrent, clearCurrent } = itemContext;
+	const itemContext = useContext(ItemContext);
+	const { deleteItem, setCurrent, clearCurrent } = itemContext;
 
-  const { _id, name, email,type,location,description } = item;
+	const { _id, name, email, type, location, description } = item;
 
-  const onDelete = () => {
-    deleteItem(_id);
-    clearCurrent();
-  };
+	const onDelete = () => {
+		deleteItem(_id);
+		clearCurrent();
+	};
 
-  return (
-   
-      <div className='card formcard bg-light'>
-      <h3 className='text-success text-left'>
-        {name}{' '}
-        <span
-          style={{ float: 'right' }}
-          className={
-            'badge ' +
-            (type === 'found' ? 'badge-success' : 'badge-primary')
-          }
-        >
-          {type.charAt(0).toUpperCase() + type.slice(1)}
-        </span>
-      </h3>
-      <ul className='list'>
-        <span className='text-danger'> Color:</span>{email && (
-          <li>
-             {email}
-          </li>
-        )}
+	return (
+		<Card className='card'>
+			<Typography variant='h3' className='text-success text-left'>
+				{name}{' '}
+				<span
+					style={{ float: 'right' }}
+					className={
+						'badge ' +
+						(type === 'found' ? 'badge-default' : 'badge-danger')
+					}
+				>
+					{type.charAt(0).toUpperCase() + type.slice(1)}
+				</span></Typography>
 
-      <span className='text-danger'> Location:</span>{location && (
-          <li>
-            {location}
-          </li>
-        )}
-
-      <span className='text-danger'> Description:</span>{description && (
-          <li>
-             {description}
-          </li>
-        )}
-
-
-      </ul>
-      <p>
-        <button
-          className='btn btn-success btn-sm'
-          onClick={() => setCurrent(item)}
-        >
-          Edit
-        </button>
-        <button className='btn btn-danger btn-sm' onClick={onDelete}>
-          Delete
-        </button>
-      </p>
-    </div>
-  );
+			<ul className='list'>
+				<span className='text-dark'> Color:</span>{email && (
+					<li>
+						{email}
+					</li>
+				)}
+				<span className='text-dark'> Location:</span>{location && (
+					<li>
+						{location}
+					</li>
+				)}
+				<span className='text-dark'> Description:</span>{description && (
+					<li>
+						{description}
+					</li>
+				)}
+			</ul>
+			<p>
+				<Button
+					onClick={() => setCurrent(item)}
+					style={{backgroundColor: '#152b51', color: 'white'}}
+				>
+					Edit
+        		</Button>
+				<Button  
+					onClick={onDelete}
+					style={{backgroundColor: '#F6511D', color: 'white', marginLeft: '0.5rem'}}>
+					Delete
+        		</Button>
+			</p>
+		</Card>
+	);
 };
 
 PostedItem.propTypes = {
-  item: PropTypes.object.isRequired
+	item: PropTypes.object.isRequired
 };
 
 export default PostedItem;

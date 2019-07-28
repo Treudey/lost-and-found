@@ -3,28 +3,30 @@ import Items from '../components/items/Items';
 import ItemForm from '../components/items/ItemForm';
 import ItemFilter from '../components/items/ItemFilter';
 import AuthContext from '../context/auth/authContext';
-import './Profile.css'
+
+import { Grid } from '@material-ui/core/'
 
 
 const Itempg = () => {
-  const authContext = useContext(AuthContext);
+    const authContext = useContext(AuthContext);
 
-  useEffect(() => {
-    authContext.loadUser();
-    // eslint-disable-next-line
-  }, []);
+    useEffect(() => {
+        authContext.loadUser();
+        // eslint-disable-next-line
+    }, []);
 
-  return (
-    <div className='grid-2'>
-      <div>
-        <ItemForm />
-      </div>
-      <div>
-        <ItemFilter />
-        <Items />
-      </div>
-    </div>
-  );
+    return (
+
+        <Grid container className='bottom'>
+            <Grid item md={7} sm={12} xs={12}>
+                <ItemForm />
+            </Grid>
+            <Grid item md={5} sm={12} xs={12}>
+                <ItemFilter />
+                <Items />
+            </Grid>
+        </Grid>
+    );
 };
 
 export default Itempg;

@@ -2,37 +2,34 @@
   margin: 9rem 0 8rem 0;
 }
 
-.heading{
+.headingWorks{
   color: #152B51;
   margin-top: 2rem!important;
   font-weight: 800!important;
   text-decoration: underline;
   text-decoration-color: #152B51;
+  margin-bottom: 2rem!important;
 }
-/* 
-.style {
- background-color: #333333!important;
- margin: 1rem 0 1rem 0!important;
-} */
 
 .about {
-  color: #f3a953;
+  color: #FF9F1C;
   margin: 2rem 0 2rem 0!important;
-  border-bottom: 3px solid #f3a953;
+  border-bottom: 3px solid #FF9F1C;
 }
 
-.displayBox {
+/* .displayBox {
   margin-bottom: 1rem!important;
-}
+  margin-top: 2rem
+} */
 
 /* .card-about {
   margin-top: 0
 } */
 
-.content {
+/* .content { */
   /* flex: 1 0 auto; */
-  margin-top: -1rem;
-}
+  /* margin-top: -1rem;
+} */
 
 .cover {
   width: 100;
@@ -43,7 +40,7 @@
 }
 
 .pages:hover {
-  color: #f3a953;
+  color: #FF9F1C;
 }
 
 .lostFound{

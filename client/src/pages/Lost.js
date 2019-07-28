@@ -9,6 +9,7 @@ import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import Header from '../components/Header'
 import Maps from '../components/Map'
 import API from '../utils/API';
+import '../App.css'
 import './lost.css';
 
 class Lost extends Component {
@@ -143,7 +144,7 @@ class Lost extends Component {
           <Grid container >
             <Grid item md={12} sm={12} xs={12}>
               <Card className='card'>
-                <CardContent className='cardContent'>
+                <CardContent>
                   <Typography className='h4' component='h1' variant='h4' align='center' gutterBottom>
                     Tell us a bit about the item you lost
                   </Typography>
@@ -244,12 +245,12 @@ class Lost extends Component {
                           multiple
                           type='file'
                         />
-                        <Button variant='contained' color='default' className='buttonUpload'>
+                        <Button variant='contained' color='default' className='buttonUpload hover'>
                           Upload
                         <CloudUploadIcon className='rightIcon' />
                         </Button>
                       </Grid>
-                      <Button variant='contained' className='button' onClick={this.handleFormSubmit}>
+                      <Button variant='contained' className='button hover' onClick={this.handleFormSubmit}>
                         Search
                     </Button>
                     </Grid>
@@ -260,8 +261,8 @@ class Lost extends Component {
           </Grid>
           <Grid container >
             <Grid item md={12} sm={12} xs={12}>
-              <Card>
-                <CardContent className='cardContent'>
+              <Card className='card' >
+                <CardContent>
                 {/* Match found function to retrieve matched items by title & location and output it on front end */}
                 {this.state.matchedItemsTitleLocation.map(item => {
                     return (

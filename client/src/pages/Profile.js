@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import Profile from '../components/profiles/Profile'
 import AuthContext from '../context/auth/authContext';
 
-import './Profile.css'
+// import './Profile.css'
 
 
 const Profilepg = () => {
@@ -14,11 +14,11 @@ const Profilepg = () => {
   }, []);
 
   return (
-    <div className='grid-2'>
-      <div>
+    // <div className='grid-2'>
+    //   <div>
         <Profile/>
-      </div>
-    </div>
+    //   </div>
+    // </div>
   );
 };
 

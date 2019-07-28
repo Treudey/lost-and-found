@@ -10,15 +10,126 @@
   color: #8cb737;
 }
 
-.container {
-  margin-bottom: 10%;
-}
-
 .link {
   margin-left: 11rem!important;
   font-size: 12px!important;
+  color: #0C2C64;
 }
 
-.account {
-  margin-bottom: 1rem;
+.link:hover {
+  color: #FF9F1C
+}
+
+.loginContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 8%!important;
+}
+
+.signupContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 8%!important;
+}
+
+.loginCard {
+  padding: 1rem;
+  box-shadow: 2px 2px 2px 2px rgb(168, 168, 168)!important;
+  margin-top: 12rem!important;
+}
+
+.signupCard {
+  padding: 1rem;
+  box-shadow: 2px 2px 2px 2px rgb(168, 168, 168)!important;
+  margin-top: 6rem!important;
+}
+
+/* MEDIA QUERIES */
+/* iPad Pro *******************************************/
+/* Portrait */
+@media (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+  .signupCard {
+    padding: 1rem;
+    box-shadow: 2px 2px 2px 2px rgb(168, 168, 168)!important;
+    margin-top: 24rem!important;
+  }
+  .loginContainer {
+    margin-top: 15rem!important;
+   }
+}
+
+/* Landscape */
+@media (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
+  .signupCard {
+    padding: 1rem;
+    box-shadow: 2px 2px 2px 2px rgb(168, 168, 168)!important;
+    margin-top: 15rem!important;
+  }
+}
+
+/* iPad *******************************************/
+/* Portrait */
+@media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+  .signupCard {
+    padding: 1rem;
+    box-shadow: 2px 2px 2px 2px rgb(168, 168, 168)!important;
+    margin-top: 15rem!important;
+  }
+  .loginContainer {
+    margin-top: 6rem!important;
+   }
+}
+/* Landscape */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .signupCard {
+    padding: 1rem;
+    box-shadow: 2px 2px 2px 2px rgb(168, 168, 168)!important;
+    margin-top: 8rem!important;
+  }
+}
+
+/* iPhone X *******************************************/
+/* Portrait */
+@media only screen and (min-width: 375px) and (max-width: 812px) and (-webkit-min-device-pixel-ratio: 3)and (orientation: portrait) {
+  .loginContainer {
+    margin-top: 4rem!important;
+   }
+}
+
+/* iPhone 6+, 7+, 8+ *******************************************/
+/* Portrait */
+@media only screen and (min-width: 414px) and (max-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+  .loginContainer {
+    margin-top: 2rem!important;
+   }
+   .signupCard{
+    margin-bottom: 40%!important;
+   }
+}
+
+/* iPhone 5, 5S, 5C, 5SE ************************************/
+/* Portrait */
+@media only screen and (min-width: 320px) and (max-width: 568px)and (-webkit-min-device-pixel-ratio: 2)and (orientation: portrait) {
+  .loginCard {
+   margin-top: 6rem!important;
+  }
+  .signupCard {
+    margin-top: 5rem!important;
+    margin-bottom: 40%!important;
+  }
+  .loginContainer {
+    margin-bottom: 55%!important;
+  }
+}
+/* Landscape */
+@media only screen and (min-width: 320px) and (max-width: 568px)and (-webkit-min-device-pixel-ratio: 2)and (orientation: landscape) {
+  .loginCard {
+   margin-top: 6rem!important;
+  }
+  .signupCard {
+    margin-top: 5rem!important;
+  }
+  .loginContainer {
+    margin-bottom: 20%!important;
+  }
 }

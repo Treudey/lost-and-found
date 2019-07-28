@@ -11,6 +11,14 @@ function Header(props) {
     backgroundImage = "url('/images/lost.png')";
     color = '#F6511D'
   }
+  else if (props.type === 'profile'){
+    backgroundImage = "url('/images/profile.png')";
+    color = '#0D2C54'
+  }
+  else if (props.type === 'about'){
+    backgroundImage = "url('/images/about.png')";
+    color = '#0D2C54'
+  }
   return (
     <div className='heroContent' style={{backgroundImage: backgroundImage, borderColor: color}}></div>
   );
