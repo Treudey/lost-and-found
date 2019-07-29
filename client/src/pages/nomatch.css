@@ -1,8 +1,12 @@
 .root {
-  padding: '2px 4px';
-  display: 'flex';
+    padding: '2px 4px';
+    display: 'flex';
 }
 
-.top{
-  margin-top: 10rem!important;
+.notFoundContainer {
+    margin-top: 8rem!important
 }
+
+/* MEDIA QUERIES ***************************************/
+/* iPad Pro *******************************************/
+/* Portrait */

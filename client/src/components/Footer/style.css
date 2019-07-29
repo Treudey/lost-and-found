@@ -6,7 +6,7 @@
     margin-top: 0.5rem!important;
 }
 
-#footer {
+.footer {
     align-items: flex-end!important;
     background-color: #00A6ED;
     position: fixed;
@@ -22,7 +22,7 @@
 }
 
 #hide {
-    visibility: hidden;
+    display: none;
 }
 
 .displayFooter {
@@ -51,30 +51,24 @@
 /* iPad Pro *******************************************/
 /* Portrait */
 @media (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
-    #footer {
+    .footer {
         height: 8%;
-    }
-    #bottom {
-        padding: 0.5rem 0 0.5rem 6rem;
     }
 }
 
 /* Landscape */
 @media (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
-    #footer {
+    /* .footer {
         height: 10%;
-    }
+    } */
 }
 
 /* iPad *******************************************/
 /* Portrait */
 @media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
-    #footer {
-        height: 10%!important;
-        padding: 0; 
-    }
-    #show {
-        visibility: visible; 
+    .footer {
+        height: 6%!important;
+        padding: 1rem;
     }
     .displayFooter{
         display: none;
@@ -82,67 +76,87 @@
     .navigationFooter {
         display: none;
     }
+    #hide {
+        display: contents;
+    }
+    #show {
+        visibility: hidden;
+    }
 }
 /* Landscape */
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    #footer {
+    /* .footer {
         height: 12%!important;
     }
     #bottom {
         padding: 0 0 0 6rem;
-    }
+    } */
 }
 
 /* iPhone X *******************************************/
 /* Portrait */
-@media only screen and (min-width: 375px) and (max-width: 812px) and (-webkit-min-device-pixel-ratio: 3)and (orientation: portrait) {
-    #footer {
-        height: 8%!important;
-        padding: 0;
+@media only screen and (min-width: 375px) and (max-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) { 
+    .footer {
+        height: 6%!important;
+        padding: 1rem;
+        justify-content: center;
+    }
+    .displayFooter{
+        display: none;
+    }
+    .navigationFooter {
+        display: none;
+    }
+    #hide {
+        display: contents;
+    }
+    #show {
+        visibility: hidden;
     }
 }
 
 /* Landscape */
 @media only screen and (min-width: 375px) and (max-width: 812px) and (orientation: landscape) {
-    #footer {
-        height: 20%!important;
-        padding: 0; 
-    }
-    #show {
-        visibility: visible; 
+    .footer {
+        height:10%!important;
+       
     }
     .displayFooter{
         display: none;
     }
     .navigationFooter {
         display: none;
+    }
+    #hide {
+        display: contents;
+    }
+    #show {
+        visibility: hidden;
     }
 }
 
 /* iPhone 6+, 7+, 8+ *******************************************/
 /* Portrait */
 @media only screen and (min-width: 414px) and (max-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
-    #footer {
-        height: 25%!important;
-    }
-    #bottom {
-        padding: 0
-    }
+  
 }
 
 @media only screen and (min-width: 414px) and (max-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
-    #footer {
-        height: 20%!important;
-        padding: 0; 
-    }
-    #show {
-        visibility: visible; 
+    .footer {
+        height: 12%!important;
+        padding: 1rem;
     }
     .displayFooter{
         display: none;
     }
     .navigationFooter {
         display: none;
+    }
+    #hide {
+        display: contents;
+    }
+    #show {
+        visibility: hidden;
     }
 }
 
@@ -150,19 +164,10 @@
 /* iPhone 6, 7, 8 *******************************************/
 /* Portrait */
 @media only screen and (min-width: 375px) and (max-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
-    #footer {
-        height: 27%!important;
-        padding: 0
-    }
-}
-/* Landscape */
-@media only screen and (min-width: 375px) and (max-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
-    #footer {
-        height: 20%!important;
-        padding: 0; 
-    }
-    #show {
-        visibility: visible; 
+    .footer {
+        height: 6%!important;
+        padding: 1rem;
+        justify-content: center;
     }
     .displayFooter{
         display: none;
@@ -170,50 +175,71 @@
     .navigationFooter {
         display: none;
     }
+    #hide {
+        display: contents;
+    }
+    #show {
+        visibility: hidden;
+    }
+}
+/* Landscape */
+@media only screen and (min-width: 375px) and (max-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+    /* .footer {
+        height: 12%!important;
+        padding: 0.75rem;
+    }
+    .displayFooter{
+        display: none;
+    }
+    .navigationFooter {
+        display: none;
+    }
+    #hide {
+        display: contents;
+    }
+    #show {
+        visibility: hidden;
+    } */
 }
 
 /* iPhone 5, 5S, 5C, 5SE *******************************************/
 /* Portrait */
 @media only screen and (min-width: 320px) and (max-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
-    #footer {
-        height: 25%!important;
-        padding: 0
-    }
-    .displayFooter {
-        display: none;
-    }
-    
-}
-
-/* Landscape */
-@media only screen and (min-width: 320px) and (max-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
-    #footer {
-        height: 25%!important;
-        padding: 0;
-        align-content: center!important;
-        align-items: center!important;
-        justify-content: center!important
-        
-    }
-    #show {
-        visibility: visible;
-        align-items: center!important 
+    .footer {
+        height: 6%!important;
+        justify-content: center;
     }
     .displayFooter{
-        display: none;
-    }
-    #hide {
         display: none;
     }
     .navigationFooter {
         display: none;
     }
-    #logo{
-        padding:0
+    #hide {
+        display: contents;
+    }
+    #show {
+        visibility: hidden;
     }
 }
-/* @media screen and (min-width: 320px) and (max-width: 959px) {
- #footer {
-   height: 30%;
- }
-} */
+
+/* Landscape */
+@media only screen and (min-width: 320px) and (max-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+    /* .footer {
+        height: 12%!important;
+        padding: 0.5rem;
+        justify-content: center;
+    }
+    .displayFooter{
+        display: none;
+    }
+    #hide {
+        display: contents;
+    }
+    .navigationFooter {
+        display: none;
+    }
+    #show {
+        visibility: hidden;
+    } */
+}

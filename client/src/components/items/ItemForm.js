@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import ItemContext from '../../context/item/itemContext';
 
 //Material UI Imports
-import { Button, Card, CardContent, Container, FormControl, FormControlLabel, FormLabel, FormHelperText, Grid, Radio, RadioGroup, TextField, Typography } from '@material-ui/core/'
+import { Button, Card, CardContent, Container, Grid, TextField, Typography } from '@material-ui/core/'
 
 //Import Universal Styles
 import './style.css'
@@ -40,12 +40,6 @@ const ItemForm = () => {
 
     const onChange = e =>
         setItem({ ...item, [e.target.name]: e.target.value });
-
-
-    function handleChange(event) {
-        setValue(event.target.value);
-    }
-
 
     const onSubmit = e => {
         e.preventDefault();

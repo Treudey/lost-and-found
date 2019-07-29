@@ -3,14 +3,7 @@ import PropTypes from 'prop-types';
 import ItemContext from '../../context/item/itemContext';
 
 // Material UI Imports
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import { Card, CardContent, Grid } from '@material-ui/core/'
-import { withStyles } from '@material-ui/core/styles'
-
+import { Button, Card, Typography } from '@material-ui/core/'
 
 const PostedItem = ({ item }) => {
 	const itemContext = useContext(ItemContext);

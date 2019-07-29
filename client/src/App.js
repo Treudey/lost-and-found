@@ -13,7 +13,6 @@ import Profile from './pages/Profile'
 
 import Navbar from './components/Nav';
 import Footer from './components/Footer';
-import Alerts from './components/layout/Alerts';
 
 import PrivateRoute from './components/routing/PrivateRoute';
 import ItemState from './context/item/ItemState';

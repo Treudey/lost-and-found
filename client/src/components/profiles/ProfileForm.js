@@ -3,11 +3,9 @@ import ProfileContext from '../../context/profile/profileContext'
 import AlertContext from '../../context/alert/alertContext';
 import AuthContext from '../../context/auth/authContext';
 import Alerts from '../layout/Alerts';
-import Header from '../Header';
-
 
 //Material UI Imports
-import { Avatar, Button, Card, CardActions, CardContent, Container, Divider, Grid, Icon, List, ListItem, ListItemAvatar, ListItemText, TextField, Typography } from '@material-ui/core/'
+import { Button, Card, CardContent, Container, TextField, Typography } from '@material-ui/core/'
 
 //Import files
 import './style.css';
@@ -57,10 +55,10 @@ const ProfileForm = props => {
     }
 
     return (
-        <Container className="profileContainer">
+        <Container className='profileContainer'>
             <Card className='height'>
                 <CardContent>
-                    <Typography component="h1" variant="h4" className='h4' align='center' gutterBottom>
+                    <Typography component='h1' variant='h4' className='h4' align='center' gutterBottom>
                         Change your Account Information here</Typography>
                     <Alerts />
                     <form onSubmit={onSubmit}>
@@ -72,7 +70,7 @@ const ProfileForm = props => {
                             onChange={onChange}
                             fullWidth
                             required
-                            aria-describedby="name-helper-text" />
+                            aria-describedby='name-helper-text' />
                         <TextField
                             label='Email'
                             placeholder='Email'
@@ -81,7 +79,7 @@ const ProfileForm = props => {
                             onChange={onChange}
                             fullWidth
                             required
-                            aria-describedby="email-helper-text" /><br></br>
+                            aria-describedby='email-helper-text' /><br></br>
                         <Button
                             type='submit'
                             value='Update'

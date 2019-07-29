@@ -8,6 +8,7 @@ import Alerts from '../layout/Alerts';
 import { Button, Card, CardContent, Container, CssBaseline, Grid, TextField, Typography } from '@material-ui/core/'
 import Lock from '@material-ui/icons/Lock'
 
+//Style Imports
 import './auth.css'
 import '../../App.css'
 
@@ -18,7 +19,7 @@ const Login = props => {
   const { setAlert } = alertContext;
   const { login, error, clearErrors, isAuthenticated } = authContext;
 
-  const { classes } = props
+  // const { classes } = props
 
   useEffect(() => {
     if (isAuthenticated) {

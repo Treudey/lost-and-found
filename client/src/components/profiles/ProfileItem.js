@@ -12,7 +12,8 @@ const ProfileItem = ({ user }) => {
   const profileContext = useContext(ProfileContext)
   const { setCurrent } = profileContext
 
-  const { id, name, email } = user
+  // const { id, name, email } = user
+  const { name, email } = user
 
   return (
     <Container className="profileContainer">

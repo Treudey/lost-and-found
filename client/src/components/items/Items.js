@@ -1,17 +1,12 @@
 import React, { Fragment, useContext, useEffect } from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import PostedItem from './PostedItem';
 import Spinner from '../layout/Spinner';
 import ItemContext from '../../context/item/itemContext';
 
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import { Card, CardContent, Grid } from '@material-ui/core/'
-import { withStyles } from '@material-ui/core/styles'
+//Material UI imports
+import { Container, CssBaseline, Grid } from '@material-ui/core/'
 
+//Style Imports
 import './style.css'
 
 
