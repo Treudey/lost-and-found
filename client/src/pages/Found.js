@@ -185,11 +185,15 @@ onChange=event=> {
       }
       if(matchedArrayTitleLocation.length!==0 || matchedArrayTitle.length!==0 || matchedArrayLocation.length!==0)
       {
-      this.setState({matchedItemsTitleLocation:matchedArrayTitleLocation});
-      this.setState({matchedItemsTitle:matchedArrayTitle});
-      this.setState({matchedItemsLocation:matchedArrayLocation});
-      }else
-      {
+        this.setState({noData:""});
+        this.setState({matchedItemsTitleLocation:matchedArrayTitleLocation});
+        this.setState({matchedItemsTitle:matchedArrayTitle});
+        this.setState({matchedItemsLocation:matchedArrayLocation});
+        }else
+        {
+          this.setState({matchedItemsTitleLocation:[]});
+          this.setState({matchedItemsTitle:[]});
+          this.setState({matchedItemsLocation:[]});
         this.setState({noData:"We are sorry that we can't find anyone right now who has lost something that you have found. We will email you once we find to whom this belongs to."});
       }
   };

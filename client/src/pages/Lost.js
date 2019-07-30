@@ -189,11 +189,15 @@ onChange=event=> {
       }
       if(matchedArrayTitleLocation.length!==0 || matchedArrayTitle.length!==0 || matchedArrayLocation.length!==0)
       {
+      this.setState({noData:""});
       this.setState({matchedItemsTitleLocation:matchedArrayTitleLocation});
       this.setState({matchedItemsTitle:matchedArrayTitle});
       this.setState({matchedItemsLocation:matchedArrayLocation});
       }else
       {
+        this.setState({matchedItemsTitleLocation:[]});
+        this.setState({matchedItemsTitle:[]});
+        this.setState({matchedItemsLocation:[]});
         this.setState({noData:"We are sorry that we can't find anything related to your lost item as of now. We will email you once we find your item."});
       }
 
