@@ -73,7 +73,7 @@ export default function About() {
                             </CardActionArea>
                             <CardContent>
                                 <Typography variant='h6' align='center'>Have you found an item?</Typography>
-                                <Typography align='center'>If you've found an item, navigate to the <Link className='pages' to='/positem'>Post Item</Link> page and fill out the form. Once submitted, users searching for an item can do so based on the item information you have provided. If someone would like to retrieve their item, they can contact you via the application's chat function.</Typography>
+                                <Typography align='center'>If you've found an item, navigate to the <Link className='pages' to='/postitem'>Post Item</Link> page and fill out the form. Once submitted, users searching for an item can do so based on the item information you have provided. If someone would like to retrieve their item, they can contact you via the application's chat function.</Typography>
                             </CardContent>
                             <CardActions>
                                 <Button variant='contained' fullWidth={true} style={{ backgroundColor: '#7FB800', color: 'white' }} component={Link} to='/postitem' className='hover'>Found Something?</Button>

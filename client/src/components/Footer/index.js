@@ -11,7 +11,7 @@ export default function Footer() {
     return (
         <Container>
             <Grid container className='footer'>
-            <Grid items md={12} sm={12} xs={12}>
+                <Grid items md={12} sm={12} xs={12}>
                     <Typography id="hide">Copyright 2019 - Lost & Found</Typography>
                 </Grid>
                 <Grid items md={4} id='logo'>
@@ -22,12 +22,8 @@ export default function Footer() {
                 <Grid items md={4} className='buttonNav'>
                     <Button><Link align='center' className='navigationFooter' to='/about'>About Us</Link></Button><br></br>
                     <Button><Link align='center' className='navigationFooter'>Terms and Conditions</Link></Button>
-                    
                 </Grid>
-                <Grid items md={4}>
-                    <Typography id="show">Copyright 2019 - Lost & Found</Typography>
-                </Grid>
-                
+                <Typography id="show">Copyright 2019 - Lost & Found</Typography>
             </Grid>
         </Container>
     );

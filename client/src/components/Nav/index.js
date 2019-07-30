@@ -84,7 +84,9 @@ const Navbar = () => {
     //For responsive menu
     const drawer = (
         <div className='toolbar'>
-            <img className='displayDrawer' src='/images/logo2.png' alt='Lost and Found Logo' />
+            <Link to='/'>
+                <img className='displayDrawer' component={Link} to='/' src='/images/logo2.png' alt='Lost and Found Logo' />
+            </Link>
             <Divider />
             <List>
                 <ListItem>
@@ -167,6 +169,5 @@ const Navbar = () => {
     );
 
 }
-
 
 export default Navbar;

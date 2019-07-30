@@ -17,7 +17,11 @@ function Header(props) {
   }
   else if (props.type === 'about'){
     backgroundImage = "url('/images/about.png')";
-    color = '#0D2C54'
+    color = '#7FB800'
+  }
+  else if (props.type === 'items'){
+    backgroundImage = "url('/images/items.png')";
+    color = '#00A6ED'
   }
   return (
     <div className='heroContent' style={{backgroundImage: backgroundImage, borderColor: color}}></div>

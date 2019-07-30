@@ -4,8 +4,9 @@ import ProfileItem from './ProfileItem'
 import ProfileForm from './ProfileForm'
 import Header from '../Header'
 
-import { Grid } from '@material-ui/core/'
+import { Container, Grid } from '@material-ui/core/'
 
+import './style.css'
 
 const Profile = () => {
     const profileContext = useContext(ProfileContext);
@@ -19,14 +20,16 @@ const Profile = () => {
     return (
         <Fragment>
             <Header type='profile' />
+            <Container className='profileContainer'>
             <Grid container>
-                <Grid items md={7} sm={12} xs={12}>
+                <Grid items lg={7} md={12} sm={12} xs={12}>
                     <ProfileForm />
                 </Grid>
-                <Grid items md={5} sm={12} xs={12}>
+                <Grid items lg={5} md={12} sm={12} xs={12}>
                     <ProfileItem user={user} />
                 </Grid>
             </Grid>
+            </Container>
         </Fragment>
     );
 };

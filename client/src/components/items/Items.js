@@ -27,7 +27,7 @@ const Items = () => {
 
     return (
         <Fragment>
-            <Container className='infoContainer'>
+            <Container>
                 <CssBaseline />
                 <Grid>
                     {items !== null && !loading ? (

@@ -3,6 +3,7 @@ import Items from '../components/items/Items';
 import ItemForm from '../components/items/ItemForm';
 import ItemFilter from '../components/items/ItemFilter';
 import AuthContext from '../context/auth/authContext';
+import Header from '../components/Header'
 
 import { Grid } from '@material-ui/core/'
 
@@ -16,16 +17,18 @@ const Itempg = () => {
     }, []);
 
     return (
-
+        <React.Fragment>
+        <Header type='items'/>
         <Grid container className='bottom'>
-            <Grid item md={7} sm={12} xs={12}>
+            <Grid item lg={7} md={12} sm={12} xs={12}>
                 <ItemForm />
             </Grid>
-            <Grid item md={5} sm={12} xs={12}>
+            <Grid item lg={5} md={12} sm={12} xs={12}>
                 <ItemFilter />
                 <Items />
             </Grid>
         </Grid>
+        </React.Fragment>
     );
 };
 

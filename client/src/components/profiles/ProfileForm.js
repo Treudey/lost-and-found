@@ -9,6 +9,7 @@ import { Button, Card, CardContent, Container, TextField, Typography } from '@ma
 
 //Import files
 import './style.css';
+import '../../App.css'
 
 
 const ProfileForm = props => {
@@ -55,8 +56,7 @@ const ProfileForm = props => {
     }
 
     return (
-        <Container className='profileContainer'>
-            <Card className='height'>
+            <Card className='card marginRight'>
                 <CardContent>
                     <Typography component='h1' variant='h4' className='h4' align='center' gutterBottom>
                         Change your Account Information here</Typography>
@@ -99,7 +99,6 @@ const ProfileForm = props => {
                     </form>
                 </CardContent>
             </Card>
-        </Container>
     )
 }
 

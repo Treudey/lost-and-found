@@ -56,7 +56,6 @@ const Register = props => {
     };
     return (
         <Container component='main' maxWidth='xs' className='signupContainer'>
-            <CssBaseline />
             <Grid container>
                 <Grid item md={12} sm={12} xs={12}>
                     <Card className='signupCard'>

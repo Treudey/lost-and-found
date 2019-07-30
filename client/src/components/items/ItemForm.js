@@ -57,11 +57,11 @@ const ItemForm = () => {
 
     return (
         <React.Fragment>
-            <div className='formContainer'>
+           
                 <Container>
-                    <Grid >
+                    <Grid>
                         <Grid item md={12} sm={12} xs={12}>
-                            <Card className="formCard">
+                            <Card className='card'>
                                 <CardContent>
                                     <Typography variant='h2' className='text-primary'>{current ? 'Edit Item' : 'Add Item'}</Typography>
                                     <form validate autoComplete="off" onSubmit={onSubmit}>
@@ -116,7 +116,7 @@ const ItemForm = () => {
                                                 aria-describedby="description-helper-text"
                                             />
                                         </Grid>
-                                        <Typography variant='h5' className='pt-1'>Item Type</Typography>
+                                        <Typography variant='h5' align='center' className='pt-1'>Item Type</Typography>
                                         <input
                                             type='radio'
                                             name='type'
@@ -158,7 +158,6 @@ const ItemForm = () => {
                         </Grid>
                     </Grid>
                 </Container>
-            </div>
         </React.Fragment>
     );
 };

@@ -46,6 +46,10 @@
     text-decoration: none;
 }
 
+#show {
+    margin-left: 5rem!important;
+}
+
 /* MEDIA QUERIES ***************************************/
 
 /* iPad Pro *******************************************/
@@ -78,6 +82,7 @@
     }
     #hide {
         display: contents;
+        text-align: center!important;
     }
     #show {
         visibility: hidden;
