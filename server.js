@@ -3,8 +3,8 @@ const express = require("express");
 const PORT = process.env.PORT || 3001;
 const path = require("path");
 const connectDB = require('./config/db');
-
 const app = express();
+
 
 connectDB();
 
@@ -18,7 +18,6 @@ app.use('/api/profiles', require('./routes/profiles'));
 app.use('/api/found',require('./routes/api/found'));
 app.use('/api/lost',require('./routes/api/lost'));
 
-
 //for heroku
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
@@ -29,6 +28,9 @@ if (process.env.NODE_ENV === "production") {
 }
 
 
+
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
+
+

@@ -46,6 +46,12 @@ export default {
   // Deletes Found an item from database
   deleteFoundItem: function (id) {
     return axios.delete("/api/found/" + id);
+  },
+
+  // Deletes All Found an item from database
+  deleteAllFoundItem: function () {
+    return axios.delete("/api/found/");
   }
+
 }
   

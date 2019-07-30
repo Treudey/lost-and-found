@@ -47,5 +47,14 @@ module.exports = {
       .deleteOne({ _id: req.params.id })
       .then(dbFound => res.json(dbFound))
       .catch(err => res.status(422).json(err));
+  },
+
+   //Delete All entry
+   deleteAll: function (req, res) {
+    db.Found
+      .delete({})
+      .then(dbFound => res.json(dbFound))
+      .catch(err => res.status(422).json(err));
   }
+
 }

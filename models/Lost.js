@@ -19,24 +19,7 @@ const lostSchema = new Schema({
     required: true,
     trim: true
   },
-  // lostCity: {
-  //   type: String,
-  //   required: true,
-  //   trim: true
-  // },
-  // lostPostal: {
-  //   type: String,
-  //   validate(value) {
-  //     if(!validator.isPostalCode(value, "CA")) {
-  //       throw new Error("Postal code is invalid")
-  //     }
-  //   }
-  // },
-  // lostPhysicalLocation: {
-  //   type: String,
-  //   required: true,
-  //   trim: true,
-  // },
+  
   lostTitle: {
     type: String,
     required: true,
@@ -46,9 +29,16 @@ const lostSchema = new Schema({
     type: String,
     required: true
   },
+  lostImage: {
+    type: String,
+  },
   lostDate: {
-    type: Date,
-    default: Date.now
+    type:String
+    //default: Date.now()
+  },
+  lostImageURL: {
+    type: String
+    //file: { mime: String, bin: Buffer }
   }
 })
 
