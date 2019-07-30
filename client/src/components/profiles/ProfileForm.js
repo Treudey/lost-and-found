@@ -5,7 +5,7 @@ import AuthContext from '../../context/auth/authContext';
 import Alerts from '../layout/Alerts';
 
 //Material UI Imports
-import { Button, Card, CardContent, Container, TextField, Typography } from '@material-ui/core/'
+import { Button, Card, CardContent, TextField, Typography } from '@material-ui/core/'
 
 //Import files
 import './style.css';

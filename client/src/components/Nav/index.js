@@ -117,7 +117,7 @@ const Navbar = () => {
                 </ListItem>
                 <ListItem>
                     <Button>
-                        <Linkm component={Link} to='/terms' size='medium'>Terms and Conditions</Linkm>
+                        <Linkm component={Link} to='/privacy' size='medium'>Privacy Policy</Linkm>
                     </Button>
                 </ListItem>
             </List>

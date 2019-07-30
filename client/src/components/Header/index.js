@@ -13,7 +13,7 @@ function Header(props) {
   }
   else if (props.type === 'profile'){
     backgroundImage = "url('/images/profile.png')";
-    color = '#0D2C54'
+    color = '#193067'
   }
   else if (props.type === 'about'){
     backgroundImage = "url('/images/about.png')";
@@ -21,7 +21,11 @@ function Header(props) {
   }
   else if (props.type === 'items'){
     backgroundImage = "url('/images/items.png')";
-    color = '#00A6ED'
+    color = '#F6511D'
+  }
+  else if (props.type === 'privacy'){
+    backgroundImage = "url('/images/privacy.png')";
+    color = '#0D2C54'
   }
   return (
     <div className='heroContent' style={{backgroundImage: backgroundImage, borderColor: color}}></div>

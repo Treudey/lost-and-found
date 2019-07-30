@@ -5,7 +5,7 @@ import Alerts from '../layout/Alerts';
 import { Link } from 'react-router-dom';
 
 // Material UI Imports
-import { Button, Card, CardContent, Container, CssBaseline, Grid, TextField, Typography } from '@material-ui/core/'
+import { Button, Card, CardContent, Container, Grid, TextField, Typography } from '@material-ui/core/'
 import Person from '@material-ui/icons/AccountCircleSharp'
 
 import './auth.css'

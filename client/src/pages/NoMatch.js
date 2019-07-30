@@ -15,9 +15,9 @@ export default function NoMatch() {
         <React.Fragment>
             <Container className='notFoundContainer'>
             <Grid container justify='center'>
-                <Grid item md={7} sm={12} xs={12} className='gif'>
-                    <img src='/images/404.gif' alt='404 gif'/>
-                    <Button fullWidth style={{ backgroundColor: '#F6511D', color: 'white' }} component={Link} to='/' className='hover'>Home</Button>
+                <Grid item md={7} sm={5} xs={8}>
+                    <img src='/images/404.gif' alt='404 gif' className='gif'/>
+                    <Button fullWidth className='gif' style={{ backgroundColor: '#F6511D', color: 'white' }} component={Link} to='/' className='hover buttonWidth'>Home</Button>
                 </Grid>
             </Grid>
             </Container>

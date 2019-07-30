@@ -10,6 +10,7 @@ import Found from './pages/Found';
 import NoMatch from './pages/NoMatch';
 import About from './pages/About'
 import Profile from './pages/Profile'
+import Privacy from './pages/Privacy'
 
 import Navbar from './components/Nav';
 import Footer from './components/Footer';
@@ -44,6 +45,7 @@ return (
               <Route exact path='/searchitem' component={Lost} />
               <Route exact path='/postitem' component={Found} />
               <Route exact path='/about' component={About} />
+              <Route exact path='/privacy' component={Privacy} />
               <Route component={NoMatch} />
             </Switch>
             <Footer />

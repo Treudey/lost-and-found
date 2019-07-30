@@ -21,7 +21,7 @@ export default function Footer() {
                 </Grid>
                 <Grid items md={4} className='buttonNav'>
                     <Button><Link align='center' className='navigationFooter' to='/about'>About Us</Link></Button><br></br>
-                    <Button><Link align='center' className='navigationFooter'>Terms and Conditions</Link></Button>
+                    <Button><Link align='center' className='navigationFooter' to='/privacy'>Privacy Policy</Link></Button>
                 </Grid>
                 <Typography id="show">Copyright 2019 - Lost & Found</Typography>
             </Grid>

@@ -198,15 +198,31 @@ img {
 }
 
 .mt-1 {
-    margin-top: 1rem;
+    margin-top: 1rem!important;
 }
 
 .mt-2 {
-    margin-top: 2rem;
+    margin-top: 2rem!important;
 }
 
 .mt-3 {
     margin-top: 3rem;
+}
+
+.ml {
+    margin-left: 0.5rem;
+}
+
+.ml-1 {
+    margin-left: 1rem;
+}
+
+.ml-2 {
+    margin-left: 2rem;
+}
+
+.ml-3 {
+    margin-left: 3rem;
 }
 
 /* Grid */
@@ -473,7 +489,7 @@ table th {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 13%!important;
-    padding-top: 5rem!important
+    padding-top: 2rem!important
 }
 
 .h4 {
