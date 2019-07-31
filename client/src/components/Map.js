@@ -43,7 +43,7 @@ class Map extends React.Component {
           state = this.getState(addressArray),
           postalCode = this.getPostal(addressArray);
 
-        console.log('city', city, area, state);
+        //console.log('city', city, area, state);
 
         this.setState({
           address: (address) ? address : '',
@@ -142,7 +142,7 @@ class Map extends React.Component {
   getPostal = (addressArray) => {
     let postal = addressArray[addressArray.length - 1].long_name;
 
-    console.log("Postal", addressArray);
+    //console.log("Postal", addressArray);
     return postal;
   };
   /**
@@ -197,11 +197,11 @@ class Map extends React.Component {
     * @param event
     */
   onMarkerDragEnd = (event) => {
-    console.log('event', event);
+   // console.log('event', event);
     let newLat = event.latLng.lat(),
       newLng = event.latLng.lng(),
       addressArray = [];
-    console.log(addressArray);
+   // console.log(addressArray);
     Geocode.fromLatLng(newLat, newLng).then(
       response => {
         const address = response.results[0].formatted_address,
@@ -230,7 +230,7 @@ class Map extends React.Component {
   };
 
   googleURL() {
-    console.log("https://maps.googleapis.com/maps/api/js?key="+process.env.Google_API+"&libraries=places");
+    //console.log("https://maps.googleapis.com/maps/api/js?key="+process.env.Google_API+"&libraries=places");
     return MapURL;
   };
   render() {
