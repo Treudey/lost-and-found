@@ -1,7 +1,8 @@
 //Require Node Modules
 const mongoose = require("mongoose");
+// const Image = require("./Image");
 const Schema = mongoose.Schema
-
+const File = null;
 const foundSchema = new Schema({
   foundLocation:{
     type:String,
@@ -32,8 +33,12 @@ const foundSchema = new Schema({
     type: String,
   },
   foundDate: {
-    type: Date,
-    default: Date.now
+    type:String
+    //default: Date.now()
+  },
+  foundImageURL: {
+    type: String
+    //file: { mime: String, bin: Buffer }
   }
 })
 

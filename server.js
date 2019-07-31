@@ -3,8 +3,8 @@ const express = require("express");
 const PORT = process.env.PORT || 3002;
 const path = require("path");
 const connectDB = require('./config/db');
-
 const app = express();
+
 
 connectDB();
 
@@ -28,6 +28,9 @@ if (process.env.NODE_ENV === "production") {
 }
 
 
+
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
+
+

@@ -4,7 +4,7 @@
 }
 
 .notFoundContainer {
-    margin-top: 8rem;
+    margin-top: 8rem!important;
 }
 
 /* MEDIA QUERIES ***************************************/
