@@ -1,15 +1,201 @@
 .root {
-  flex-grow: 1;
+    flex-grow: 1;
 }
 
-#footer {
-  background-color: #00A6ED;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  top: auto;
-  padding: 1rem 0 1rem 0;
-  width: 100%;
-  color: white;
-  text-align: center!important;
+#logo {
+    margin-top: 0.5rem!important;
+}
+
+.footer {
+    align-items: flex-end!important;
+    background-color: #00A6ED;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: auto;
+    padding: 0.5rem 0 1rem 0;
+    width: 100%;
+    color: white;
+    text-align: center!important;
+    height: 12%;
+    z-index: 999;
+}
+
+#hide {
+    display: none;
+}
+
+.displayFooter {
+    width: 250px;
+}
+
+.displayDrawer {
+    width: 200px;
+}
+
+.navigationFooter {
+    text-decoration: none;
+}
+
+.navigationFooter:hover {
+    text-decoration: underline;
+}
+
+.navigationFooter:visited {
+    color: white!important;
+    text-decoration: none;
+}
+
+#show {
+    margin-left: 5rem!important;
+}
+
+/* MEDIA QUERIES ***************************************/
+
+/* iPad Pro *******************************************/
+/* Portrait */
+@media (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+    .footer {
+        height: 8%;
+    }
+}
+
+/* Landscape */
+@media (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
+    /* .footer {
+        height: 10%;
+    } */
+}
+
+/* iPad *******************************************/
+/* Portrait */
+@media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+    .footer {
+        height: 6%!important;
+        padding: 1rem;
+    }
+    .displayFooter{
+        display: none;
+    }
+    .navigationFooter {
+        display: none;
+    }
+    #hide {
+        display: contents;
+        text-align: center!important;
+    }
+    #show {
+        visibility: hidden;
+    }
+}
+
+/* iPhone X *******************************************/
+/* Portrait */
+@media only screen and (min-width: 375px) and (max-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) { 
+    .footer {
+        height: 6%!important;
+        padding: 1rem;
+        justify-content: center;
+    }
+    .displayFooter{
+        display: none;
+    }
+    .navigationFooter {
+        display: none;
+    }
+    #hide {
+        display: contents;
+    }
+    #show {
+        visibility: hidden;
+    }
+}
+
+/* Landscape */
+@media only screen and (min-width: 375px) and (max-width: 812px) and (orientation: landscape) {
+    .footer {
+        height:10%!important;
+       
+    }
+    .displayFooter{
+        display: none;
+    }
+    .navigationFooter {
+        display: none;
+    }
+    #hide {
+        display: contents;
+    }
+    #show {
+        visibility: hidden;
+    }
+}
+
+/* iPhone 6+, 7+, 8+ *******************************************/
+/* Portrait */
+@media only screen and (min-width: 414px) and (max-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+  
+}
+
+@media only screen and (min-width: 414px) and (max-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+    .footer {
+        height: 12%!important;
+        padding: 1rem;
+    }
+    .displayFooter{
+        display: none;
+    }
+    .navigationFooter {
+        display: none;
+    }
+    #hide {
+        display: contents;
+    }
+    #show {
+        visibility: hidden;
+    }
+}
+
+
+/* iPhone 6, 7, 8 *******************************************/
+/* Portrait */
+@media only screen and (min-width: 375px) and (max-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+    .footer {
+        height: 6%!important;
+        padding: 1rem;
+        justify-content: center;
+    }
+    .displayFooter{
+        display: none;
+    }
+    .navigationFooter {
+        display: none;
+    }
+    #hide {
+        display: contents;
+    }
+    #show {
+        visibility: hidden;
+    }
+}
+
+/* iPhone 5, 5S, 5C, 5SE *******************************************/
+/* Portrait */
+@media only screen and (min-width: 320px) and (max-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+    .footer {
+        height: 6%!important;
+        justify-content: center;
+    }
+    .displayFooter{
+        display: none;
+    }
+    .navigationFooter {
+        display: none;
+    }
+    #hide {
+        display: contents;
+    }
+    #show {
+        visibility: hidden;
+    }
 }

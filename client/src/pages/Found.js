@@ -8,6 +8,7 @@ import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import Header from '../components/Header'
 import Maps from '../components/Map'
 import API from '../utils/API';
+import '../App.css'
 import './found.css';
 import axios from 'axios';
 
@@ -286,12 +287,12 @@ onChange=event=> {
     return (
       <React.Fragment>
         <Header type='found' />
-        <Container className="container">
+        <Container className='container'>
           <Grid container>
             <Grid item md={12} sm={12} xs={12}>
               <Card className="card">
-                <CardContent className="cardContent">
-                  <Typography component="h1" variant="h4" className='h4' gutterBottom>
+                <CardContent>
+                  <Typography component="h1" variant="h4" className='h4' align='center' gutterBottom>
                     Tell us a bit about the item you found
                     </Typography>
                   <form noValidate autoComplete='off'>
@@ -301,15 +302,14 @@ onChange=event=> {
                         onChange={this.handleInputChange}
                         id='titleItemField'
                         htmlFor='titleItem'
-                        label='1. Title'
-                        helperText='Please provide a title for the item you found'
+                        label='1. Type of item found'
+                        helperText='Please provide use a name for the item you found'
                         fullWidth={true}
                         required={true}
                         aria-describedby='title-found-helper-text'
                       />
                     </Grid>
                     <Grid item md={12} sm={12} xs={12} className='grid'>
-
                         <TextField
                           value={this.state.contact}
                           onChange={this.handleInputChange}
@@ -401,7 +401,8 @@ onChange=event=> {
                   </form>
                  
                 </CardContent>
-                <CardActions> <Button className='sendButton' variant='contained' onClick={this.handleFormSubmit}>Send
+                <CardActions> 
+                  <Button className='sendButton hover' variant='contained' onClick={this.handleFormSubmit}>Send
                       <Icon className='rightIcon'>send</Icon>
                 </Button>
                 </CardActions>

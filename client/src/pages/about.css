@@ -1,0 +1,22 @@
+.about {
+  color: #FF9F1C;
+  margin: 2rem 0 2rem 0!important;
+  border-bottom: 3px solid #FF9F1C;
+}
+
+.cover {
+  width: 100;
+}
+
+.pages {
+  color: #152B51;
+}
+
+.pages:hover {
+  color: #FF9F1C;
+}
+
+.lostFound{
+  color: #152B51;
+  font-weight: 800;
+}

@@ -1,0 +1,27 @@
+.profileContainer {
+  margin-top: 2rem!important;
+  margin-bottom: 15%!important;
+}
+
+.user {
+  border-bottom: solid 2px #FF9F1C;
+}
+
+.margin {
+  margin-top: 1rem!important;
+  margin-right: 1rem!important;
+}
+
+.marginRight {
+  margin-right: 2rem!important;
+}
+
+.size {
+  font-size: 14pt
+}
+
+@media only screen and (min-width: 320px) and (max-width: 1024px) {
+  .marginRight {
+    margin-right: 0!important
+  }
+}

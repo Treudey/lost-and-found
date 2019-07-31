@@ -1,0 +1,172 @@
+.text-align {
+    text-align: center;
+}
+
+.avatar-login {
+    color: #e35d33;
+}
+
+.avatar-signup {
+    color: #8cb737;
+}
+
+.link {
+    margin-left: 11rem!important;
+    font-size: 12px!important;
+    color: #0C2C64;
+}
+
+.link:hover {
+    color: #FF9F1C
+}
+
+.loginContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 8%!important;
+}
+
+.signupContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 7%!important;
+    padding-top: 5rem!important
+}
+
+.loginCard {
+    padding: 1rem;
+    box-shadow: 2px 2px 2px 2px rgb(168, 168, 168)!important;
+    margin-top: 8rem;
+}
+
+.signupCard {
+    padding: 1rem;
+    box-shadow: 2px 2px 2px 2px rgb(168, 168, 168)!important;
+}
+
+/* MEDIA QUERIES */
+/* ----------- iPad Pro 12.9" ----------- */
+/* Portrait */
+
+@media only screen and (min-width: 1024px) and (max-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+    .signupCard {
+        margin-bottom: 0;
+        margin-top: 20rem;
+    }
+    .loginCard {
+        margin-bottom: 0;
+        margin-top: 28rem;
+    }
+}
+
+/* Landscape */
+@media only screen and (min-width: 1366px) and (max-width: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+    .signupCard {
+        margin-bottom: 0;
+        margin-top: 10rem;
+    }
+    .loginCard {
+        margin-bottom: 0;
+        margin-top: 20rem;
+    }
+}
+
+/* ----------- iPad 3, 4 and Pro 9.7" ----------- */
+/* Portrait */
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+    .signupCard {
+        margin-bottom: 0;
+        margin-top: 10rem;
+    }
+    .loginCard {
+        margin-bottom: 0;
+        margin-top: 20rem;
+    }
+}
+
+/* Landscape */
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+    .signupCard {
+        margin-bottom: 0;
+        margin-top: 3rem;
+    }
+    .loginCard {
+        margin-bottom: 0;
+        margin-top: 13rem;
+    }
+}
+
+/* ----------- iPhone X ----------- */
+
+/* Portrait */
+@media only screen and (min-width: 375px) and (max-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) { 
+    .signupCard {
+        margin-bottom: 0;
+        margin-top: 5rem;
+    }
+    .loginCard {
+        margin-bottom: 0;
+        margin-top: 13rem;
+    }
+}
+
+/* Landscape */
+@media only screen and (min-width: 375px) and (max-width: 812px) and (-webkit-min-device-pixel-ratio: 3)and (orientation: landscape) { 
+    .signupCard {
+        margin-bottom: 0;
+        margin-top: 1rem;
+    }
+    .loginCard {
+        margin-bottom: 0;
+        margin-top: 7rem;
+    }
+}
+
+/* ----------- iPhone 6+, 7+ and 8+ ----------- */
+/* Portrait */
+@media only screen and (min-width: 414px) and (max-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) { 
+    .signupCard {
+        margin-bottom: 0;
+        margin-top: 3rem;
+    }
+}
+
+/* Landscape */
+@media only screen and (min-width: 414px) and (max-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) { 
+    .signupCard {
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+    }
+}
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+/* Portrait */
+@media only screen and (min-width: 375px) and (max-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) { 
+    .loginCard {
+        margin-bottom: 0;
+        margin-top: 10rem;
+    }
+}
+
+/* Landscape */
+@media only screen and (min-width: 375px) and (max-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) { 
+    .loginCard {
+        margin-bottom: 0;
+        margin-top: 5rem;
+    }
+}
+
+
+/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+
+/* Landscape */
+@media only screen 
+  and (min-width: 320px) 
+  and (max-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+    .signupCard {
+        margin-bottom: 2rem;
+        margin-top: 1rem;
+    }
+}

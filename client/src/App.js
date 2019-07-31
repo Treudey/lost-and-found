@@ -1,18 +1,19 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Home from "./pages/Home";
-import Register from "./components/auth/Register";
-import Login from "./components/auth/Login";
-import Itempg from "./pages/Itempg";
-import Lost from "./pages/Lost";
-import Found from "./pages/Found";
-import NoMatch from "./pages/NoMatch";
-import Profile from "./pages/Profile"
+import Home from './pages/Home';
+import Register from './components/auth/Register';
+import Login from './components/auth/Login';
+import Itempg from './pages/Itempg';
+import Lost from './pages/Lost';
+import Found from './pages/Found';
+import NoMatch from './pages/NoMatch';
+import About from './pages/About'
+import Profile from './pages/Profile'
+import Privacy from './pages/Privacy'
 
-import Navbar from "./components/Nav";
-import Footer from "./components/Footer";
-import Alerts from './components/layout/Alerts';
+import Navbar from './components/Nav';
+import Footer from './components/Footer';
 
 import PrivateRoute from './components/routing/PrivateRoute';
 import ItemState from './context/item/ItemState';
@@ -36,13 +37,15 @@ return (
           <div>
             <Navbar />
             <Switch>
-              <Route exact path="/" component={Home} />
+              <Route exact path='/' component={Home} />
               <PrivateRoute exact path='/item' component={Itempg}/>
-              <PrivateRoute exact path="/profile" component={Profile} />
+              <PrivateRoute exact path='/profile' component={Profile} />
               <Route exact path='/register' component={Register} />
               <Route exact path='/login' component={Login} />
-              <Route exact path="/searchitem" component={Lost} />
-              <Route exact path="/postitem" component={Found} />
+              <Route exact path='/searchitem' component={Lost} />
+              <Route exact path='/postitem' component={Found} />
+              <Route exact path='/about' component={About} />
+              <Route exact path='/privacy' component={Privacy} />
               <Route component={NoMatch} />
             </Switch>
             <Footer />

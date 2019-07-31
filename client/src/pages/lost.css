@@ -1,43 +1,13 @@
   .root {
-    padding: '2px 4px';
-    display: 'flex';
-  }
-
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: -5rem!important;
-    margin-bottom: 5rem
-  }
-
-  .h4 {
-    color: #FF9F1C;
-  }
-  
-  .grid {
-    padding-bottom: 2rem;
-    position: relative;
-  } 
-
-  .card {
-    margin-bottom: 1rem;
-    box-shadow: 2px 2px 2px 2px rgb(168, 168, 168)!important;
-  }
-
-  .cardContent {
-    margin-top: 1rem
+      padding: '2px 4px';
+      display: 'flex';
   }
 
   .button {
-    position: absolute!important;
-    right: 0;
-    bottom:0;
-    background-color: #0D2C54!important;
-    color: white!important;
+      position: absolute!important;
+      right: 0;
+      bottom: 0;
+      background-color: #0D2C54!important;
+      color: white!important;
   }
-
-  @media screen and (min-width: 320px) and (max-width: 481px) {
-    .card {
-      margin-bottom: 0.5rem!important;
-    }
-  }
+ 

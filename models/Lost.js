@@ -1,5 +1,5 @@
 //Require Node Modules
-const validator = require("validator")
+// const validator = require("validator")
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema
 

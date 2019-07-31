@@ -1,5 +1,4 @@
 //Require Node Modules
-const validator = require("validator")
 const mongoose = require("mongoose");
 // const Image = require("./Image");
 const Schema = mongoose.Schema

@@ -8,6 +8,7 @@
     font-weight: bold;
     font-family: "Roboto";
     font-size:  16pt;
+    color: white!important;
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
@@ -15,8 +16,15 @@
         margin: 0rem 0.5rem 0 0!important;
     } 
   }
-@media screen and (min-width: 320px) and (max-width: 481px) {
+
+@media only screen and (min-width: 375px) and (max-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) { 
     .buttonMain {
         margin: 0 0 0.5rem 0!important;
+    } 
+}
+
+@media screen and (min-width: 320px) and (max-width: 481px) {
+    .buttonMain {
+        margin: 0 0 1rem 0!important;
     } 
 }

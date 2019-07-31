@@ -6,13 +6,11 @@ import Alerts from '../layout/Alerts';
 
 // Material UI Imports
 import { Button, Card, CardContent, Container, CssBaseline, Grid, TextField, Typography } from '@material-ui/core/'
-import { withStyles} from '@material-ui/core/styles'
+import Lock from '@material-ui/icons/Lock'
 
-const styles = theme=>({
-  containerMargin:{
-    marginTop:'80px',
-  },
-})
+//Style Imports
+import './auth.css'
+import '../../App.css'
 
 const Login = props => {
   const alertContext = useContext(AlertContext);
@@ -21,7 +19,7 @@ const Login = props => {
   const { setAlert } = alertContext;
   const { login, error, clearErrors, isAuthenticated } = authContext;
 
-  const {classes} = props
+  // const { classes } = props
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -57,50 +55,53 @@ const Login = props => {
   };
 
   return (
-    <Container component="main" maxWidth="xs" className={classes.containerMargin}>
-    <CssBaseline />
+    <Container maxWidth='xs' className='loginContainer'>
+      <CssBaseline />
       <Grid container>
         <Grid item md={12} sm={12} xs={12}>
-          <Card className='card'>
+          <Card className='loginCard'>
+           <div className='text-align'>
+            <Lock style={{fontSize: 60}} className='avatar-login'/>
+           </div>
             <Alerts />
-            <CardContent className='cardContent'>
+            <CardContent>
               <div>
-              <Typography component="h1" variant="h4">
-                Login
+                <Typography component='h1' variant='h4' className='text-align'>
+                  Login
               </Typography>
                 <form onSubmit={onSubmit}>
-                  <TextField 
-                    variant="outlined"
-                    margin="normal"
+                  <TextField
+                    variant='outlined'
+                    margin='normal'
                     required
                     fullWidth
-                    id="email"
-                    label="Email Address"
-                    name="email"
-                    autoComplete="email"
+                    id='email'
+                    label='Email Address'
+                    name='email'
+                    autoComplete='email'
                     autoFocus
                     value={email}
                     onChange={onChange}
                   />
                   <TextField
-                    variant="outlined"
-                    margin="normal"
+                    variant='outlined'
+                    margin='normal'
                     required
                     fullWidth
-                    name="password"
-                    label="Password"
-                    type="password"
-                    id="password"
-                    autoComplete="current-password"
+                    name='password'
+                    label='Password'
+                    type='password'
+                    id='password'
+                    autoComplete='current-password'
                     value={password}
                     onChange={onChange}
-                  />
-
-                    <Button
-                    type="submit"
+                  /><br></br>
+                  <Button
+                    type='submit'
                     fullWidth
-                    variant="contained"
-                    className="register"
+                    variant='contained'
+                    className='register hover'
+                    style={{backgroundColor: '#152b51', color: 'white'}}
                   >
                     Login
                   </Button>
@@ -110,11 +111,8 @@ const Login = props => {
           </Card>
         </Grid>
       </Grid>
-      
-
-   
     </Container>
   );
 };
 
-export default withStyles(styles)(Login);
+export default Login;

@@ -4,12 +4,28 @@ import './style.css';
 function Header(props) {
   let backgroundImage, color;
   if(props.type === 'found'){
-    backgroundImage = "url('https://cdn.pixabay.com/photo/2017/09/13/22/25/lost-2747288_1280.png')";
+    backgroundImage = "url('/images/found.png')";
     color = '#7FB800'
   }
   else if (props.type === 'lost'){
-    backgroundImage = "url('https://cdn.pixabay.com/photo/2017/09/13/22/25/lost-2747289_1280.png')";
+    backgroundImage = "url('/images/lost.png')";
     color = '#F6511D'
+  }
+  else if (props.type === 'profile'){
+    backgroundImage = "url('/images/profile.png')";
+    color = '#193067'
+  }
+  else if (props.type === 'about'){
+    backgroundImage = "url('/images/about.png')";
+    color = '#7FB800'
+  }
+  else if (props.type === 'items'){
+    backgroundImage = "url('/images/items.png')";
+    color = '#F6511D'
+  }
+  else if (props.type === 'privacy'){
+    backgroundImage = "url('/images/privacy.png')";
+    color = '#0D2C54'
   }
   return (
     <div className='heroContent' style={{backgroundImage: backgroundImage, borderColor: color}}></div>

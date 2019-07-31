@@ -2,7 +2,7 @@ import React from 'react'
 import { withGoogleMap, GoogleMap, withScriptjs, InfoWindow, Marker } from "react-google-maps";
 import Autocomplete from 'react-google-autocomplete';
 import Geocode from "react-geocode";
-import { TextField } from '@material-ui/core/'
+import { Grid, TextField } from '@material-ui/core/'
 require('dotenv').config()
 
 const key="AIzaSyCQ5X85Pq2cC8TAMziyhWccGRqVTZ75cTY";
@@ -279,6 +279,7 @@ class Map extends React.Component {
       map = <div>
         
         <div>
+          <Grid container justify='center'>
         <TextField
           name='city'
           htmlFor=''
@@ -339,6 +340,7 @@ class Map extends React.Component {
           style={{marginRight: '2rem', marginTop: "2rem", marginBottom: "2rem"}}
         
         />
+        </Grid>
       </div>
       <br></br>
         
