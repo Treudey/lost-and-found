@@ -46,7 +46,7 @@
     "react-geocode": "^0.1.2",
     "react-google-autocomplete": "^1.1.0",
     "react-google-maps": "^9.4.5",
-    "validator": "^11.0.0",
+    "validator": "^13.7.0",
     "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
